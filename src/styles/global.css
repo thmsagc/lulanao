@@ -50,6 +50,10 @@
   --sombra: 0 10px 30px rgb(0 0 0 / 0.18);
   --mola: cubic-bezier(0.2, 0.8, 0.2, 1);
 
+  /* --u = 1% da largura da coluna do feed, limitado pela altura da tela,
+     para o slide caber inteiro sem rolagem em qualquer aparelho. */
+  --u: min(1vw, 0.46dvh);
+
   color-scheme: light dark;
 }
 
@@ -186,6 +190,9 @@ p {
   display: none;
 }
 @media (min-width: 1100px) {
+  :root {
+    --u: min(min(470px, 40vw) / 100, 0.46dvh);
+  }
   .palco {
     display: grid;
     grid-template-columns: 1fr min(470px, 40vw) 1fr;
@@ -198,9 +205,14 @@ p {
     display: flex;
     flex-direction: column;
     gap: 22px;
-    padding: 34px clamp(18px, 3vw, 44px);
+    padding: clamp(18px, 3.4dvh, 34px) clamp(18px, 3vw, 44px);
+    gap: clamp(12px, 2.4dvh, 22px);
     overflow-y: auto;
+    scrollbar-width: none;
     height: 100dvh;
+  }
+  .lateral::-webkit-scrollbar {
+    display: none;
   }
   .palco > .feed {
     box-shadow: 0 0 0 1px #2a2f37, 0 30px 80px rgb(0 0 0 / 0.55);
@@ -223,7 +235,7 @@ p {
   letter-spacing: -0.02em;
 }
 .marca-site span {
-  box-shadow: inset 0 -0.28em 0 var(--ouro);
+  box-shadow: inset 0 -0.28em 0 var(--esq);
 }
 .marca-site + p {
   color: #b6bcc5;
@@ -255,6 +267,32 @@ p {
 }
 .lista-eixos span {
   opacity: 0.38;
+}
+.lista-chips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.lista-chips a,
+.lista-chips span {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid #2a2f37;
+  font-size: 0.82rem;
+  text-decoration: none;
+  color: inherit;
+}
+.lista-chips span {
+  opacity: 0.45;
+}
+.lista-chips a:hover {
+  background: #252b35;
 }
 .lista-eixos small {
   margin-left: auto;
@@ -429,6 +467,22 @@ p {
   padding: calc(var(--topo-seguro) + 74px) 22px calc(var(--base-segura) + 116px);
   position: relative;
 }
+@media (max-height: 720px) {
+  .camada {
+    padding-top: calc(var(--topo-seguro) + 62px);
+    padding-bottom: calc(var(--base-segura) + 100px);
+  }
+  .camada .conteudo {
+    gap: 12px;
+  }
+  .gestos .gesto {
+    grid-template-columns: 42px 1fr;
+  }
+  .gestos .gesto .mao {
+    width: 42px;
+    height: 42px;
+  }
+}
 .conteudo {
   margin-block: auto;
   width: 100%;
@@ -455,7 +509,7 @@ p {
   background: var(--traco);
 }
 .titulo-camada {
-  font-size: clamp(1.7rem, 7vw, 2.3rem);
+  font-size: calc(clamp(1.36rem, calc(7 * var(--u)), 2.3rem) * var(--ajuste, 1));
   font-weight: 800;
 }
 .t-azul .titulo-camada {
@@ -549,7 +603,7 @@ p {
 .numero-capa {
   font-family: var(--f-display);
   font-weight: 900;
-  font-size: clamp(7rem, 40vw, 12.5rem);
+  font-size: calc(clamp(5.6rem, calc(40 * var(--u)), 12.5rem) * var(--ajuste, 1));
   line-height: 0.82;
   letter-spacing: -0.04em;
   font-variation-settings: 'wdth' 62;
@@ -565,7 +619,7 @@ p {
   letter-spacing: -0.02em;
 }
 .numero-capa.com-sufixo {
-  font-size: clamp(5.6rem, 30vw, 9.5rem);
+  font-size: calc(clamp(4.48rem, calc(30 * var(--u)), 9.5rem) * var(--ajuste, 1));
 }
 .numero-capa small.longo {
   display: block;
@@ -575,11 +629,11 @@ p {
   letter-spacing: -0.01em;
 }
 .titulo-capa {
-  font-size: clamp(1.65rem, 7vw, 2.35rem);
+  font-size: calc(clamp(1.32rem, calc(7 * var(--u)), 2.35rem) * var(--ajuste, 1));
   font-weight: 800;
 }
 .titulo-capa.grande {
-  font-size: clamp(2.8rem, 13vw, 4.6rem);
+  font-size: calc(clamp(2.24rem, calc(13 * var(--u)), 4.6rem) * var(--ajuste, 1));
   font-weight: 900;
   font-variation-settings: 'wdth' 100;
 }
@@ -593,19 +647,6 @@ p {
   gap: 6px;
 }
 
-/* Capa vermelha: cartaz construtivista (faixa diagonal abaixo do texto) */
-.t-vermelha .capa::before {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  left: -30%;
-  right: -30%;
-  top: 80%;
-  height: 40%;
-  background: var(--esq-preto);
-  transform: rotate(-14deg);
-  box-shadow: 0 -14px 0 var(--esq-creme);
-}
 .t-vermelha .titulo-capa,
 .t-vermelha .titulo-capa.grande {
   text-transform: uppercase;
@@ -795,7 +836,7 @@ p {
 .bloco .destaque-num {
   font-family: var(--f-display);
   font-weight: 900;
-  font-size: clamp(3.6rem, 18vw, 5.5rem);
+  font-size: calc(clamp(2.88rem, calc(18 * var(--u)), 5.5rem) * var(--ajuste, 1));
   line-height: 0.9;
   letter-spacing: -0.03em;
 }
@@ -869,7 +910,7 @@ p {
 .citacao blockquote {
   margin: 0;
   font-family: var(--f-display);
-  font-size: clamp(1.45rem, 6vw, 1.9rem);
+  font-size: calc(clamp(1.16rem, calc(6 * var(--u)), 1.9rem) * var(--ajuste, 1));
   line-height: 1.15;
   font-weight: 700;
   position: relative;
@@ -1106,7 +1147,7 @@ p {
 
 .pergunta-final {
   font-family: var(--f-display);
-  font-size: clamp(1.5rem, 6.6vw, 2.2rem);
+  font-size: calc(clamp(1.2rem, calc(6.6 * var(--u)), 2.2rem) * var(--ajuste, 1));
   font-weight: 800;
   line-height: 1.08;
 }
@@ -1827,7 +1868,7 @@ dialog::backdrop {
   font-weight: 700;
 }
 .face .titulo-capa.grande {
-  font-size: clamp(2.1rem, 9.6vw, 3.3rem);
+  font-size: calc(clamp(1.68rem, calc(9.6 * var(--u)), 3.3rem) * var(--ajuste, 1));
 }
 .face .capa .conteudo {
   gap: 12px;
@@ -1858,7 +1899,7 @@ dialog::backdrop {
   inset: 0;
   z-index: -1;
   opacity: 0.09;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='120' height='120'%3E%3Cg fill='%23FFD700' transform='translate(20 20) scale(.6)'%3E%3Cpath d='M28 70A34 34 0 1 1 85.5 40L83.4 34.8A27 27 0 1 0 37.3 61.4Z'/%3E%3Cpath d='M25 63L33 70L18 91L10 85Z'/%3E%3Cpath d='M33.5 38.5L38.5 33.5L85 80L80 85Z'/%3E%3Cpath d='M37 13L47 23L23 47L13 37Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='120' height='120'%3E%3Cg fill='%23FFD700' transform='translate(20 20) scale(.6)'%3E%3Cpath d='M31 69A33 33 0 1 0 33.5 13.4A27 27 0 1 1 38 63Z'/%3E%3Cpath d='M30 63L38 71L21 88Q18 91 15 88L13 86Q10 83 13 80Z'/%3E%3Cpath d='M36.5 32.5L82.5 78.5L77.5 83.5L31.5 37.5Z'/%3E%3Cpath d='M39.8 16.7L48.3 25.2L24.2 49.3L15.7 40.7Z'/%3E%3C/g%3E%3C/svg%3E");
   background-size: 120px;
   transform: rotate(-12deg) scale(1.4);
 }
@@ -2013,7 +2054,7 @@ dialog::backdrop {
   gap: 26px;
 }
 .pagina h1 {
-  font-size: clamp(2.4rem, 10vw, 4rem);
+  font-size: calc(clamp(1.92rem, calc(10 * var(--u)), 4rem) * var(--ajuste, 1));
   font-weight: 900;
   font-variation-settings: 'wdth' 112;
   letter-spacing: -0.02em;
@@ -2297,7 +2338,7 @@ dialog::backdrop {
 .intro-marca {
   font-family: var(--f-titulo);
   font-weight: 900;
-  font-size: clamp(4.4rem, 24vw, 7.8rem);
+  font-size: calc(clamp(3.52rem, calc(24 * var(--u)), 7.8rem) * var(--ajuste, 1));
   line-height: 0.82;
   letter-spacing: -0.04em;
   font-variation-settings: 'wdth' 62;
@@ -2310,7 +2351,7 @@ dialog::backdrop {
   display: block;
 }
 .intro-marca .nao {
-  box-shadow: inset 0 -0.2em 0 var(--ouro);
+  box-shadow: inset 0 -0.2em 0 var(--esq);
   display: inline-block;
 }
 .intro-lema {
@@ -2520,17 +2561,17 @@ dialog::backdrop {
   line-height: 0.98;
   letter-spacing: -0.015em;
   margin: 0;
-  font-size: clamp(2.7rem, 12.8vw, 4.6rem);
+  font-size: calc(clamp(2.16rem, calc(12.8 * var(--u)), 4.6rem) * var(--ajuste, 1));
   text-wrap: balance;
 }
 .slide-frase.media {
-  font-size: clamp(2.3rem, 10.4vw, 3.8rem);
+  font-size: calc(clamp(1.84rem, calc(10.4 * var(--u)), 3.8rem) * var(--ajuste, 1));
 }
 .slide-frase.longa {
-  font-size: clamp(1.95rem, 8.6vw, 3.1rem);
+  font-size: calc(clamp(1.56rem, calc(8.6 * var(--u)), 3.1rem) * var(--ajuste, 1));
 }
 .slide-frase.com-numero {
-  font-size: clamp(1.85rem, 8.2vw, 2.8rem);
+  font-size: calc(clamp(1.48rem, calc(8.2 * var(--u)), 2.8rem) * var(--ajuste, 1));
   line-height: 1.05;
 }
 .t-vermelha .slide-frase {
@@ -2562,7 +2603,7 @@ dialog::backdrop {
 }
 .slide-contexto {
   margin: 0;
-  font-size: clamp(1.28rem, 5.5vw, 1.6rem);
+  font-size: calc(clamp(1.024rem, calc(5.5 * var(--u)), 1.6rem) * var(--ajuste, 1));
   line-height: 1.34;
   font-weight: 500;
 }
@@ -2597,7 +2638,7 @@ dialog::backdrop {
   background: var(--fg);
   color: var(--bg);
   font-weight: 800;
-  font-size: clamp(0.94rem, 4.3vw, 1.14rem);
+  font-size: calc(clamp(0.752rem, calc(4.3 * var(--u)), 1.14rem) * var(--ajuste, 1));
   letter-spacing: -0.01em;
   display: inline-flex;
   align-items: center;
@@ -2642,18 +2683,6 @@ dialog::backdrop {
   color: var(--fg2);
 }
 /* Slide vermelho: faixa construtivista no rodapé */
-.slide.t-vermelha::before {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  left: -30%;
-  right: -30%;
-  top: 90%;
-  height: 40%;
-  background: var(--esq-preto);
-  transform: rotate(-14deg);
-  box-shadow: 0 -12px 0 var(--esq-creme);
-}
 /* Slide azul: filete dourado clássico */
 .slide.t-azul .conteudo {
   border-top: 1px solid var(--dir-ouro);

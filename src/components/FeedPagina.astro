@@ -30,27 +30,27 @@ const eixosComConteudo = new Set(c.posts.map((p) => p.data.eixo));
     <div>
       <h2 style="margin-bottom:10px">Temas</h2>
       <ul class="lista-eixos">
-        {c.eixos.map((e) => (
-          <li>
-            {eixosComConteudo.has(e.id) ? (
-              <a href={`/e/${e.id}`}>{e.data.icone} {e.data.nome}<small>{c.posts.filter((p) => p.data.eixo === e.id).length} posts</small></a>
-            ) : (
-              <span>{e.data.icone} {e.data.nome}<small>em breve</small></span>
-            )}
-          </li>
+        {c.eixos.filter((e) => eixosComConteudo.has(e.id)).map((e) => (
+          <li><a href={`/e/${e.id}`}>{e.data.icone} {e.data.nome}<small>{c.posts.filter((p) => p.data.eixo === e.id).length} posts</small></a></li>
         ))}
       </ul>
     </div>
     <div>
-      <h2 style="margin-bottom:10px">Atalhos</h2>
-      <ul class="lista-eixos">
-        <li><a href="/duas-faces">🪙 Duas faces</a></li>
-        <li><a href="/linha-do-tempo">⏱ Linha do tempo</a></li>
-        <li><a href="/fontes">📚 Biblioteca de fontes</a></li>
-        <li><a href="/sobre">ℹ Sobre o site</a></li>
+      <h2 style="margin-bottom:10px">Em breve</h2>
+      <ul class="lista-chips">
+        {c.eixos.filter((e) => !eixosComConteudo.has(e.id)).map((e) => <li><span>{e.data.icone} {e.data.nome}</span></li>)}
       </ul>
     </div>
-    <p style="font-size:.85rem;color:#8a919b">Teclado: ↑↓ assunto · ←→ camada · V vira a moeda</p>
+    <div>
+      <h2 style="margin-bottom:10px">Atalhos</h2>
+      <ul class="lista-chips">
+        <li><a href="/duas-faces">🪙 Duas faces</a></li>
+        <li><a href="/linha-do-tempo">⏱ Linha do tempo</a></li>
+        <li><a href="/fontes">📚 Fontes</a></li>
+        <li><a href="/sobre">ℹ Sobre</a></li>
+      </ul>
+    </div>
+    <p style="font-size:.85rem;color:#8a919b">Teclado: ↑↓ assunto · ←→ slide · V vira a moeda</p>
   </aside>
 
   <main class="feed" data-inicio={inicio} data-raiz={raiz} aria-label="Feed">
