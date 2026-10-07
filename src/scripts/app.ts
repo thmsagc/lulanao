@@ -317,7 +317,7 @@ function atualizarFontesAoVivo(camada: HTMLElement | null) {
           return `<article><b>${esc(f.curto)} · nível ${f.nivel}</b>${esc(f.titulo)}<br><button type="button" data-fonte="${id}">Ver a ficha completa</button></article>`;
         })
         .join('')
-    : '<p class="vazio">Esta tela não cita fontes. Siga para a próxima camada.</p>';
+    : '<p class="vazio">Esta tela não cita fontes. Siga para o próximo slide.</p>';
 }
 
 /* ---------- Feed ---------- */
@@ -699,3 +699,26 @@ document.addEventListener('input', (e) => {
 });
 
 window.addEventListener('pagehide', pararLeitura);
+
+/* =========================================================
+   Cada slide cabe inteiro na tela, sem rolagem: se o texto passar
+   da altura (tela baixa, fonte grande do sistema), a letra diminui
+   aos poucos até caber.
+   ========================================================= */
+function ajustarCamadas() {
+  document.querySelectorAll<HTMLElement>('.camada').forEach((c) => {
+    c.style.removeProperty('--ajuste');
+    let a = 1;
+    while (c.scrollHeight - c.clientHeight > 1 && a > 0.6) {
+      a -= 0.04;
+      c.style.setProperty('--ajuste', a.toFixed(2));
+    }
+  });
+}
+let esperaAjuste = 0;
+const agendarAjuste = () => {
+  clearTimeout(esperaAjuste);
+  esperaAjuste = window.setTimeout(ajustarCamadas, 150);
+};
+document.fonts.ready.then(ajustarCamadas);
+addEventListener('resize', agendarAjuste);
