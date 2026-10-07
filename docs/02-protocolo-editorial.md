@@ -6,13 +6,30 @@ Este protocolo vale para todo conteúdo: posts, legendas, imagens do Kit Zap, qu
 
 ---
 
+## 0. Linha editorial: lado assumido (revisão de out/2026)
+
+**O site é de direita e não esconde isso.** O objetivo é persuadir, e não ensinar: mostrar as consequências das decisões da esquerda com frases duras, em linguagem simples, e defender os valores da direita. O que **não** muda é a regra que dá força a tudo isso: **temos lado, mas não inventamos nada.**
+
+| Pode (e deve) | Não pode |
+|---|---|
+| Frases duras, diretas, que tocam na ferida ("O MEC ensinou que falar errado não é erro") | Afirmar como fato algo que a fonte não diz |
+| Escolher quais fatos destacar e colocá-los lado a lado | Afirmar causa como fato sem dado ("o livro causou o analfabetismo"). A ligação vai como **Nossa posição** ou como justaposição de dados |
+| Opinião forte, marcada como **Nossa posição** (em azul) | Opinião disfarçada de fato |
+| Mostrar o argumento deles e **responder** ("O que eles dizem" → "Nossa resposta") | Caricaturar o argumento deles ou atribuir a alguém o que não disse |
+| Omitir o que enfraquece a tese num post de opinião | Afirmar o contrário do que um dado conhecido mostra (ex.: dizer que "a maioria apoia escolas militarizadas", quando o Datafolha de 2022 diz o oposto) |
+| Ataques duros a decisões, políticas e declarações | Ataques à identidade de pessoas, xingamentos, status jurídico impreciso |
+
+**Estrutura persuasiva de cada post:** frase dura (capa) → o que aconteceu (fato) → a consequência (dados) → o que eles dizem + nossa resposta → nossa posição + pergunta + compartilhar → recibo de fontes.
+
+---
+
 ## 1. As 10 regras de ouro
 
 1. **Sem fonte, não publica.** Toda afirmação factual tem ao menos uma fonte cadastrada. O build do site falha se faltar.
 2. **Fato sobre pessoa exige fonte forte**: uma fonte nível A **ou** duas fontes nível B independentes (ver item 2).
 3. **Status jurídico exato**, sempre com data: "investigado", "denunciado", "réu", "condenado em 1ª instância", "anulado", "prescrito"... (ver item 4).
-4. **Separar fato de opinião**: cada afirmação tem um rótulo (ver item 3). Opinião do site aparece marcada como opinião.
-5. **"Outro lado" obrigatório** em todo post que cite pessoa ou governo: a resposta oficial, a defesa ou o melhor argumento contrário.
+4. **Separar fato de opinião**: cada afirmação tem um rótulo (ver item 3). A opinião do site aparece como **Nossa posição**, em azul, e pode e deve ser dura.
+5. **"O que eles dizem" obrigatório** em todo post que cite pessoa ou governo: o argumento deles, nas palavras deles, seguido da nossa resposta. Além de proteger juridicamente, refutar convence mais do que omitir.
 6. **Quem decidiu?** Atribuir cada decisão a quem de fato a tomou (Presidente, ministério, STF, Congresso, estado, partido, aliado).
 7. **Contexto completo**, inclusive o que não favorece a tese. Omitir um fato relevante é a forma mais fácil de ser desmentido.
 8. **Criticar ideias, políticas e atos, nunca a identidade de pessoas** (orientação sexual, identidade de gênero, raça, religião, origem).
@@ -223,14 +240,14 @@ A moeda só convence se as duas faces forem honestas. Estas regras valem para to
 
 ### 14.3 Face azul
 
-- **Valor + por quê + evidência + limites.** O campo "limites honestos" é obrigatório.
+- **Valor + por quê + evidência.** A camada final é "O Brasil está com a gente" (dados de opinião pública) ou "Por que funciona". O campo de limites deixou de ser obrigatório (revisão de out/2026), mas nada pode contradizer um dado conhecido.
 - **São valores, e não pessoas.** Não cita candidato, não pede voto, não promove partido.
 - Quando um exemplo de sucesso vier de um governo de esquerda (por exemplo, a alfabetização no Ceará), **dizer isso**. O que funciona não tem dono.
 
 ### 14.4 Placar dos Fatos
 
 - Só dados de fonte primária (IBGE, Inep, TSE, DataSUS, ANAC, Anatel, Portal da Transparência...) ou pesquisa reconhecida.
-- **Inclui dados que incomodam a direita.** É isso que faz o leitor confiar no resto.
+- Reúne os números que sustentam o caso. Dados contrários aparecem na face vermelha, como "o argumento deles", com resposta.
 
 ### 14.5 Selo ☭
 

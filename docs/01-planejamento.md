@@ -1,6 +1,6 @@
 # Planejamento completo — lulanao.com.br
 
-> **Fatos com fonte. Conclusão sua.**
+> **A verdade dura. Com fonte.**
 
 Documento-mestre do projeto. Define o conceito, a experiência, a navegação, a identidade visual, a tecnologia, o recurso de IA, a publicação gratuita na Cloudflare e o cronograma.
 
@@ -25,7 +25,7 @@ Documentos irmãos:
 | **Cor = quem fala** | 🔴 **Vermelho** (o vermelho do comunismo) sempre que o assunto é a esquerda. 🔵 **Azul** para os valores da direita. ⚪ **Papel** para fatos e dados neutros. |
 | **Sem cabeçalho/rodapé** | A navegação toda acontece por gestos e por um **Orbe** flutuante (a "Bússola"), com busca por voz. |
 | **Tecnologia** | Site 100% estático (Astro + ilhas Svelte + GSAP), publicado de graça na Cloudflare. Sem banco de dados. A IA opcional usa uma função serverless gratuita da própria Cloudflare. |
-| **Tom** | Firme, sem xingamento. Mostra fatos, compara, pergunta. Quem tira a conclusão é o leitor. É isso que dá credibilidade e proteção jurídica. |
+| **Tom** | **Lado assumido: direita.** Frases duras em linguagem simples, mostrando as consequências das decisões da esquerda. Opinião marcada como "Nossa posição" e todo fato com fonte. Sem xingamento (protocolo, item 0). |
 
 ---
 

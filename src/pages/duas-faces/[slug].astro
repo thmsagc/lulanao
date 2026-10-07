@@ -32,10 +32,10 @@ const selo = moeda.data.vermelha.selo;
 
   <template id={`placar-${moeda.id}`}>
     <div class="folha-topo">
-      <div><span class="etiqueta">Placar dos fatos</span><h3 style="margin-top:8px">O que os dois lados precisam encarar</h3></div>
+      <div><span class="etiqueta">Placar dos fatos</span><h3 style="margin-top:8px">O que os números mostram</h3></div>
       <button type="button" class="fechar" data-fechar aria-label="Fechar">✕</button>
     </div>
-    <p class="veiculo">Dados neutros, inclusive os que incomodam a direita. Toque nos selos para ver as fontes.</p>
+    <p class="veiculo">A realidade, com fonte. Toque nos selos para conferir cada número.</p>
     <div class="placar-lista">
       {moeda.data.placar.map((p) => (
         <div class="placar-item"><strong>{p.numero}</strong><span set:html={m(p.texto)} /><span class="selos" set:html={selos(p.fontes)} /></div>

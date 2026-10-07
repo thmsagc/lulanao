@@ -500,3 +500,61 @@
   url: https://legado.anped.org.br/sites/default/files/gt05-1047-int.doc
   trecho: "No estado de São Paulo, o regime de ciclos e a progressão continuada foram implantados em 1998 […] criado durante o governo Mário Covas."
   acessadoEm: "2026-10-07"
+
+- id: datafolha-ideologia-2025
+  curto: Datafolha · dez/2025
+  tipo: reportagem
+  nivel: B
+  veiculo: IstoÉ (pesquisa Datafolha)
+  titulo: "Datafolha: 35% dos brasileiros se identificam com a direita e 22% com a esquerda"
+  data: "2025-12"
+  url: https://istoe.com.br/datafolha-mais-de-um-terco-dos-brasileiros-se-identificam-com-a-direita-e-22-com-a-esquerda
+  trecho: "35% se declararam como parte do espectro da direita e 11%, da centro-direita (46% da população total, portanto, está mais à direita). No outro polo, 22% disseram ter posicionamento político à esquerda, sendo outros 7% mais ligados à centro-esquerda (29% do total). […] 2.002 pessoas, com 16 anos ou mais, em 113 municípios, entre os dias 2 e 4 de dezembro. Margem de erro de 2 pontos."
+  nota: Entre os jovens de 16 a 24 anos, 30% se dizem de centro, 26% de direita e 16% de esquerda.
+  acessadoEm: "2026-10-07"
+
+- id: datafolha-celular-2024
+  curto: Datafolha · out/2024
+  tipo: reportagem
+  nivel: B
+  veiculo: Jornal de Brasília (pesquisa Datafolha)
+  titulo: Maioria dos pais é a favor de proibir celular nas escolas, diz Datafolha
+  data: "2024-10"
+  url: https://jornaldebrasilia.com.br/noticias/brasil/maioria-dos-pais-e-a-favor-de-proibir-celular-nas-escolas-diz-datafolha/
+  trecho: "62% da população apoia o banimento de celulares nas escolas. […] 76% da população consideram que o celular traz mais prejuízos do que benefícios ao aprendizado de crianças e adolescentes."
+  acessadoEm: "2026-10-07"
+
+- id: ipsos-conservadorismo-2025
+  curto: Ipsos-Ipec · 2025
+  tipo: dado-oficial
+  nivel: A
+  veiculo: Ipsos-Ipec
+  titulo: Índice de Conservadorismo do Brasileiro 2025
+  data: "2025-08"
+  url: https://www.ipsos.com/sites/default/files/ct/publication/documents/2025-08/Ipsos-indice_de_conservadorismo_1.pdf
+  trecho: "49% da população apresenta perfil com 'alto' grau de conservadorismo, 44% estão no grupo 'médio' e 8% no 'baixo'. […] 72% a favor de prisão perpétua para crimes hediondos, 65% a favor da redução da maioridade penal […] 16% a favor da legalização do aborto."
+  nota: Relatório do próprio instituto de pesquisa.
+  acessadoEm: "2026-10-07"
+
+- id: pisa-2022
+  curto: OCDE/Inep · PISA 2022
+  tipo: reportagem
+  nivel: B
+  veiculo: Correio Braziliense (dados da OCDE e do Inep)
+  titulo: "Pisa: 73% dos estudantes brasileiros estão abaixo do nível em matemática"
+  data: "2023-12"
+  url: https://www.correiobraziliense.com.br/euestudante/2023/12/6665288-pisa-73-dos-estudantes-brasileiros-estao-abaixo-do-nivel-em-matematica.html
+  trecho: "Em países mais desenvolvidos, o percentual de alunos com baixo desempenho é de 31%, enquanto no Brasil chega a 73%. […] 50% dos estudantes brasileiros não têm o nível básico em leitura […] Entre os países membros da OCDE, esse valor foi de 27%."
+  nota: Citar também o relatório oficial do Inep sobre o PISA 2022 (nível A).
+  acessadoEm: "2026-10-07"
+
+- id: inaf-2024
+  curto: Inaf · 2024
+  tipo: reportagem
+  nivel: B
+  veiculo: Agência Brasil (dados do Inaf)
+  titulo: Três em cada 10 brasileiros são analfabetos funcionais
+  data: "2025-05"
+  url: https://agenciabrasil.ebc.com.br/educacao/noticia/2025-05/tres-cada-10-brasileiros-sao-analfabetos-funcionais-0
+  trecho: "Em 2024, 29% da população brasileira de 15 a 64 anos era analfabeta funcional (cerca de 40 milhões de pessoas). […] Entre os jovens de 15 a 29 anos, o percentual passou de 14% em 2018 para 16% em 2024."
+  acessadoEm: "2026-10-07"

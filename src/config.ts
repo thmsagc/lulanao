@@ -9,7 +9,7 @@ export const SITE = {
   nome: 'Lula Não',
   dominio: 'lulanao.com.br',
   url: 'https://lulanao.com.br',
-  lema: 'Fatos com fonte. Conclusão sua.',
+  lema: 'A verdade dura. Com fonte.',
   simboloComunista: 'ancorado' as ModoSimbolo,
   /** 'prototipo' avisa sobre pendências; 'producao' impede o build se houver pendências. */
   modo: (process.env.LULANAO_MODO === 'producao' ? 'producao' : 'prototipo') as 'prototipo' | 'producao',

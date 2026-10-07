@@ -1,5 +1,7 @@
 ---
 import { SITE } from '../config';
+import { carregarConteudo, marcar } from '../lib/conteudo';
+const c = await carregarConteudo();
 interface Props { eixoNome: string; eixoIcone: string; eixoPergunta: string }
 const { eixoNome, eixoIcone, eixoPergunta } = Astro.props;
 ---
@@ -17,7 +19,8 @@ const { eixoNome, eixoIcone, eixoPergunta } = Astro.props;
       <div class="conteudo">
         <h1 class="intro-marca"><span>Lula</span><span class="nao">Não</span></h1>
         <p class="intro-lema">{SITE.lema}</p>
-        <p class="subtitulo-capa">O que a esquerda defende, o que a direita defende e o que os dados mostram, com a fonte de cada frase a um toque.</p>
+        <p class="subtitulo-capa">Este site tem lado: o da direita. Mostramos o que as decisões da esquerda fizeram com o Brasil, com a fonte de cada frase.</p>
+        <p class="intro-dado" set:html={marcar("==46%== dos brasileiros se colocam à direita. Só 29%, à esquerda. [[datafolha-ideologia-2025]]", c)} />
         <p class="kicker">Tema de hoje: {eixoIcone} {eixoNome}</p>
         <div class="acoes" data-nao-ler>
           <button type="button" class="botao" data-ir="proxima">Como funciona <span aria-hidden="true">→</span></button>
@@ -34,8 +37,8 @@ const { eixoNome, eixoIcone, eixoPergunta } = Astro.props;
           <div class="gesto"><span class="mao" aria-hidden="true"><span class="selo" style="pointer-events:none"><span>Fonte</span><i>✓</i></span></span><p><strong>Toque no selo</strong> para ver de onde veio cada informação.</p></div>
         </div>
         <div class="legenda-intro">
-          <div><i style="background:var(--esq)"></i><p><strong>Vermelho</strong>: o que a esquerda defende.</p></div>
-          <div><i style="background:var(--dir)"></i><p><strong>Azul</strong>: o que a direita defende.</p></div>
+          <div><i style="background:var(--esq)"></i><p><strong>Vermelho</strong>: o que a esquerda defende e fez.</p></div>
+          <div><i style="background:var(--dir)"></i><p><strong>Azul</strong>: o que nós defendemos.</p></div>
           <div><i style="background:var(--papel)"></i><p><strong>Papel</strong>: fatos e dados.</p></div>
         </div>
         <p class="nome-camada" data-nao-ler>Como você prefere?</p>

@@ -12,9 +12,12 @@ const m = (t: string) => marcar(t, c);
 const selos = (ids: string[] = []) => ids.map((id) => seloHTML(id, c.fontes)).join('');
 const num = (v: number) => v.toLocaleString('pt-BR');
 
-const faceDoBloco = 'face' in b && b.face ? b.face : 'neutra';
+const ehPosicao = 'rotulo' in b && b.rotulo === 'posicao';
+// "Nossa posição" é a voz do site, que é de direita: aparece em azul por padrão.
+const faceDoBloco = 'face' in b && b.face ? b.face : ehPosicao ? 'azul' : 'neutra';
 const fala = faceDoBloco !== 'neutra' && faceDoBloco !== faceBase ? faceDoBloco : null;
-const quemFala = fala === 'vermelha' ? '● Fala da esquerda' : '● Posição da direita';
+const quemFala = fala === 'vermelha' ? '● O que a esquerda diz' : ehPosicao ? '● Nossa posição' : '● O que a direita defende';
+const mostrarRotulo = !(ehPosicao && fala);
 const classes = ['bloco', b.detalhe ? 'detalhe' : '', fala ? `fala t-${fala}` : ''].filter(Boolean).join(' ');
 
 const maxBarras = b.tipo === 'barras' ? Math.max(...b.itens.map((i) => i.valor)) * 1.08 : 1;
@@ -22,7 +25,7 @@ const maxBarras = b.tipo === 'barras' ? Math.max(...b.itens.map((i) => i.valor))
 {b.tipo === 'texto' && (
   <div class={classes}>
     {fala && <span class="quem-fala" data-nao-ler>{quemFala}</span>}
-    <span class={`rotulo ${b.rotulo}`} data-nao-ler>{ROTULOS[b.rotulo]}</span>
+    {mostrarRotulo && <span class={`rotulo ${b.rotulo}`} data-nao-ler>{ROTULOS[b.rotulo]}</span>}
     <p set:html={m(b.texto) + selos(b.fontes)} />
   </div>
 )}

@@ -1,5 +1,6 @@
 ---
 import { carregarConteudo, type Post } from '../lib/conteudo';
+import { SITE } from '../config';
 import PostDeck from './PostDeck.astro';
 import ComeceAqui from './ComeceAqui.astro';
 
@@ -18,12 +19,12 @@ const eixosComConteudo = new Set(c.posts.map((p) => p.data.eixo));
   <aside class="lateral" aria-label="Mapa do site">
     <div>
       <p class="marca-site">Lula <span>Não</span></p>
-      <p>Fatos com fonte. Conclusão sua.</p>
+      <p>{SITE.lema}</p>
     </div>
     <div class="legenda-cores">
       <h2>Cor = quem fala</h2>
-      <div><i style="background:var(--esq)"></i> Vermelho: o que a esquerda defende</div>
-      <div><i style="background:var(--dir);border:1px solid #c9a227"></i> Azul: o que a direita defende</div>
+      <div><i style="background:var(--esq)"></i> Vermelho: o que a esquerda defende e fez</div>
+      <div><i style="background:var(--dir);border:1px solid #c9a227"></i> Azul: o que nós defendemos</div>
       <div><i style="background:var(--papel)"></i> Papel: fatos e dados</div>
     </div>
     <div>

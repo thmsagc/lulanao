@@ -1,13 +1,13 @@
 titulo: Disciplina e excelência
 eixo: escola
-pergunta: Como a escola deve formar crianças, com diálogo ou com autoridade?
+pergunta: A escola deve formar com autoridade ou só com conversa?
 atualizadoEm: 2026-10-07
 
 vermelha:
   rotulo: O que a esquerda defende
   capa:
     titulo: Escola democrática, aluno no centro, diálogo no lugar da punição.
-    subtitulo: É assim que o campo da esquerda descreve a escola que quer, nas palavras de seus documentos e líderes.
+    subtitulo: Bonito no papel. Agora veja no que deu.
     fontes: [mec-jr-2023, freire-1968]
   selo:
     texto: "A política de educação mostrada nesta face é a do governo Lula (PT). Desde 2022, o PT forma a Federação Brasil da Esperança com o PCdoB, o Partido Comunista do Brasil, e os partidos federados atuam como um só no Congresso. A presidente nacional do PCdoB, Luciana Santos, foi nomeada ministra por Lula."
@@ -17,7 +17,7 @@ vermelha:
       face: vermelha
       texto: Na visão "bancária" da educação, o "saber" é uma doação dos que se julgam sábios aos que julgam nada saber.
       autor: Paulo Freire, Pedagogia do Oprimido (1968)
-      contexto: Freire foi declarado Patrono da Educação Brasileira por lei em 2012, no governo Dilma.
+      contexto: Para Freire, a escola tradicional, em que o professor transmite o conteúdo ao aluno, é "educação bancária". Ele foi declarado Patrono da Educação Brasileira por lei em 2012, no governo Dilma.
       fontes: [freire-1968, lei-12612-2012]
     - tipo: texto
       rotulo: declaracao
@@ -26,37 +26,47 @@ vermelha:
     - tipo: texto
       rotulo: fato
       face: vermelha
-      texto: A Constituição prevê a ((gestão democrática)) do ensino público, princípio que a esquerda defende como centro da escola. [[cf-art206]]
+      texto: Para esse campo, a escola deve ser dirigida pela ((gestão democrática)), com a comunidade escolar decidindo junto. [[cf-art206]]
   prova:
     - tipo: citacao
       face: vermelha
       texto: Não é obrigação do MEC cuidar disso.
       autor: Lula, sobre as escolas cívico-militares
-      contexto: Julho de 2023, quando o governo anunciou o fim do programa federal (202 escolas e cerca de 120 mil alunos).
+      contexto: Julho de 2023, quando o governo acabou com o programa federal (202 escolas e cerca de 120 mil alunos).
       fontes: [pecim-sbt-lula, pecim-poder360]
     - tipo: texto
       rotulo: fato
       face: vermelha
-      texto: Em 2011, o MEC do governo Dilma defendeu o livro que trocava "certo e errado" por "adequado e inadequado", e o ministro disse que os críticos não o tinham lido. [[livro-2011-bnews]] [[livro-2011-cef]]
+      texto: Em 2011, o MEC do governo Dilma mandou a 484 mil alunos um livro que trocava "certo e errado" por "adequado e inadequado". O ministro disse que os críticos não o tinham lido. [[livro-2011-bnews]] [[livro-2011-cef]]
     - tipo: texto
-      rotulo: dado
+      rotulo: declaracao
       face: vermelha
-      texto: "O argumento que o governo usa: no Datafolha de 2022, encomendado pelas ONGs Cenpec e Ação Educativa, ==70%== rejeitaram a militarização das escolas. [[datafolha-2022]]"
+      texto: "O argumento que o governo usa: no Datafolha de 2022, encomendado pelas ONGs Cenpec e Ação Educativa, 70% rejeitaram a militarização das escolas. [[datafolha-2022]]"
   contraponto:
-    titulo: O que a direita critica
+    titulo: No que deu
     blocos:
       - tipo: texto
-        rotulo: contexto
-        texto: Diálogo sem consequência vira permissividade, e a ciência mostra que a permissividade piora o desempenho e o autocontrole. [[baumrind-redalyc]]
+        rotulo: dado
+        texto: O professor perde ==21% da aula== só para manter a ordem. Nos países desenvolvidos, 15%. [[talis-2024]]
       - tipo: texto
         rotulo: dado
-        texto: Enquanto isso, o professor perde ==21% da aula== só para manter a ordem. [[talis-2024]]
+        texto: ==7 em cada 10== alunos de 15 anos não aprendem o mínimo de matemática. [[pisa-2022]]
+      - tipo: texto
+        rotulo: dado
+        texto: Entre os jovens, o analfabetismo funcional ==piorou==, de 14% em 2018 para 16% em 2024. [[inaf-2024]]
+      - tipo: texto
+        rotulo: dado
+        texto: De 35 países, o Brasil é o que ==menos respeita o professor==. [[nsc-varkey-2018]]
+      - tipo: texto
+        rotulo: posicao
+        face: azul
+        texto: Muito discurso, pouca cobrança. E o resultado está nos números.
 
 azul:
   rotulo: O que a direita defende
   capa:
     titulo: Firmeza com afeto. Autoridade, disciplina e exigência transformam criança em cidadão.
-    subtitulo: Sem violência e sem humilhação, mas com regra clara e consequência certa.
+    subtitulo: Regra clara, consequência certa, respeito ao professor. Sem violência, e sem desculpa.
     fontes: [baumrind-redalyc, aristoteles]
   entenda:
     - tipo: lista
@@ -103,23 +113,30 @@ azul:
       face: azul
       texto: O Ceará cobra metas, avalia o tempo todo e premia resultado, e alcançou ==85,3%== das crianças alfabetizadas na idade certa, contra 59,2% no Brasil. [[ceara-ica-2024]]
   contraponto:
-    titulo: Limites honestos
+    titulo: O Brasil está com a gente
     blocos:
       - tipo: texto
-        rotulo: fato
-        texto: "**Castigo físico não educa.** Uma revisão de 75 estudos, com mais de 160 mil crianças, encontrou mais agressividade e desobediência, e nenhum ganho de obediência. [[gershoff-2016]] [[gershoff-utexas]]"
+        rotulo: dado
+        texto: ==46%== dos brasileiros se colocam à direita. Só 29%, à esquerda. [[datafolha-ideologia-2025]]
       - tipo: texto
-        rotulo: contexto
-        texto: "**Cívico-militares:** críticos dizem que o desempenho é parecido com o de escolas de perfil semelhante. [[critica-civico-militar]]"
+        rotulo: dado
+        texto: ==62%== apoiam proibir o celular nas escolas, e 76% acham que ele atrapalha o aprendizado. [[datafolha-celular-2024]]
       - tipo: texto
-        rotulo: fato
-        texto: "**Uniforme sozinho não resolve:** um estudo com mais de 6.300 crianças não encontrou melhora no comportamento. [[osu-uniformes-2021]]"
+        rotulo: dado
+        texto: No Paraná, ==66%== das comunidades consultadas aprovaram o modelo cívico-militar. [[pr-345]]
+      - tipo: texto
+        rotulo: dado
+        texto: Quase metade da população (49%) tem alto grau de conservadorismo. [[ipsos-conservadorismo-2025]]
+      - tipo: texto
+        rotulo: posicao
+        texto: As famílias querem ordem, respeito e resultado. Falta a escola ouvir.
 
 placar:
-  - { numero: "21%", texto: "da aula é perdida para manter a ordem. Na média da OCDE, 15%.", fontes: [talis-2024] }
-  - { numero: "9%", texto: "dos brasileiros acham que os alunos respeitam o professor. Último lugar entre 35 países.", fontes: [nsc-varkey-2018] }
-  - { numero: "40%", texto: "dos alunos dizem que o professor espera muito até a turma parar de bagunçar. Na OCDE, 26%.", fontes: [pisa-2022-gazeta] }
+  - { numero: "21%", texto: "da aula vai para manter a ordem. Nos países desenvolvidos, 15%.", fontes: [talis-2024] }
+  - { numero: "7 em 10", texto: "alunos de 15 anos não aprendem o mínimo de matemática.", fontes: [pisa-2022] }
+  - { numero: "40 mi", texto: "de brasileiros são analfabetos funcionais. Entre os jovens, piorou.", fontes: [inaf-2024] }
+  - { numero: "9%", texto: "acham que o aluno respeita o professor. Último lugar entre 35 países.", fontes: [nsc-varkey-2018] }
   - { numero: "12", texto: "redações nota mil no Enem 2024, o menor número da história.", fontes: [enem-2024] }
-  - { numero: "75", texto: "estudos, com 160 mil crianças, mostram que castigo físico não melhora a obediência.", fontes: [gershoff-2016] }
-  - { numero: "70%", texto: "rejeitaram a militarização das escolas (Datafolha 2022, encomendado por Cenpec e Ação Educativa).", fontes: [datafolha-2022] }
+  - { numero: "46%", texto: "dos brasileiros se colocam à direita. Só 29%, à esquerda.", fontes: [datafolha-ideologia-2025] }
+  - { numero: "62%", texto: "querem o celular fora da escola.", fontes: [datafolha-celular-2024] }
   - { numero: "5,43", texto: "foi o Ideb dos cívico-militares do Paraná, contra 5,3 da rede estadual (anos finais, 2023).", fontes: [pr-civico-militar] }

@@ -1,17 +1,17 @@
-titulo: '"Nós pega o peixe"'
+titulo: O MEC ensinou que errado não é erro
 eixo: escola
 ordem: 3
 face: vermelha
-resumo: Em 2011, o MEC distribuiu a quase 500 mil alunos um livro que trocou "certo e errado" por "adequado e inadequado".
+resumo: Em 2011, o MEC mandou a 484 mil alunos um livro que tratava "nós pega o peixe" como "inadequado", não como errado. Hoje, 3 em cada 10 brasileiros são analfabetos funcionais.
 moeda: disciplina-excelencia
 atualizadoEm: 2026-10-07
 kit:
-  frase: Em 2011, o MEC mandou a quase 500 mil alunos um livro que trocou "certo e errado" por "adequado".
-  fonte: Bnews e Congresso em Foco, 2011
+  frase: O MEC ensinou que "nós pega o peixe" não é errado. Hoje, 3 em cada 10 brasileiros são analfabetos funcionais.
+  fonte: Bnews, 2011; Inaf, 2024
 capa:
-  kicker: Escola em Ruínas · MEC, 2011
-  titulo: '"Nós pega o peixe"'
-  subtitulo: O livro que o MEC distribuiu em 2011 trocou "certo e errado" por "adequado e inadequado".
+  kicker: MEC · governo Dilma · 2011
+  titulo: O MEC ensinou que falar errado não é erro.
+  subtitulo: Livro mandado a 484 mil alunos tratava "nós pega o peixe" como "inadequado", e não como errado.
   fontes: [livro-2011-bnews]
 entenda:
   - tipo: texto
@@ -19,31 +19,34 @@ entenda:
     texto: O livro *Por uma vida melhor* foi distribuído pelo ((PNLD)) a ==484.195 alunos== de 4.236 escolas, na educação de jovens e adultos. [[livro-2011-bnews]]
   - tipo: texto
     rotulo: fato
-    texto: Ele trazia exemplos como "nós pega o peixe" e dizia que a forma não era "errada", e sim "inadequada" em certas situações, porque quem fala assim pode sofrer ((preconceito linguístico)). [[livro-2011-bnews]]
-prova:
-  - tipo: citacao
-    face: vermelha
-    texto: Críticos são injustos e não leram livro.
-    autor: Fernando Haddad, então ministro da Educação
-    contexto: Título da reportagem de maio de 2011 com a resposta do ministro.
-    fontes: [livro-2011-cef]
+    texto: Em vez de corrigir "nós pega o peixe", o livro trocou "certo e errado" por "adequado e inadequado", e alertou o aluno para o risco de sofrer ((preconceito linguístico)). [[livro-2011-bnews]]
   - tipo: texto
     rotulo: fato
-    texto: O MEC não mandou recolher o livro. [[livro-2011-bnews]]
+    texto: O ministro da Educação, Fernando Haddad, defendeu o livro, e o MEC não o recolheu. [[livro-2011-cef]] [[livro-2011-bnews]]
+prova:
+  - tipo: destaque
+    numero: 40 milhões
+    texto: de brasileiros entre 15 e 64 anos são analfabetos funcionais. São 29% da população nessa idade.
+    fontes: [inaf-2024]
   - tipo: texto
     rotulo: dado
-    texto: "Escrever bem continua raro: no Enem 2024, só ==12 redações== tiraram nota mil, o menor número da história. [[enem-2024]]"
+    texto: Entre os jovens de 15 a 29 anos, o analfabetismo funcional ==piorou==, de 14% em 2018 para 16% em 2024. [[inaf-2024]]
+  - tipo: texto
+    rotulo: dado
+    texto: Metade dos alunos de 15 anos não tem o nível básico de leitura. No Enem 2024, só ==12 redações== tiraram nota mil, o menor número da história. [[pisa-2022]] [[enem-2024]]
+  - tipo: texto
+    rotulo: posicao
+    texto: Quando a escola para de corrigir, o aluno para de aprender. A conta chega, e chega nos números.
 outroLado:
   - tipo: texto
     rotulo: declaracao
-    face: vermelha
     texto: Os defensores dizem que o livro também ensinava a ((norma culta)) e que respeitar o jeito de falar do aluno é o primeiro passo para ensiná-lo. [[livro-2011-bnews]]
   - tipo: texto
-    rotulo: opiniao
-    face: azul
-    texto: "Quem critica responde: ensinar a norma culta ao pobre é dar a ele a chave que o rico já tem. Entrevista de emprego, concurso e redação não aceitam \"nós pega\"."
+    rotulo: posicao
+    texto: "**Nossa resposta:** o filho do rico aprende a norma culta em casa. O filho do pobre só tem a escola. Relativizar o certo é tirar dele a única chance. Entrevista de emprego, concurso e redação não aceitam \"nós pega\"."
 penseNisso:
-  pergunta: Ensinar o "certo" é preconceito ou é abrir portas?
+  posicao: Ensinar o certo não é preconceito. É abrir a porta que o MEC fechou para o aluno pobre.
+  pergunta: Você quer que seu filho aprenda o certo ou o "adequado"?
   quiz:
     pergunta: Para quantos alunos o MEC distribuiu o livro em 2011?
     opcoes: ["Cerca de 5 mil", "Cerca de 50 mil", "Quase 500 mil"]

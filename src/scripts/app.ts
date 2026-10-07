@@ -572,7 +572,7 @@ async function gerarImagem(kit: HTMLElement): Promise<Blob | null> {
   ctx.font = '900 54px "Archivo Variable", sans-serif';
   ctx.fillText('LULA NÃO', 80, A - 92);
   ctx.font = '600 28px "JetBrains Mono Variable", monospace';
-  ctx.fillText('Fatos com fonte. Conclusão sua.', 80, A - 48);
+  ctx.fillText('A verdade dura. Com fonte.', 80, A - 48);
   ctx.textAlign = 'right';
   ctx.fillStyle = cores.acento;
   ctx.fillText(url.replace(/^https?:\/\//, ''), L - 80, A - 92);

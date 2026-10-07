@@ -11,7 +11,8 @@ const fontesObrigatorias = z.array(z.string().min(1)).min(1, 'Sem fonte, não co
 const face = z.enum(['neutra', 'vermelha', 'azul']);
 
 /** Rótulo de cada afirmação (protocolo editorial, item 3). */
-const rotulo = z.enum(['fato', 'dado', 'declaracao', 'contexto', 'opiniao', 'valor', 'pergunta']);
+/** 'posicao' = a voz do site ("Nossa posição"): opinião assumida, sempre marcada como tal. */
+const rotulo = z.enum(['fato', 'dado', 'declaracao', 'contexto', 'opiniao', 'valor', 'posicao', 'pergunta']);
 
 const bloco = z.discriminatedUnion('tipo', [
   z.object({
@@ -194,7 +195,7 @@ const posts = defineCollection({
     entenda: z.array(bloco).min(1),
     prova: z.array(bloco).min(1),
     outroLado: z.array(bloco).min(1),
-    penseNisso: z.object({ pergunta: z.string(), quiz: quiz.optional() }),
+    penseNisso: z.object({ posicao: z.string(), pergunta: z.string().optional(), quiz: quiz.optional() }),
     risco: z.enum(['baixo', 'medio', 'alto']).default('baixo'),
     revisao: z.object({ editorial: z.boolean().default(false), juridica: z.boolean().default(false) }).default({ editorial: false, juridica: false }),
     atualizadoEm: z.coerce.date(),

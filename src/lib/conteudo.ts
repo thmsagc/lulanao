@@ -222,6 +222,7 @@ export const ROTULOS: Record<string, string> = {
   contexto: 'Contexto',
   opiniao: 'Opinião',
   valor: 'Valor defendido',
+  posicao: 'Nossa posição',
   pergunta: 'Pergunta',
 };
 

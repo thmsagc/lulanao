@@ -1,0 +1,59 @@
+titulo: O Brasil pende para a direita
+eixo: escola
+ordem: 7
+face: neutra
+resumo: 46% dos brasileiros se colocam à direita; só 29% à esquerda. E 62% querem o celular fora da escola.
+moeda: disciplina-excelencia
+atualizadoEm: 2026-10-07
+kit:
+  frase: 46% dos brasileiros se colocam à direita. Só 29%, à esquerda.
+  fonte: Datafolha, dezembro de 2025
+capa:
+  kicker: Escola em Ruínas
+  numero: { valor: 46, sufixo: "%" }
+  titulo: dos brasileiros se colocam à direita. Só 29%, à esquerda.
+  subtitulo: E 62% querem o celular fora da escola. O Brasil quer ordem.
+  fontes: [datafolha-ideologia-2025, datafolha-celular-2024]
+entenda:
+  - tipo: barras
+    titulo: Como os brasileiros se posicionam (Datafolha, dez/2025)
+    itens:
+      - { rotulo: Direita e centro-direita, valor: 46, destaque: true }
+      - { rotulo: Esquerda e centro-esquerda, valor: 29 }
+    fontes: [datafolha-ideologia-2025]
+  - tipo: texto
+    rotulo: dado
+    texto: Entre quem tem 60 anos ou mais, ==42%== se diz de direita e 25% de esquerda. [[datafolha-ideologia-2025]]
+  - tipo: texto
+    rotulo: dado
+    texto: Quase metade da população (==49%==) tem alto grau de conservadorismo, segundo o índice do Ipsos-Ipec. [[ipsos-conservadorismo-2025]]
+prova:
+  - tipo: destaque
+    numero: 62%
+    texto: dos brasileiros apoiam proibir o celular nas escolas, e 76% acham que o aparelho atrapalha o aprendizado.
+    fontes: [datafolha-celular-2024]
+  - tipo: texto
+    rotulo: dado
+    texto: No Paraná, ==66%== das comunidades escolares consultadas aprovaram o modelo cívico-militar. [[pr-345]]
+  - tipo: texto
+    rotulo: dado
+    texto: E 65% são a favor de reduzir a maioridade penal. [[ipsos-conservadorismo-2025]]
+  - tipo: texto
+    rotulo: posicao
+    texto: O brasileiro quer ordem, respeito e consequência. Na escola e fora dela.
+outroLado:
+  - tipo: texto
+    rotulo: contexto
+    texto: Os mais jovens, de 16 a 24 anos, estão mais ao centro. Mesmo entre eles, porém, a direita (26%) supera a esquerda (16%). [[datafolha-ideologia-2025]]
+  - tipo: texto
+    rotulo: posicao
+    texto: "**Nossa resposta:** dos mais jovens aos mais velhos, há mais brasileiros à direita do que à esquerda. A escola deveria refletir os valores das famílias que a sustentam."
+penseNisso:
+  posicao: O Brasil é mais de direita do que a escola que paga. Está na hora de a escola ouvir as famílias.
+  pergunta: A escola do seu filho ensina os valores da sua família?
+  quiz:
+    pergunta: Segundo o Datafolha de dezembro de 2025, quantos brasileiros se colocam à direita?
+    opcoes: ["29%", "46%", "15%"]
+    correta: 1
+    explicacao: São 46% (direita e centro-direita), contra 29% à esquerda.
+    fontes: [datafolha-ideologia-2025]

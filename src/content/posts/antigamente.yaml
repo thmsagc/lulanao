@@ -1,53 +1,56 @@
-titulo: Antigamente era melhor?
+titulo: Encheram as salas, esvaziaram o ensino
 eixo: escola
 ordem: 4
 face: neutra
-resumo: Era melhor, mas para poucos. Em 1970, 1 em cada 3 crianças estava fora da escola. Hoje a escola é de todos, mas perdeu o padrão.
+resumo: O Brasil colocou quase todas as crianças na escola e esqueceu de ensinar. Hoje, 7 em cada 10 alunos de 15 anos não aprendem o mínimo de matemática.
 moeda: disciplina-excelencia
 atualizadoEm: 2026-10-07
 kit:
-  frase: Antigamente a escola era melhor, mas para poucos. Hoje é de todos, e perdeu o padrão.
-  fonte: IBGE e OCDE
+  frase: O Brasil encheu as salas e esvaziou o ensino. 7 em cada 10 alunos não aprendem o mínimo de matemática.
+  fonte: IBGE; OCDE, PISA 2022
 capa:
   kicker: Escola em Ruínas
-  titulo: Antigamente era melhor?
-  subtitulo: Era. Mas para poucos.
-  fontes: [escolarizacao]
+  titulo: Encheram as salas. Esvaziaram o ensino.
+  subtitulo: Quase todas as crianças estão na escola. E 7 em cada 10 não aprendem o mínimo de matemática.
+  fontes: [escolarizacao, pisa-2022]
 entenda:
   - tipo: texto
     rotulo: dado
-    texto: Em 1970, só ==67%== das crianças de 7 a 14 anos estavam na escola. Uma em cada três ficava de fora. [[escolarizacao]]
+    texto: Em 1970, só ==67%== das crianças de 7 a 14 anos estavam na escola. [[escolarizacao]]
   - tipo: texto
     rotulo: dado
-    texto: Em 2005, já eram ==96%==. A escola passou a ser de todos. [[escolarizacao]]
+    texto: Em 2005, já eram ==96%==. A escola abriu as portas. [[escolarizacao]]
   - tipo: texto
-    rotulo: contexto
-    texto: A escola rígida de que muita gente se lembra era a de quem conseguia entrar e ficar. Quem desistia quase nunca é ouvido. [[aosfatos-ditadura]]
+    rotulo: posicao
+    texto: Abrir as portas foi certo. O erro foi baixar o padrão para caber todo mundo.
 prova:
   - tipo: antesAgora
     titulo: Crianças de 7 a 14 anos na escola
     antes: { rotulo: "1970", valor: 67, texto: 1 em cada 3 fora da escola }
-    agora: { rotulo: "2005", valor: 96, texto: quase todas na escola }
+    agora: { rotulo: "2005", valor: 96, texto: quase todas dentro da escola }
     fontes: [escolarizacao]
+  - tipo: barras
+    titulo: Alunos de 15 anos que não aprenderam o mínimo de matemática
+    itens:
+      - { rotulo: Brasil, valor: 73, destaque: true }
+      - { rotulo: Países desenvolvidos (OCDE), valor: 31 }
+    fontes: [pisa-2022]
   - tipo: texto
     rotulo: dado
-    texto: "Mas a escola de todos não manteve o padrão: hoje o professor perde ==21% da aula== com bagunça, contra 15% nos outros países. [[talis-2024]]"
-  - tipo: texto
-    rotulo: contexto
-    detalhe: true
-    texto: Não dá para medir a disciplina de antigamente, porque o próprio regime militar fechou centros de pesquisa do ((Inep)) em 1973 e 1976. [[aosfatos-ditadura]]
+    texto: E dentro da sala, ==21% da aula== vai para manter a ordem. Nos países da OCDE, 15%. [[talis-2024]]
 outroLado:
   - tipo: texto
     rotulo: contexto
-    texto: "Atenção à memória: um estudo de 2019 mostrou que adultos tendem a achar as crianças de hoje piores justamente no que eles próprios se destacam, como o respeito à autoridade. [[protzko-2019]] [[protzko-popsci]]"
+    texto: Vão dizer que é saudade de quem viveu outra época. Há até um estudo mostrando que adultos tendem a achar as crianças de hoje piores do que eram. [[protzko-2019]] [[protzko-popsci]]
   - tipo: texto
-    rotulo: opiniao
-    texto: Por isso este site compara o Brasil com ==outros países hoje==, e não com a memória. E, nessa comparação, o Brasil fica no fim da fila. [[talis-2024]]
+    rotulo: posicao
+    texto: "**Não é saudade. É número.** Comparado com os outros países hoje, o Brasil está no fim da fila em disciplina e em aprendizado. [[talis-2024]] [[pisa-2022]]"
 penseNisso:
-  pergunta: Dá para ter as duas coisas, escola para todos e com padrão alto?
+  posicao: Escola para todos, sim. Mas com o padrão de antes, com ordem, exigência e respeito.
+  pergunta: Por que não podemos ter as duas coisas?
   quiz:
-    pergunta: Em 1970, quantas crianças de 7 a 14 anos estavam na escola?
-    opcoes: ["Quase todas", "Cerca de 2 em cada 3", "Menos da metade"]
-    correta: 1
-    explicacao: Eram 67%, cerca de 2 em cada 3. Em 2005, já eram 96%.
-    fontes: [escolarizacao]
+    pergunta: Quantos alunos brasileiros de 15 anos não aprendem o mínimo de matemática?
+    opcoes: ["2 em cada 10", "5 em cada 10", "7 em cada 10"]
+    correta: 2
+    explicacao: São 73%, segundo o PISA 2022. Nos países desenvolvidos, 31%.
+    fontes: [pisa-2022]

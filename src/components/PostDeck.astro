@@ -16,7 +16,7 @@ const eixo = c.eixos.find((e) => e.id === p.eixo)!.data;
 const moeda = p.moeda ? c.moedas.find((x) => x.id === p.moeda) : undefined;
 const face = p.face;
 
-const camadas = ['Capa', 'Entenda', 'Prova', 'Outro lado', 'Pense nisso', 'Fontes'];
+const camadas = ['Capa', 'O que aconteceu', 'A consequência', 'O que eles dizem', 'Nossa posição', 'Fontes'];
 const ids = (v: unknown) => [...idsCitados(v)].join(',');
 const todasAsFontes = [...idsCitados(p)];
 const temDetalhe = (blocos: { detalhe?: boolean }[]) => blocos.some((b) => b.detalhe);
@@ -53,52 +53,56 @@ const numeroFormatado = n ? n.valor.toLocaleString('pt-BR', { minimumFractionDig
         {p.capa.subtitulo && <p class="subtitulo-capa" set:html={m(p.capa.subtitulo)} />}
         <div class="fontes-capa" set:html={selos(p.capa.fontes)} />
         <div class="acoes" data-nao-ler>
-          <button type="button" class="botao" data-ir="proxima">Entenda <span aria-hidden="true">→</span></button>
+          <button type="button" class="botao" data-ir="proxima">O que aconteceu <span aria-hidden="true">→</span></button>
           <button type="button" class="dica-baixo" data-ir="proximo-deck"><i aria-hidden="true">↑</i> Próximo assunto</button>
         </div>
       </div>
     </section>
 
     <!-- 1 · ENTENDA -->
-    <section class="camada" data-fontes={ids(p.entenda)} aria-label="Entenda">
+    <section class="camada" data-fontes={ids(p.entenda)} aria-label="O que aconteceu">
       <div class="conteudo">
-        <p class="nome-camada" data-nao-ler>2 · Entenda</p>
+        <p class="nome-camada" data-nao-ler>2 · O que aconteceu</p>
         {p.entenda.map((b) => <Bloco bloco={b} faceBase={face} />)}
         <div class="acoes" data-nao-ler>
-          <button type="button" class="botao" data-ir="proxima">Ver a prova <span aria-hidden="true">→</span></button>
+          <button type="button" class="botao" data-ir="proxima">A consequência <span aria-hidden="true">→</span></button>
           {temDetalhe(p.entenda) && <button type="button" class="botao vazado ver-detalhes" data-ver-detalhes>+ Detalhes</button>}
         </div>
       </div>
     </section>
 
     <!-- 2 · PROVA -->
-    <section class="camada" data-fontes={ids(p.prova)} aria-label="Prova">
+    <section class="camada" data-fontes={ids(p.prova)} aria-label="A consequência">
       <div class="conteudo">
-        <p class="nome-camada" data-nao-ler>3 · A prova</p>
+        <p class="nome-camada" data-nao-ler>3 · A consequência</p>
         {p.prova.map((b) => <Bloco bloco={b} faceBase={face} />)}
         <div class="acoes" data-nao-ler>
-          <button type="button" class="botao" data-ir="proxima">Outro lado <span aria-hidden="true">→</span></button>
+          <button type="button" class="botao" data-ir="proxima">O que eles dizem <span aria-hidden="true">→</span></button>
           {temDetalhe(p.prova) && <button type="button" class="botao vazado ver-detalhes" data-ver-detalhes>+ Detalhes</button>}
         </div>
       </div>
     </section>
 
     <!-- 3 · OUTRO LADO -->
-    <section class="camada" data-fontes={ids(p.outroLado)} aria-label="Outro lado">
+    <section class="camada" data-fontes={ids(p.outroLado)} aria-label="O que eles dizem">
       <div class="conteudo">
-        <p class="nome-camada" data-nao-ler>4 · O outro lado</p>
+        <p class="nome-camada" data-nao-ler>4 · O que eles dizem</p>
         {p.outroLado.map((b) => <Bloco bloco={b} faceBase={face} />)}
         <div class="acoes" data-nao-ler>
-          <button type="button" class="botao" data-ir="proxima">Pense nisso <span aria-hidden="true">→</span></button>
+          <button type="button" class="botao" data-ir="proxima">Nossa posição <span aria-hidden="true">→</span></button>
         </div>
       </div>
     </section>
 
     <!-- 4 · PENSE NISSO -->
-    <section class="camada" data-fontes={ids(p.penseNisso)} aria-label="Pense nisso">
+    <section class="camada" data-fontes={ids(p.penseNisso)} aria-label="Nossa posição">
       <div class="conteudo">
-        <p class="nome-camada" data-nao-ler>5 · Pense nisso</p>
-        <p class="pergunta-final">{p.penseNisso.pergunta}</p>
+        <p class="nome-camada" data-nao-ler>5 · Nossa posição</p>
+        <div class={`posicao-final${face === 'azul' ? '' : ' t-azul'}`}>
+          <span class="quem-fala" data-nao-ler>● Nossa posição</span>
+          <p class="pergunta-final" set:html={m(p.penseNisso.posicao)} />
+        </div>
+        {p.penseNisso.pergunta && <p class="pergunta-dura">{p.penseNisso.pergunta}</p>}
         {p.penseNisso.quiz && (
           <div class="quiz" data-quiz data-correta={p.penseNisso.quiz.correta}>
             <p>{p.penseNisso.quiz.pergunta}</p>

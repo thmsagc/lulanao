@@ -18,7 +18,7 @@ interface Props {
   tema?: 'neutra' | 'vermelha' | 'azul';
   caminho?: string;
 }
-const { titulo, descricao = `${SITE.lema} O que a esquerda defende, o que a direita defende e o que os dados mostram.`, tema = 'neutra', caminho = Astro.url.pathname } = Astro.props;
+const { titulo, descricao = `${SITE.lema} O que as decisões da esquerda fizeram com o Brasil, e o que a direita defende. Com a fonte de cada frase.`, tema = 'neutra', caminho = Astro.url.pathname } = Astro.props;
 const tituloCompleto = titulo ? `${titulo} · ${SITE.nome}` : `${SITE.nome}: ${SITE.lema}`;
 const c = await carregarConteudo();
 const dados = jsonSeguro(dadosCliente(c));
