@@ -1,7 +1,7 @@
 ---
 import { SITE } from '../config';
-import { carregarConteudo, marcar, seloHTML, idsCitados, type Post } from '../lib/conteudo';
-import Bloco from './Bloco.astro';
+import { carregarConteudo, idsCitados, type Post } from '../lib/conteudo';
+import SlideView from './Slide.astro';
 import Recibo from './Recibo.astro';
 
 interface Props {
@@ -10,25 +10,18 @@ interface Props {
 const { post } = Astro.props;
 const p = post.data;
 const c = await carregarConteudo();
-const m = (t: string) => marcar(t, c);
-const selos = (ids: string[] = []) => ids.map((id) => seloHTML(id, c.fontes)).join('');
 const eixo = c.eixos.find((e) => e.id === p.eixo)!.data;
 const moeda = p.moeda ? c.moedas.find((x) => x.id === p.moeda) : undefined;
-const face = p.face;
-
-const camadas = ['Capa', 'O que aconteceu', 'A consequência', 'O que eles dizem', 'Nossa posição', 'Fontes'];
-const ids = (v: unknown) => [...idsCitados(v)].join(',');
-const todasAsFontes = [...idsCitados(p)];
-const temDetalhe = (blocos: { detalhe?: boolean }[]) => blocos.some((b) => b.detalhe);
-
+const todasAsFontes = [...idsCitados(p.slides)];
 const url = `${SITE.url}/p/${post.id}`;
 const textoZap = `${p.kit.frase}\n\nFonte: ${p.kit.fonte}\n${url}`;
-const n = p.capa.numero;
-const numeroFormatado = n ? n.valor.toLocaleString('pt-BR', { minimumFractionDigits: n.decimais, maximumFractionDigits: n.decimais }) : '';
+const slides = p.slides;
+const faceInicial = slides[0].face ?? (slides[0].tipo === 'esquerda' ? 'vermelha' : slides[0].tipo === 'direita' || slides[0].tipo === 'fecho' ? 'azul' : 'neutra');
+const ultimoEhFecho = slides[slides.length - 1].tipo === 'fecho';
 ---
-<article class={`deck t-${face}`} id={`p-${post.id}`} data-deck data-slug={post.id} data-moeda={p.moeda} aria-label={p.titulo}>
-  <nav class="trilho" aria-label="Camadas deste assunto">
-    {camadas.map((nome, i) => <button type="button" data-ir-camada={i} class={i === 0 ? 'feito' : ''} aria-label={`${i + 1}. ${nome}`}></button>)}
+<article class={`deck t-${faceInicial}`} id={`p-${post.id}`} data-deck data-slug={post.id} data-moeda={p.moeda} aria-label={p.titulo}>
+  <nav class="trilho" aria-label="Slides deste assunto">
+    {slides.map((s, i) => <button type="button" data-ir-camada={i} class={i === 0 ? 'feito' : ''} aria-label={`Slide ${i + 1}`}></button>)}
   </nav>
   <div class="topo">
     <span class="eixo">{eixo.icone} {eixo.nome}</span>
@@ -36,113 +29,42 @@ const numeroFormatado = n ? n.valor.toLocaleString('pt-BR', { minimumFractionDig
   </div>
 
   <div class="camadas" data-camadas>
-    <!-- 0 · CAPA -->
-    <section class="camada capa" data-fontes={ids(p.capa)} aria-label="Capa">
-      <div class="conteudo">
-        {p.capa.kicker && p.capa.kicker !== eixo.nome && <p class="kicker">{p.capa.kicker}</p>}
-        {n ? (
+    {slides.map((s, i) => (
+      <SlideView slide={s} id={`${post.id}-${i}`} ultimo={i === slides.length - 1}>
+        {i === 0 && (
+          <p class="dica-gesto" data-nao-ler><span aria-hidden="true">👉</span> Deslize para o lado · <span aria-hidden="true">☝</span> para cima: próximo assunto</p>
+        )}
+        {i === slides.length - 1 && ultimoEhFecho && (
           <>
-            <p class="numero-capa" aria-label={`${n.prefixo}${numeroFormatado}${n.sufixo}`}>
-              {n.prefixo}<span data-contar data-valor={n.valor} data-decimais={n.decimais}>{numeroFormatado}</span><small>{n.sufixo}</small>
-            </p>
-            <h2 class="titulo-capa" set:html={m(p.capa.titulo)} />
-          </>
-        ) : (
-          <h2 class="titulo-capa grande" set:html={m(p.capa.titulo)} />
-        )}
-        {p.capa.subtitulo && <p class="subtitulo-capa" set:html={m(p.capa.subtitulo)} />}
-        <div class="fontes-capa" set:html={selos(p.capa.fontes)} />
-        <div class="acoes" data-nao-ler>
-          <button type="button" class="botao" data-ir="proxima">O que aconteceu <span aria-hidden="true">→</span></button>
-          <button type="button" class="dica-baixo" data-ir="proximo-deck"><i aria-hidden="true">↑</i> Próximo assunto</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- 1 · ENTENDA -->
-    <section class="camada" data-fontes={ids(p.entenda)} aria-label="O que aconteceu">
-      <div class="conteudo">
-        <p class="nome-camada" data-nao-ler>2 · O que aconteceu</p>
-        {p.entenda.map((b) => <Bloco bloco={b} faceBase={face} />)}
-        <div class="acoes" data-nao-ler>
-          <button type="button" class="botao" data-ir="proxima">A consequência <span aria-hidden="true">→</span></button>
-          {temDetalhe(p.entenda) && <button type="button" class="botao vazado ver-detalhes" data-ver-detalhes>+ Detalhes</button>}
-        </div>
-      </div>
-    </section>
-
-    <!-- 2 · PROVA -->
-    <section class="camada" data-fontes={ids(p.prova)} aria-label="A consequência">
-      <div class="conteudo">
-        <p class="nome-camada" data-nao-ler>3 · A consequência</p>
-        {p.prova.map((b) => <Bloco bloco={b} faceBase={face} />)}
-        <div class="acoes" data-nao-ler>
-          <button type="button" class="botao" data-ir="proxima">O que eles dizem <span aria-hidden="true">→</span></button>
-          {temDetalhe(p.prova) && <button type="button" class="botao vazado ver-detalhes" data-ver-detalhes>+ Detalhes</button>}
-        </div>
-      </div>
-    </section>
-
-    <!-- 3 · OUTRO LADO -->
-    <section class="camada" data-fontes={ids(p.outroLado)} aria-label="O que eles dizem">
-      <div class="conteudo">
-        <p class="nome-camada" data-nao-ler>4 · O que eles dizem</p>
-        {p.outroLado.map((b) => <Bloco bloco={b} faceBase={face} />)}
-        <div class="acoes" data-nao-ler>
-          <button type="button" class="botao" data-ir="proxima">Nossa posição <span aria-hidden="true">→</span></button>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4 · PENSE NISSO -->
-    <section class="camada" data-fontes={ids(p.penseNisso)} aria-label="Nossa posição">
-      <div class="conteudo">
-        <p class="nome-camada" data-nao-ler>5 · Nossa posição</p>
-        <div class={`posicao-final${face === 'azul' ? '' : ' t-azul'}`}>
-          <span class="quem-fala" data-nao-ler>● Nossa posição</span>
-          <p class="pergunta-final" set:html={m(p.penseNisso.posicao)} />
-        </div>
-        {p.penseNisso.pergunta && <p class="pergunta-dura">{p.penseNisso.pergunta}</p>}
-        {p.penseNisso.quiz && (
-          <div class="quiz" data-quiz data-correta={p.penseNisso.quiz.correta}>
-            <p>{p.penseNisso.quiz.pergunta}</p>
-            <div class="quiz-opcoes" data-nao-ler>
-              {p.penseNisso.quiz.opcoes.map((o, i) => <button type="button" data-opcao={i}>{o}</button>)}
+            <div class="kit" data-kit data-frase={p.kit.frase} data-kit-fonte={p.kit.fonte} data-url={url} data-face={p.kit.face} data-kicker={eixo.nome} data-nao-ler>
+              <div class="linha-botoes">
+                <a class="botao zap" href={`https://wa.me/?text=${encodeURIComponent(textoZap)}`} target="_blank" rel="noopener">WhatsApp</a>
+                <button type="button" class="botao vazado" data-kit-imagem>Imagem</button>
+                <button type="button" class="botao vazado" data-kit-compartilhar>Enviar</button>
+              </div>
             </div>
-            <p class="quiz-explicacao"><strong data-quiz-resultado></strong> <span set:html={m(p.penseNisso.quiz.explicacao) + selos(p.penseNisso.quiz.fontes)} /></p>
-          </div>
+            {moeda && (
+              <a class="cartao-moeda" href={`/duas-faces/${moeda.id}`} data-nao-ler>
+                <span class="moedinha" aria-hidden="true">↻</span>
+                <span><strong>Vire a moeda</strong><span>Esquerda × direita: {moeda.data.titulo.toLowerCase()}</span></span>
+              </a>
+            )}
+            <div class="acoes" data-nao-ler>
+              <button type="button" class="botao vazado" data-folha-tpl={`recibo-${post.id}`}>Ver as {todasAsFontes.length} fontes</button>
+              <button type="button" class="dica-baixo" data-ir="proximo-deck"><i aria-hidden="true">↑</i> Próximo assunto</button>
+            </div>
+          </>
         )}
-        <div class="kit" data-kit data-frase={p.kit.frase} data-kit-fonte={p.kit.fonte} data-url={url} data-face={face} data-kicker={eixo.nome} data-nao-ler>
-          <p class="nome-camada">Mande para quem precisa ver</p>
-          <div class="linha-botoes">
-            <a class="botao zap" href={`https://wa.me/?text=${encodeURIComponent(textoZap)}`} target="_blank" rel="noopener">WhatsApp</a>
-            <button type="button" class="botao vazado" data-kit-imagem>Imagem</button>
-            <button type="button" class="botao vazado" data-kit-compartilhar>Enviar</button>
-          </div>
-        </div>
-        {moeda && (
-          <a class="cartao-moeda" href={`/duas-faces/${moeda.id}`} data-nao-ler>
-            <span class="moedinha" aria-hidden="true">↻</span>
-            <span><strong>Vire a moeda</strong><span>O que a esquerda e a direita defendem sobre {moeda.data.titulo.toLowerCase()}</span></span>
-          </a>
-        )}
-        <div class="acoes" data-nao-ler>
-          <button type="button" class="botao vazado" data-ir="proxima">Ver as fontes <span aria-hidden="true">→</span></button>
-          <button type="button" class="dica-baixo" data-ir="proximo-deck"><i aria-hidden="true">↑</i> Próximo assunto</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5 · FONTES -->
-    <section class="camada" data-fontes={todasAsFontes.join(',')} aria-label="Fontes">
-      <div class="conteudo">
-        <p class="nome-camada" data-nao-ler>6 · Recibo de fontes</p>
-        <Recibo ids={todasAsFontes} atualizadoEm={p.atualizadoEm} />
-        <div class="acoes" data-nao-ler>
-          <a class="botao vazado" href="/fontes">Biblioteca de Fontes</a>
-          <button type="button" class="dica-baixo" data-ir="proximo-deck"><i aria-hidden="true">↑</i> Próximo assunto</button>
-        </div>
-      </div>
-    </section>
+      </SlideView>
+    ))}
   </div>
+
+  <template id={`recibo-${post.id}`}>
+    <div class="mais">
+      <span class="etiqueta">Todas as fontes</span>
+      <h3>{p.titulo}</h3>
+      <Recibo ids={todasAsFontes} atualizadoEm={p.atualizadoEm} />
+      <a class="botao vazado" href="/fontes" style="justify-self:start">Biblioteca de Fontes</a>
+    </div>
+  </template>
 </article>

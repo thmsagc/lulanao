@@ -17,7 +17,7 @@ const selo = moeda.data.vermelha.selo;
 <Base titulo={`Duas faces: ${moeda.data.titulo}`} descricao={moeda.data.pergunta} tema="vermelha">
   <div class="moeda-palco" data-moeda={moeda.id}>
     <div class="topo-moeda">
-      <button type="button" class="botao-placar" data-folha-tpl={`placar-${moeda.id}`}><i></i> Placar dos fatos</button>
+      <button type="button" class="botao-placar" data-folha-tpl={`placar-${moeda.id}`}><i></i> Os números</button>
       <button type="button" class="botao-placar botao-modo-moeda" id="botao-modo-moeda">⇆ Ver lado a lado</button>
     </div>
     <div class="moeda">
@@ -31,10 +31,8 @@ const selo = moeda.data.vermelha.selo;
   </div>
 
   <template id={`placar-${moeda.id}`}>
-    <div class="folha-topo">
-      <div><span class="etiqueta">Placar dos fatos</span><h3 style="margin-top:8px">O que os números mostram</h3></div>
-      <button type="button" class="fechar" data-fechar aria-label="Fechar">✕</button>
-    </div>
+    <span class="etiqueta">Os números</span>
+    <h3>O que os números mostram</h3>
     <p class="veiculo">A realidade, com fonte. Toque nos selos para conferir cada número.</p>
     <div class="placar-lista">
       {moeda.data.placar.map((p) => (
@@ -45,10 +43,7 @@ const selo = moeda.data.vermelha.selo;
 
   {selo && (
     <template id={`selo-${moeda.id}`}>
-      <div class="folha-topo">
-        <div class="etiquetas"><span class="etiqueta vermelho">Por que este símbolo?</span></div>
-        <button type="button" class="fechar" data-fechar aria-label="Fechar">✕</button>
-      </div>
+      <div class="etiquetas"><span class="etiqueta vermelho">Por que este símbolo?</span></div>
       <div style="display:flex;gap:14px;align-items:center">
         <span style="width:64px;height:64px;flex:none;background:var(--esq);border-radius:12px;padding:8px;fill:var(--esq-ouro)"><FoiceMartelo titulo="Foice e martelo" /></span>
         <h3>A foice e o martelo só aparecem onde há vínculo comunista documentado.</h3>

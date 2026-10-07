@@ -86,6 +86,17 @@ function validarBlocos(blocos: any[], onde: string, erros: string[]) {
   });
 }
 
+/** Slides de fato (problema, esquerda, consequência), números e citações precisam de fonte. */
+function validarSlides(slides: any[], onde: string, erros: string[]) {
+  slides.forEach((sl, i) => {
+    const local = `${onde}, slide ${i + 1} (${sl.tipo})`;
+    const temFonte = sl.fontes?.length || `${sl.frase} ${sl.contexto ?? ''}`.match(MARCA_FONTE);
+    const exige = ['problema', 'esquerda', 'consequencia'].includes(sl.tipo) || sl.numero || sl.autor;
+    if (exige && !temFonte) erros.push(`${local}: slide de fato sem fonte.`);
+    if (sl.mais) validarBlocos(sl.mais.blocos, `${local} › quero entender melhor`, erros);
+  });
+}
+
 async function montar(): Promise<Conteudo> {
   const [fontesC, glossC, postsC, moedasC, eixosC, linhaC] = await Promise.all([
     getCollection('fontes'),
@@ -120,11 +131,9 @@ async function montar(): Promise<Conteudo> {
   for (const p of posts) {
     const onde = `Post "${p.id}"`;
     conferir(p.data, onde);
-    for (const camada of ['entenda', 'prova', 'outroLado'] as const) validarBlocos(p.data[camada], `${onde} › ${camada}`, erros);
+    validarSlides(p.data.slides, onde, erros);
     if (p.data.moeda && !moedas.some((m) => m.id === p.data.moeda)) erros.push(`${onde}: moeda "${p.data.moeda}" não existe.`);
     if (!eixosC.some((e) => e.id === p.data.eixo)) erros.push(`${onde}: eixo "${p.data.eixo}" não existe.`);
-    if (p.data.penseNisso.quiz && p.data.penseNisso.quiz.correta >= p.data.penseNisso.quiz.opcoes.length)
-      erros.push(`${onde}: resposta correta do quiz fora das opções.`);
     if (!p.data.revisao.editorial) pendencias.push(`${onde}: revisão editorial pendente.`);
     if (p.data.risco === 'alto' && !p.data.revisao.juridica) pendencias.push(`${onde}: risco alto sem revisão jurídica.`);
     registrarUso(idsCitados(p.data), p.data.titulo, `/p/${p.id}`);
@@ -133,12 +142,7 @@ async function montar(): Promise<Conteudo> {
   for (const m of moedas) {
     const onde = `Moeda "${m.id}"`;
     conferir(m.data, onde);
-    for (const lado of ['vermelha', 'azul'] as const) {
-      const f = m.data[lado];
-      validarBlocos(f.entenda, `${onde} › ${lado} › entenda`, erros);
-      validarBlocos(f.prova, `${onde} › ${lado} › prova`, erros);
-      validarBlocos(f.contraponto.blocos, `${onde} › ${lado} › contraponto`, erros);
-    }
+    for (const lado of ['vermelha', 'azul'] as const) validarSlides(m.data[lado].slides, `${onde} › ${lado}`, erros);
     // Face vermelha: nas palavras da própria esquerda (fonte nível A do campo).
     const idsVerm = idsCitados(m.data.vermelha);
     const temFonteDoCampo = [...idsVerm].some((id) => fontes.get(id)?.selos.includes('campo-esquerda'));
@@ -246,6 +250,19 @@ export const NIVEIS: Record<string, string> = {
 };
 
 /** Dados enviados ao navegador (fichas de fonte, glossário, busca). */
+/** Junta só o texto legível de um slide ou bloco (sem tipos, cores e ids de fonte), para a busca. */
+function textoParaBusca(valor: unknown): string {
+  const partes: string[] = [];
+  const ignorar = new Set(['tipo', 'face', 'rotulo', 'fontes']);
+  const visitar = (v: unknown) => {
+    if (typeof v === 'string') partes.push(v);
+    else if (Array.isArray(v)) v.forEach(visitar);
+    else if (v && typeof v === 'object') for (const [k, x] of Object.entries(v)) if (!ignorar.has(k)) visitar(x);
+  };
+  visitar(valor);
+  return textoPuro(partes.join(' ')).replace(/\s+/g, ' ').trim();
+}
+
 export function dadosCliente(c: Conteudo) {
   return {
     fontes: Object.fromEntries(
@@ -277,14 +294,14 @@ export function dadosCliente(c: Conteudo) {
         resumo: p.data.resumo,
         url: `/p/${p.id}`,
         tipo: 'Post',
-        texto: textoPuro(JSON.stringify([p.data.capa, p.data.entenda, p.data.prova, p.data.outroLado])),
+        texto: textoParaBusca(p.data.slides),
       })),
       ...c.moedas.map((m) => ({
         titulo: m.data.titulo,
         resumo: m.data.pergunta,
         url: `/duas-faces/${m.id}`,
         tipo: 'Duas faces',
-        texto: textoPuro(JSON.stringify([m.data.vermelha, m.data.azul])),
+        texto: textoParaBusca([m.data.vermelha, m.data.azul]),
       })),
     ],
   };

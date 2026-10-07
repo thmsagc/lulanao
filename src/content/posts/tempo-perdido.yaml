@@ -1,67 +1,54 @@
 titulo: 1 em cada 5 minutos
 eixo: escola
-ordem: 1
-face: neutra
+ordem: 3
 resumo: Na sala de aula brasileira, 21% da aula vai para o lixo com bagunça. São 42 dias de aula jogados fora por ano.
 moeda: disciplina-excelencia
 atualizadoEm: 2026-10-07
 kit:
   frase: Na escola brasileira, 1 em cada 5 minutos de aula vai para o lixo com bagunça. São 42 dias por ano.
   fonte: OCDE, pesquisa TALIS 2024
-capa:
-  kicker: Escola em Ruínas
-  numero: { valor: 21, sufixo: "%" }
-  titulo: da aula vai para o lixo com bagunça.
-  subtitulo: São 42 dias de aula jogados fora por ano. Quem paga é o aluno que quer aprender.
-  fontes: [talis-2024, ldb-1996]
-entenda:
-  - tipo: texto
-    rotulo: dado
-    texto: De cada 5 minutos de aula, ==1 minuto== vai embora pedindo silêncio, separando briga e chamando atenção. [[talis-2024]]
-  - tipo: texto
-    rotulo: dado
-    texto: Nos países da ((OCDE)), a perda é de 15%. Aqui, 21%. [[talis-2024]]
-  - tipo: texto
-    rotulo: dado
-    texto: Quase metade dos professores brasileiros (==44%==) diz ser interrompida o tempo todo pelos alunos. Lá fora, 18%. [[talis-2024]]
-prova:
-  - tipo: destaque
-    numero: 42 dias
-    texto: de aula jogados fora por ano. O ano letivo tem 200 dias, e 21% dele vai para a bagunça.
-    fontes: [ldb-1996, talis-2024]
-  - tipo: barras
-    titulo: Alunos de 15 anos que não aprenderam o mínimo de matemática
-    itens:
-      - { rotulo: Brasil, valor: 73, destaque: true }
-      - { rotulo: Países desenvolvidos (OCDE), valor: 31 }
-    fontes: [pisa-2022]
-  - tipo: texto
-    rotulo: dado
-    texto: E ==metade== dos alunos de 15 anos não tem o nível básico de leitura. [[pisa-2022]]
-  - tipo: texto
-    rotulo: posicao
-    texto: Sala sem ordem não ensina. O resultado aparece no boletim do país inteiro.
-  - tipo: barras
-    titulo: Professores para quem manter a disciplina é fonte de estresse
-    detalhe: true
-    itens:
-      - { rotulo: Brasil, valor: 63.8, destaque: true }
-      - { rotulo: Média da OCDE, valor: 44.8 }
-    fontes: [talis-2024]
-outroLado:
-  - tipo: texto
-    rotulo: declaracao
-    face: vermelha
-    texto: "O MEC aposta na ((justiça restaurativa)): conversa, responsabilização e reparação, em vez de punição. [[mec-jr-2023]]"
-  - tipo: texto
-    rotulo: posicao
-    texto: "**Não cola.** Conversa sem consequência é o que já temos, e o resultado é 1 em cada 5 minutos perdido. Escola precisa de regra. E regra precisa de consequência."
-penseNisso:
-  posicao: Escola sem ordem não ensina. E quem mais perde é o filho do pobre, que só tem a escola pública.
-  pergunta: Você aceitaria que seu filho perdesse 42 dias de aula por ano?
-  quiz:
-    pergunta: Quanto do tempo de aula o professor brasileiro perde só para manter a ordem?
-    opcoes: ["5%", "21%", "50%"]
-    correta: 1
-    explicacao: São 21%, segundo a pesquisa TALIS 2024, da OCDE. A média dos países desenvolvidos é 15%.
-    fontes: [talis-2024]
+slides:
+  - tipo: problema
+    numero: { valor: 21, sufixo: "%" }
+    frase: da aula vai para o lixo com bagunça.
+    contexto: São 42 dias de aula jogados fora por ano. Nos países desenvolvidos, a perda é de 15%. [[talis-2024]]
+    mais:
+      titulo: O tempo que a bagunça rouba
+      blocos:
+        - tipo: barras
+          titulo: Tempo de aula gasto só para manter a ordem
+          itens:
+            - { rotulo: Brasil, valor: 21, destaque: true }
+            - { rotulo: Média da OCDE, valor: 15 }
+          fontes: [talis-2024]
+        - tipo: texto
+          rotulo: contexto
+          texto: "Conta simples: o ano letivo tem no mínimo 200 dias [[ldb-1996]]. Perder 21% do tempo equivale a cerca de ==42 dias de aula por ano==."
+        - tipo: barras
+          titulo: Para quem manter a disciplina é fonte de estresse
+          itens:
+            - { rotulo: Professores no Brasil, valor: 63.8, destaque: true }
+            - { rotulo: Média da OCDE, valor: 44.8 }
+          fontes: [talis-2024]
+  - tipo: consequencia
+    frase: 7 em cada 10 alunos não aprendem o mínimo de matemática.
+    contexto: E metade não tem o nível básico de leitura. Nos países desenvolvidos, são 31% e 27%. [[pisa-2022]]
+    mais:
+      titulo: O boletim do país
+      blocos:
+        - tipo: barras
+          titulo: Alunos de 15 anos abaixo do mínimo
+          itens:
+            - { rotulo: "Matemática, Brasil", valor: 73, destaque: true }
+            - { rotulo: "Matemática, OCDE", valor: 31 }
+            - { rotulo: "Leitura, Brasil", valor: 50, destaque: true }
+            - { rotulo: "Leitura, OCDE", valor: 27 }
+          fontes: [pisa-2022]
+  - tipo: esquerda
+    frase: A resposta do MEC para a bagunça é mais conversa.
+    contexto: A aposta do governo é a “justiça restaurativa”, com diálogo, responsabilização e reparação. [[mec-jr-2023]]
+  - tipo: direita
+    frase: Sala de aula não é assembleia.
+    contexto: Professor fala, aluno escuta. Quem atrapalha, responde. É o mínimo para quem quer aprender poder aprender.
+  - tipo: fecho
+    frase: Escola sem ordem não ensina. E quem mais perde é o filho do pobre, que só tem a escola pública.

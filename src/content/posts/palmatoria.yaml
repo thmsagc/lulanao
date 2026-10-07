@@ -1,60 +1,46 @@
 titulo: Escola sem regra, adulto sem limite
 eixo: escola
-ordem: 6
-face: neutra
+ordem: 5
 resumo: "A ciência confirma: criança sem regra e sem cobrança vai pior. Firmeza funciona, e não precisa de violência."
 moeda: disciplina-excelencia
 atualizadoEm: 2026-10-07
 kit:
   frase: "Escola sem regra forma adulto sem limite. A ciência confirma: sem cobrança, a criança vai pior."
-  fonte: Estudos de Diana Baumrind; OCDE, TALIS 2024
-capa:
-  kicker: Escola em Ruínas
-  titulo: Escola sem regra forma adulto sem limite.
-  subtitulo: "A ciência confirma: criança sem regra e sem cobrança vai pior na escola e tem menos autocontrole."
-  fontes: [baumrind-redalyc]
-entenda:
-  - tipo: texto
-    rotulo: fato
-    texto: Pesquisas sobre como educar crianças mostram que ==ser permissivo faz mal==. Sem regra e sem cobrança, o desempenho cai e o autocontrole some. [[baumrind-redalyc]]
-  - tipo: texto
-    rotulo: fato
-    texto: O que funciona é **exigência alta, regras claras, consequência certa e afeto**, o chamado ((estilo autoritativo|autoritativo)). [[baumrind-redalyc]]
-  - tipo: texto
-    rotulo: fato
-    texto: No maior experimento educacional dos EUA, com 700 mil crianças, o ==ensino tradicional==, com o professor explicando e cobrando, teve o melhor resultado em todas as medidas. [[hattie-di]] [[hattie-2009]]
-prova:
-  - tipo: texto
-    rotulo: dado
-    texto: "Enquanto isso, na escola brasileira, ==1 em cada 5 minutos== de aula vai embora só para manter a ordem. [[talis-2024]]"
-  - tipo: vf
-    itens:
-      - afirmacao: Deixar a criança fazer o que quiser ajuda a formar a personalidade.
-        veredito: falso
-        explicacao: O estilo permissivo está ligado a pior desempenho escolar e a menos autocontrole.
-        fontes: [baumrind-redalyc]
-      - afirmacao: Ensino direto, com o professor explicando e cobrando, funciona melhor do que "deixar o aluno descobrir sozinho".
-        veredito: verdadeiro
-        explicacao: No maior experimento educacional dos EUA, o ensino direto venceu em todas as medidas. A síntese de John Hattie mede efeito de 0,59, bem acima da média de 0,40.
-        fontes: [hattie-2009, hattie-di]
-      - afirmacao: Firmeza é a mesma coisa que bater.
-        veredito: falso
-        explicacao: Firmeza é regra clara e consequência certa. Bater não aumenta a obediência, segundo uma revisão de 75 estudos com 160 mil crianças.
-        fontes: [gershoff-2016, gershoff-utexas]
-outroLado:
-  - tipo: texto
-    rotulo: declaracao
-    face: vermelha
-    texto: "A esquerda aposta no diálogo: o MEC promove a ((justiça restaurativa)), com reparação em vez de punição. [[mec-jr-2023]]"
-  - tipo: texto
-    rotulo: posicao
-    texto: "**Nossa resposta:** firmeza não é violência. Confundir as duas é a desculpa perfeita para não cobrar ninguém. Diálogo sem consequência vira permissividade, e a ciência mostra o estrago. [[baumrind-redalyc]]"
-penseNisso:
-  posicao: Criança precisa de limite. A escola que não dá limite entrega à sociedade um adulto sem limite.
-  pergunta: O que formou a geração dos seus pais, a bagunça ou a exigência?
-  quiz:
-    pergunta: Segundo a ciência, o que funciona melhor para educar?
-    opcoes: ["Deixar a criança livre, sem cobrança", "Bater quando ela errar", "Exigência alta, regras claras e afeto"]
-    correta: 2
-    explicacao: Permissividade e castigo físico pioram os resultados. O que funciona é firmeza com afeto.
-    fontes: [baumrind-redalyc, gershoff-2016]
+  fonte: Estudos de Diana Baumrind
+slides:
+  - tipo: problema
+    frase: Escola sem regra forma adulto sem limite.
+    contexto: "A ciência confirma: criança sem regra e sem cobrança vai pior na escola e tem menos autocontrole. [[baumrind-redalyc]]"
+    mais:
+      titulo: O que a pesquisa mostra
+      blocos:
+        - tipo: texto
+          rotulo: fato
+          texto: Pesquisas sobre como educar crianças mostram que ==ser permissivo faz mal==. Sem regra e sem cobrança, o desempenho cai e o autocontrole some. [[baumrind-redalyc]]
+        - tipo: texto
+          rotulo: fato
+          texto: O que funciona é **exigência alta, regras claras, consequência certa e afeto**, o chamado ((estilo autoritativo|autoritativo)). [[baumrind-redalyc]]
+  - tipo: esquerda
+    frase: Para o patrono da educação, a aula tradicional é “educação bancária”.
+    contexto: Paulo Freire, declarado patrono da educação brasileira em 2012, chamou de “bancária” a escola em que o professor transmite o saber ao aluno. [[freire-1968]] [[lei-12612-2012]]
+    mais:
+      titulo: Nas palavras de Freire
+      blocos:
+        - tipo: citacao
+          face: vermelha
+          texto: Na visão "bancária" da educação, o "saber" é uma doação dos que se julgam sábios aos que julgam nada saber.
+          autor: Paulo Freire, Pedagogia do Oprimido (1968)
+          fontes: [freire-1968]
+        - tipo: texto
+          rotulo: declaracao
+          face: vermelha
+          texto: Hoje, a resposta do MEC à indisciplina é a ((justiça restaurativa)), com diálogo e reparação. [[mec-jr-2023]]
+  - tipo: direita
+    rotulo: A prova
+    frase: No maior teste da história, o ensino tradicional venceu.
+    contexto: Num experimento com 700 mil crianças nos EUA, o ensino direto, com o professor explicando e cobrando, teve o melhor resultado em tudo. [[hattie-di]] [[hattie-2009]]
+  - tipo: direita
+    frase: Firmeza com afeto. Regra clara, consequência certa.
+    contexto: Firmeza não é violência, e bater não educa. Mas sem cobrança também não existe educação. [[gershoff-2016]] [[baumrind-redalyc]]
+  - tipo: fecho
+    frase: Criança precisa de limite. A escola que não dá limite entrega à sociedade um adulto sem limite.

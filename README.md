@@ -6,21 +6,22 @@ Site **de direita**, interativo, mobile-first e 100% estático que mostra, com f
 
 ## Status: protótipo com 1 tema completo
 
-**Tema implementado:** 🎓 *Escola em Ruínas*, com 6 posts em camadas, a moeda **"Disciplina e excelência"**, linha do tempo, Biblioteca de Fontes (44 fontes) e todos os recursos de navegação.
+**Tema implementado:** 🎓 *Escola em Ruínas*, com foco em **conduta**: o professor agredido, o fim da Moral e Cívica, a bagunça na sala de aula. São 8 posts em slides, a moeda **"Disciplina e respeito"**, linha do tempo, Biblioteca de Fontes (53 fontes) e todos os recursos de navegação.
+
+**Formato:** cada post é uma sequência de slides, como um post de Instagram. Cada slide tem uma **frase grande e dura**, um **contexto curto em letra grande** e o botão **"Quero entender melhor"**, que abre o detalhe numa janela por cima, sem sair da página. A sequência típica é: o problema → o que a esquerda fez → a consequência → a visão da direita → nossa posição.
 
 | Recurso | Onde ver |
 |---|---|
-| Feed em Camadas (↑↓ assunto, ←→ profundidade) | `/` e `/e/escola` |
-| Selo de fonte → ficha com trecho, nível e link | qualquer selo `[Fonte ✓]` |
-| Recibo de fontes (6ª camada de cada post) | fim de cada post |
-| Vire a Moeda (giro 3D) + Placar dos Fatos | `/duas-faces/disciplina-excelencia` |
+| Feed de slides (↑ próximo assunto, ← → slides do mesmo assunto) | `/` e `/e/escola` |
+| "Quero entender melhor" (janela que fecha com ✕, "Continuar lendo" ou arrastando) | botão em cada slide |
+| Selo de fonte → ficha com trecho, nível e link (com ← Voltar dentro da janela) | qualquer selo de fonte |
+| Recibo de fontes | "Ver as N fontes", no último slide de cada post |
+| Vire a Moeda (giro 3D) + "Os números" | `/duas-faces/disciplina-excelencia` |
 | Lado a Lado com divisor arrastável | mesma página, em tela larga |
 | Selo ☭ ancorado em fato | botão ☭ na face vermelha (`?simbolo=sempre` ou `desligado` para pré-visualizar) |
 | Orbe + Bússola (busca por texto e voz) | botão dourado; toque longo = voz |
-| Kit Zap (imagem 1080×1350 com a fonte impressa) | camada "Pense nisso" |
+| Kit Zap (imagem 1080×1350 com a fonte impressa) | último slide de cada post |
 | Ouvir (leitura em voz alta) | botão 🔊 em cada post |
-| Modo simples / completo | 2ª tela do "Comece aqui" ou na Bússola |
-| Quiz, Verdadeiro ou Falso, Antes × Agora | posts do tema |
 | Mesa de Investigação (fontes ao vivo) | computador, tela ≥ 1100 px |
 | Linha do tempo, Sua Moeda, Sobre, Correções | pela Bússola |
 
@@ -56,18 +57,32 @@ Todo o conteúdo fica em arquivos YAML, sem código:
 
 | Pasta / arquivo | O que é |
 |---|---|
-| `src/content/posts/*.yaml` | Um assunto = um post com 5 camadas: `capa`, `entenda`, `prova`, `outroLado`, `penseNisso` |
-| `src/content/moedas/*.yaml` | Uma moeda = face `vermelha` + face `azul` + `placar` |
+| `src/content/posts/*.yaml` | Um assunto = um post com 3 a 7 `slides` |
+| `src/content/moedas/*.yaml` | Uma moeda = face `vermelha` (2 a 5 slides) + face `azul` (2 a 5 slides) + `placar` |
 | `src/data/fontes.yaml` | Biblioteca de fontes (id, nível A/B/C, trecho, links) |
 | `src/data/linha-do-tempo.yaml` | Eventos com ano, quem decidiu e fontes |
 | `src/data/glossario.yaml` | Termos explicados em linguagem simples |
 | `src/data/eixos.yaml` | Os 11 temas |
 
+**Um slide:**
+
+```yaml
+- tipo: consequencia            # problema | esquerda | consequencia | direita | fecho (define cor e rótulo)
+  rotulo: No que deu            # opcional: troca o rótulo padrão
+  numero: { valor: 80, sufixo: "%" }   # opcional: número gigante acima da frase
+  frase: dos professores já foram agredidos na escola.   # até 130 caracteres
+  autor: Lula, 2023             # opcional: transforma a frase numa citação literal
+  contexto: E a violência nas escolas mais que triplicou em 10 anos. [[fapesp-violencia-escolas]]   # até 260
+  mais:                         # opcional: o "Quero entender melhor"
+    titulo: Como é a agressão contra o professor
+    blocos: [ ... ]             # texto, lista, destaque, barras, citacao, linha, antesAgora
+```
+
 **Marcações no texto:** `[[id-da-fonte]]` vira selo de fonte · `((termo))` abre o glossário · `**negrito**` · `==marca-texto==`.
 
-**Sem fonte, não compila:** o build falha se uma afirmação factual não tiver fonte, se uma fonte citada não existir ou se um termo não estiver no glossário.
+**Sem fonte, não compila:** o build falha se um slide de fato (`problema`, `esquerda`, `consequencia`, ou qualquer slide com número ou citação) não tiver fonte, se uma fonte citada não existir, se um termo não estiver no glossário ou se a frase ou o contexto passarem do limite de tamanho.
 
-**Blocos disponíveis:** `texto`, `lista`, `destaque`, `barras`, `citacao`, `linha`, `vf` (verdadeiro ou falso), `antesAgora`. Cada bloco aceita `face: vermelha | azul` para mostrar quem fala e `detalhe: true` para aparecer só no modo completo.
+**Blocos do "Quero entender melhor":** `texto`, `lista`, `destaque`, `barras`, `citacao`, `linha`, `antesAgora`. Cada bloco aceita `face: vermelha | azul` para mostrar quem fala, e `rotulo: posicao` marca a opinião do site como "Nossa posição".
 
 ## Tecnologia
 
@@ -81,4 +96,4 @@ Astro 7 (site estático) · TypeScript sem bibliotecas no navegador (cerca de 8 
 | [Protocolo editorial](docs/02-protocolo-editorial.md) | Regras de verdade, fontes, vocabulário jurídico, linguagem, regras eleitorais e das duas faces |
 | [Pautas](docs/03-pautas.md) | Backlog de conteúdo por eixo, com status de verificação |
 | [Duas faces da moeda](docs/04-duas-faces.md) | Valores da direita por tema, com fundamentos, evidências e limites; roteiro da face vermelha |
-| [Educação: disciplina e excelência](docs/05-educacao-disciplina.md) | Pesquisa que embasa o tema implementado |
+| [Educação: disciplina e respeito](docs/05-educacao-disciplina.md) | Pesquisa que embasa o tema implementado |

@@ -2,7 +2,7 @@
 
 > A força deste site é **não poder ser desmentido**. Cada regra abaixo existe para isso.
 
-Este protocolo vale para todo conteúdo: posts, legendas, imagens do Kit Zap, quiz, glossário e respostas da IA.
+Este protocolo vale para todo conteúdo: posts (cada slide e cada "Quero entender melhor"), legendas, imagens do Kit Zap, glossário e respostas da IA.
 
 ---
 

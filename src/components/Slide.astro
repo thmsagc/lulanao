@@ -1,0 +1,87 @@
+---
+/**
+ * Um slide no formato de post de Instagram: frase grande, contexto curto e o botão
+ * "Quero entender melhor", que abre o detalhe numa janela por cima, sem sair da página.
+ */
+import type { Slide } from '../content.config';
+import { carregarConteudo, marcar, seloHTML, idsCitados, textoPuro } from '../lib/conteudo';
+import Bloco from './Bloco.astro';
+
+interface Props {
+  slide: Slide;
+  id: string; // identificador único (para a janela "quero entender melhor")
+  forcarFace?: 'neutra' | 'vermelha' | 'azul';
+  ultimo?: boolean;
+}
+const { slide: s, id, forcarFace, ultimo = false } = Astro.props;
+const c = await carregarConteudo();
+const m = (t: string) => marcar(t, c);
+
+const FACE: Record<Slide['tipo'], 'neutra' | 'vermelha' | 'azul'> = {
+  problema: 'neutra',
+  esquerda: 'vermelha',
+  consequencia: 'neutra',
+  direita: 'azul',
+  fecho: 'azul',
+};
+const ROTULO: Record<Slide['tipo'], string> = {
+  problema: 'O problema',
+  esquerda: 'O que a esquerda fez',
+  consequencia: 'A consequência',
+  direita: 'A visão da direita',
+  fecho: 'Nossa posição',
+};
+const face = forcarFace ?? s.face ?? FACE[s.tipo];
+const rotulo = s.rotulo ?? ROTULO[s.tipo];
+const fontesDoSlide = [...idsCitados(s)];
+const n = s.numero;
+const num = n ? n.valor.toLocaleString('pt-BR', { minimumFractionDigits: n.decimais, maximumFractionDigits: n.decimais }) : '';
+// Sufixo com palavra ("anos", "em 10") vai para a linha de baixo, em letra menor.
+const sufixoLongo = !!n && n.sufixo.trim().length > 2;
+const tamanho = s.frase.length > 80 ? 'longa' : s.frase.length > 45 ? 'media' : 'curta';
+const fontesMais = s.mais ? [...idsCitados(s.mais)] : [];
+---
+<section class={`camada slide t-${face} slide-${s.tipo}`} data-face={face} data-fontes={fontesDoSlide.join(',')} aria-label={rotulo}>
+  <div class="conteudo">
+    <p class="slide-rotulo" data-nao-ler>{rotulo}</p>
+    {n && (
+      <p class:list={['numero-capa', { 'com-sufixo': sufixoLongo }]} aria-label={`${n.prefixo}${num}${n.sufixo}`}>
+        {n.prefixo}<span data-contar data-valor={n.valor} data-decimais={n.decimais}>{num}</span><small class:list={{ longo: sufixoLongo }}>{sufixoLongo ? n.sufixo.trim() : n.sufixo}</small>
+      </p>
+    )}
+    {s.autor ? (
+      <figure class="slide-citacao">
+        <blockquote class={`slide-frase ${tamanho}`} set:html={`“${m(s.frase)}”`} />
+        <figcaption>{s.autor}</figcaption>
+      </figure>
+    ) : (
+      <h2 class={`slide-frase ${tamanho}${n ? ' com-numero' : ''}`} set:html={m(s.frase)} />
+    )}
+    {s.contexto && <p class="slide-contexto" set:html={m(s.contexto)} />}
+    {s.fontes.length > 0 && <p class="slide-fontes" set:html={s.fontes.map((f) => seloHTML(f, c.fontes)).join('')} />}
+    <slot />
+    <div class="slide-acoes" data-nao-ler>
+      {s.mais && (
+        <button type="button" class="botao-mais" data-folha-tpl={`mais-${id}`} aria-haspopup="dialog">
+          Quero entender melhor <span aria-hidden="true">+</span>
+        </button>
+      )}
+      {!ultimo && <button type="button" class="botao-seta" data-ir="proxima" aria-label="Próximo slide">→</button>}
+    </div>
+  </div>
+  {s.mais && (
+    <template id={`mais-${id}`}>
+      <div class="mais">
+        <span class="etiqueta">Quero entender melhor</span>
+        <h3>{s.mais.titulo ?? textoPuro(s.frase)}</h3>
+        {s.mais.blocos.map((b) => <Bloco bloco={b} faceBase="neutra" />)}
+        {fontesMais.length > 0 && (
+          <div class="mais-fontes">
+            <p class="nome-camada">Fontes</p>
+            <p set:html={fontesMais.map((f) => seloHTML(f, c.fontes)).join('')} />
+          </div>
+        )}
+      </div>
+    </template>
+  )}
+</section>

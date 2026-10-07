@@ -1,0 +1,102 @@
+titulo: O professor perdeu o respeito
+eixo: escola
+ordem: 1
+resumo: 80% dos professores já foram agredidos na escola, e 6 em cada 10 têm medo de chamar a atenção de um aluno.
+moeda: disciplina-excelencia
+atualizadoEm: 2026-10-07
+kit:
+  frase: 80% dos professores já foram agredidos na escola. 6 em cada 10 têm medo de repreender um aluno.
+  fonte: Nova Escola e Instituto Ame Sua Mente, 2023
+slides:
+  - tipo: problema
+    numero: { valor: 80, sufixo: "%" }
+    frase: dos professores já foram agredidos na escola.
+    contexto: Xingamento, ameaça, humilhação. Na maioria das vezes, quem agride é o próprio aluno. [[nova-escola-2023]]
+    mais:
+      titulo: Como é a agressão contra o professor
+      blocos:
+        - tipo: barras
+          titulo: Tipo de agressão sofrida pelos professores
+          itens:
+            - { rotulo: "Verbal (xingamento, grito)", valor: 76.1, destaque: true }
+            - { rotulo: Psicológica ou moral, valor: 41.5 }
+          fontes: [nova-escola-2023]
+        - tipo: barras
+          titulo: Quem agride o professor
+          itens:
+            - { rotulo: O próprio aluno, valor: 58.6, destaque: true }
+            - { rotulo: Familiares do aluno, valor: 31.3 }
+          fontes: [nova-escola-2023]
+        - tipo: texto
+          rotulo: dado
+          texto: A pesquisa ouviu 2.752 educadores de escolas públicas e particulares em 2023. [[nova-escola-2023]]
+        - tipo: texto
+          rotulo: dado
+          texto: Nos dados oficiais do Saeb, ==metade dos diretores== diz que já houve agressão verbal ou física de aluno contra professor ou funcionário. [[saeb-2017-iede]]
+  - tipo: problema
+    rotulo: O medo
+    numero: { valor: 6, sufixo: " em 10" }
+    frase: professores têm medo de ser agredidos ao chamar a atenção de um aluno.
+    contexto: Quem deveria impor respeito hoje tem medo de quem deveria respeitá-lo. [[nova-escola-2023]]
+  - tipo: consequencia
+    frase: A violência nas escolas mais que triplicou em 10 anos.
+    contexto: Foram 3.771 casos registrados em 2013. Em 2023, 13.117. [[fapesp-violencia-escolas]]
+    mais:
+      titulo: O Brasil no topo do ranking
+      blocos:
+        - tipo: barras
+          titulo: Casos de violência interpessoal em escolas
+          unidade: ""
+          itens:
+            - { rotulo: "2013", valor: 3771 }
+            - { rotulo: "2023", valor: 13117, destaque: true }
+          fontes: [fapesp-violencia-escolas]
+        - tipo: destaque
+          numero: 1º do mundo
+          texto: em professores intimidados ou xingados toda semana, entre 34 países. Foram 12,5% no Brasil, contra 3,4% de média.
+          fontes: [talis-2013-usp]
+        - tipo: texto
+          rotulo: dado
+          texto: 6 em cada 10 professores dizem que a agressividade dos alunos aumentou. [[nova-escola-2023]]
+  - tipo: esquerda
+    rotulo: A resposta da esquerda
+    frase: Professor apanha. O governo responde com “diálogo”.
+    contexto: O MEC aposta na “justiça restaurativa”, com diálogo, responsabilização e reparação. Para especialistas ouvidos pelo Senado, violência na escola “não é caso de polícia”. [[mec-jr-2023]] [[senado-especialistas]]
+    mais:
+      titulo: O que o governo fez
+      blocos:
+        - tipo: texto
+          rotulo: declaracao
+          face: vermelha
+          texto: Em 2023, o MEC lançou o ciclo “Justiça Restaurativa nas Escolas”, para promover a cultura de paz com “diálogo, responsabilização e reparação dos danos”. [[mec-jr-2023]]
+        - tipo: texto
+          rotulo: fato
+          face: vermelha
+          texto: No mesmo ano, o governo Lula acabou com as escolas cívico-militares federais, com 202 escolas e cerca de 120 mil alunos. [[pecim-poder360]]
+        - tipo: citacao
+          face: vermelha
+          texto: Não é obrigação do MEC cuidar disso.
+          autor: Lula, sobre as escolas cívico-militares
+          contexto: Julho de 2023.
+          fontes: [pecim-sbt-lula]
+  - tipo: direita
+    frase: Respeito não se negocia. Professor é autoridade.
+    contexto: Regra clara, hierarquia e consequência certa para quem passa do limite. Sem violência, e sem desculpa.
+    mais:
+      titulo: Por que firmeza funciona
+      blocos:
+        - tipo: texto
+          rotulo: fato
+          texto: Pesquisas sobre educação mostram que quem une ==exigência alta, regras claras e afeto== forma crianças mais maduras e responsáveis. A permissividade faz o contrário. [[baumrind-redalyc]]
+        - tipo: barras
+          titulo: Ideb 2023 no Paraná, que manteve as cívico-militares
+          unidade: ""
+          itens:
+            - { rotulo: Cívico-militares (anos finais), valor: 5.43, destaque: true }
+            - { rotulo: Rede estadual (anos finais), valor: 5.3 }
+          fontes: [pr-civico-militar]
+        - tipo: texto
+          rotulo: dado
+          texto: No Paraná, 66% das comunidades consultadas aprovaram o modelo cívico-militar. [[pr-345]]
+  - tipo: fecho
+    frase: Quem não aprende a respeitar o professor não vai respeitar ninguém.

@@ -1,53 +1,32 @@
 titulo: Só 9%
 eixo: escola
-ordem: 2
-face: neutra
+ordem: 4
 resumo: De 35 países, o Brasil é o que menos respeita o professor. Só 9% acham que os alunos o respeitam.
 moeda: disciplina-excelencia
 atualizadoEm: 2026-10-07
 kit:
   frase: De 35 países, o Brasil é o que menos respeita o professor. Só 9% acham que o aluno o respeita.
   fonte: Varkey Foundation, 2018
-capa:
-  kicker: Escola em Ruínas
-  numero: { valor: 9, sufixo: "%" }
-  titulo: dos brasileiros acham que o aluno respeita o professor.
-  subtitulo: De 35 países pesquisados, o Brasil é o que menos respeita quem ensina.
-  fontes: [nsc-varkey-2018]
-entenda:
-  - tipo: texto
-    rotulo: dado
-    texto: Uma pesquisa internacional ouviu mais de 35 mil pessoas em 35 países. No prestígio do professor, o Brasil ficou em ==último lugar==. [[nsc-varkey-2018]] [[varkey-gtsi]]
-  - tipo: texto
-    rotulo: dado
-    texto: Não é de agora. Na edição de 2013, o Brasil já estava entre os últimos. [[edweek-2013]]
-prova:
-  - tipo: destaque
-    numero: 1º do mundo
-    texto: em professores intimidados ou xingados toda semana. Foram 12,5% no Brasil, quase 4 vezes a média de 34 países (3,4%).
-    fontes: [talis-2013-usp]
-  - tipo: texto
-    rotulo: dado
-    texto: Hoje, manter a disciplina é fonte de estresse para ==63,8%== dos professores brasileiros. Nos países da OCDE, 44,8%. [[talis-2024]]
-  - tipo: texto
-    rotulo: posicao
-    texto: Professor sem autoridade não ensina. E ninguém quer ser professor num país que não o respeita.
-outroLado:
-  - tipo: citacao
-    face: vermelha
-    texto: Com Temer, Brasil é último no ranking de prestígio do professor.
-    autor: Site oficial do PT
-    contexto: Título publicado pelo partido em 2018.
-    fontes: [pt-temer-varkey]
-  - tipo: texto
-    rotulo: posicao
-    texto: "**O que o PT esqueceu de contar:** em 2013, no governo Dilma, do próprio PT, o Brasil já estava entre os últimos. [[edweek-2013]]"
-penseNisso:
-  posicao: Num país que não respeita o professor, a criança aprende que ninguém precisa ser respeitado.
-  pergunta: Quem não respeita o professor consegue aprender com ele?
-  quiz:
-    pergunta: Em que posição o Brasil ficou no ranking de prestígio do professor de 2018?
-    opcoes: ["1º lugar", "No meio da tabela", "Último lugar"]
-    correta: 2
-    explicacao: O Brasil ficou em último entre 35 países, e só 9% acham que os alunos respeitam o professor.
-    fontes: [nsc-varkey-2018]
+slides:
+  - tipo: problema
+    numero: { valor: 9, sufixo: "%" }
+    frase: dos brasileiros acham que o aluno respeita o professor.
+    contexto: De 35 países pesquisados, o Brasil ficou em último lugar. [[nsc-varkey-2018]]
+    mais:
+      titulo: O último lugar do mundo
+      blocos:
+        - tipo: texto
+          rotulo: dado
+          texto: A pesquisa ouviu mais de 35 mil pessoas em 35 países sobre o prestígio do professor. O Brasil ficou em ==último lugar==. [[nsc-varkey-2018]] [[varkey-gtsi]]
+        - tipo: texto
+          rotulo: dado
+          texto: Na primeira edição, em 2013, o Brasil já estava entre os últimos. [[edweek-2013]]
+  - tipo: esquerda
+    frase: Com Temer, Brasil é último no ranking de prestígio do professor.
+    autor: Site oficial do PT (2018)
+    contexto: "O que o PT não contou: em 2013, no governo Dilma, o Brasil já estava entre os últimos. [[pt-temer-varkey]] [[edweek-2013]]"
+  - tipo: direita
+    frase: Professor é autoridade. E autoridade se respeita.
+    contexto: O respeito começa em casa e se cobra na escola.
+  - tipo: fecho
+    frase: Num país que não respeita o professor, a criança aprende que ninguém precisa ser respeitado.

@@ -18,7 +18,7 @@ const faceDoBloco = 'face' in b && b.face ? b.face : ehPosicao ? 'azul' : 'neutr
 const fala = faceDoBloco !== 'neutra' && faceDoBloco !== faceBase ? faceDoBloco : null;
 const quemFala = fala === 'vermelha' ? '● O que a esquerda diz' : ehPosicao ? '● Nossa posição' : '● O que a direita defende';
 const mostrarRotulo = !(ehPosicao && fala);
-const classes = ['bloco', b.detalhe ? 'detalhe' : '', fala ? `fala t-${fala}` : ''].filter(Boolean).join(' ');
+const classes = ['bloco', fala ? `fala t-${fala}` : ''].filter(Boolean).join(' ');
 
 const maxBarras = b.tipo === 'barras' ? Math.max(...b.itens.map((i) => i.valor)) * 1.08 : 1;
 ---
@@ -90,26 +90,6 @@ const maxBarras = b.tipo === 'barras' ? Math.max(...b.itens.map((i) => i.valor))
         </li>
       ))}
     </ol>
-  </div>
-)}
-
-{b.tipo === 'vf' && (
-  <div class={`${classes} vf`}>
-    <h3 class="titulo-camada" style="font-size:1.35rem">Verdadeiro ou falso?</h3>
-    {b.itens.map((i) => (
-      <div class="vf-cartao" data-vf data-veredito={i.veredito}>
-        <p class="afirmacao">“{i.afirmacao}”</p>
-        <div class="vf-botoes" data-nao-ler>
-          <button type="button" data-resposta="verdadeiro">Verdadeiro</button>
-          <button type="button" data-resposta="falso">Falso</button>
-        </div>
-        <div class="vf-resposta">
-          <span class={`veredito ${i.veredito}`}>{i.veredito === 'verdadeiro' ? '✓ Verdadeiro' : i.veredito === 'falso' ? '✗ Falso' : '≈ Depende'}</span>
-          <span class="acertou-msg" data-acertou data-nao-ler></span>
-          <p set:html={m(i.explicacao) + selos(i.fontes)} />
-        </div>
-      </div>
-    ))}
   </div>
 )}
 

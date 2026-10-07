@@ -558,3 +558,48 @@
   url: https://agenciabrasil.ebc.com.br/educacao/noticia/2025-05/tres-cada-10-brasileiros-sao-analfabetos-funcionais-0
   trecho: "Em 2024, 29% da população brasileira de 15 a 64 anos era analfabeta funcional (cerca de 40 milhões de pessoas). […] Entre os jovens de 15 a 29 anos, o percentual passou de 14% em 2018 para 16% em 2024."
   acessadoEm: "2026-10-07"
+
+- id: nova-escola-2023
+  curto: Nova Escola · 2023
+  tipo: reportagem
+  nivel: B
+  veiculo: Jovem Pan (pesquisa Nova Escola e Instituto Ame Sua Mente)
+  titulo: Oito em cada dez educadores já foram vítimas de agressão no ambiente escolar, mostra pesquisa
+  data: "2023"
+  url: https://jovempan.com.br/brasil/oito-em-cada-dez-educadores-ja-foram-vitimas-de-agressao-no-ambiente-escolar-mostra-pesquisa/
+  trecho: "80% dos professores sofreram algum tipo de agressão no ambiente escolar, com 60% relatando temer por sua integridade física ao repreender algum aluno. A violência verbal foi a mais frequente (76,1%), seguida pela violência psicológica ou moral (41,5%). Seis em cada dez professores notaram aumento da agressividade dos alunos. Os próprios alunos são responsáveis pela maioria das agressões (58,6%), seguidos por familiares (31,3%). A pesquisa ouviu 2.752 educadores."
+  nota: Pesquisa da revista Nova Escola com o Instituto Ame Sua Mente, julho de 2023. Buscar o relatório original.
+  acessadoEm: "2026-10-07"
+
+- id: fapesp-violencia-escolas
+  curto: Revista Fapesp · 2025
+  tipo: reportagem
+  nivel: B
+  veiculo: Revista Pesquisa Fapesp
+  titulo: Violência nas escolas (reportagem de capa)
+  data: "2025-04"
+  url: https://revistapesquisa.fapesp.br/wp-content/uploads/2025/04/012-017_capa-violencia-nas-escolas_350-parte-1.pdf
+  trecho: "O número de ocorrências de 'violência interpessoal' em ambientes escolares saltou de 3.771 em 2013 para 13.117 em 2023."
+  nota: Conferir a base de dados citada na reportagem (notificações do sistema de saúde).
+  acessadoEm: "2026-10-07"
+
+- id: saeb-2017-iede
+  curto: Inep/Saeb · Iede
+  tipo: artigo-academico
+  nivel: B
+  veiculo: Iede (análise dos questionários do Saeb 2017, do Inep)
+  titulo: Ambiente escolar nos questionários do Saeb 2017
+  url: https://portaliede.org.br/wp-content/uploads/2019/04/Ambiente_Escolar_Questionarios_Saeb2017_Iede.pdf
+  trecho: "Metade dos diretores afirma já ter havido agressão verbal ou física de alunos a professores ou funcionários da escola. […] Distrito Federal: 68%."
+  acessadoEm: "2026-10-07"
+
+- id: senado-especialistas
+  curto: Agência Senado
+  tipo: reportagem
+  nivel: B
+  veiculo: Agência Senado
+  titulo: Violência nas escolas não é caso de polícia, afirmam especialistas
+  url: https://www12.senado.leg.br/noticias/especiais/especial-cidadania/violencia-nas-escolas-nao-e-caso-de-policia-afirmam-especialistas
+  trecho: "Violência nas escolas não é caso de polícia, afirmam especialistas"
+  nota: Título da reportagem especial da Agência Senado.
+  acessadoEm: "2026-10-07"

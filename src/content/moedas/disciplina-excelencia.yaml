@@ -1,142 +1,118 @@
-titulo: Disciplina e excelência
+titulo: Disciplina e respeito
 eixo: escola
 pergunta: A escola deve formar com autoridade ou só com conversa?
 atualizadoEm: 2026-10-07
 
 vermelha:
   rotulo: O que a esquerda defende
-  capa:
-    titulo: Escola democrática, aluno no centro, diálogo no lugar da punição.
-    subtitulo: Bonito no papel. Agora veja no que deu.
-    fontes: [mec-jr-2023, freire-1968]
   selo:
     texto: "A política de educação mostrada nesta face é a do governo Lula (PT). Desde 2022, o PT forma a Federação Brasil da Esperança com o PCdoB, o Partido Comunista do Brasil, e os partidos federados atuam como um só no Congresso. A presidente nacional do PCdoB, Luciana Santos, foi nomeada ministra por Lula."
     fontes: [federacao-pt-pcdob, luciana-santos-mcti]
-  entenda:
-    - tipo: citacao
-      face: vermelha
-      texto: Na visão "bancária" da educação, o "saber" é uma doação dos que se julgam sábios aos que julgam nada saber.
-      autor: Paulo Freire, Pedagogia do Oprimido (1968)
-      contexto: Para Freire, a escola tradicional, em que o professor transmite o conteúdo ao aluno, é "educação bancária". Ele foi declarado Patrono da Educação Brasileira por lei em 2012, no governo Dilma.
-      fontes: [freire-1968, lei-12612-2012]
-    - tipo: texto
-      rotulo: declaracao
-      face: vermelha
-      texto: Em 2023, o MEC lançou a ((justiça restaurativa)) nas escolas, para resolver conflitos com ==diálogo, responsabilização e reparação== em vez de punição. [[mec-jr-2023]]
-    - tipo: texto
-      rotulo: fato
-      face: vermelha
-      texto: Para esse campo, a escola deve ser dirigida pela ((gestão democrática)), com a comunidade escolar decidindo junto. [[cf-art206]]
-  prova:
-    - tipo: citacao
-      face: vermelha
-      texto: Não é obrigação do MEC cuidar disso.
-      autor: Lula, sobre as escolas cívico-militares
-      contexto: Julho de 2023, quando o governo acabou com o programa federal (202 escolas e cerca de 120 mil alunos).
-      fontes: [pecim-sbt-lula, pecim-poder360]
-    - tipo: texto
-      rotulo: fato
-      face: vermelha
-      texto: Em 2011, o MEC do governo Dilma mandou a 484 mil alunos um livro que trocava "certo e errado" por "adequado e inadequado". O ministro disse que os críticos não o tinham lido. [[livro-2011-bnews]] [[livro-2011-cef]]
-    - tipo: texto
-      rotulo: declaracao
-      face: vermelha
-      texto: "O argumento que o governo usa: no Datafolha de 2022, encomendado pelas ONGs Cenpec e Ação Educativa, 70% rejeitaram a militarização das escolas. [[datafolha-2022]]"
-  contraponto:
-    titulo: No que deu
-    blocos:
-      - tipo: texto
-        rotulo: dado
-        texto: O professor perde ==21% da aula== só para manter a ordem. Nos países desenvolvidos, 15%. [[talis-2024]]
-      - tipo: texto
-        rotulo: dado
-        texto: ==7 em cada 10== alunos de 15 anos não aprendem o mínimo de matemática. [[pisa-2022]]
-      - tipo: texto
-        rotulo: dado
-        texto: Entre os jovens, o analfabetismo funcional ==piorou==, de 14% em 2018 para 16% em 2024. [[inaf-2024]]
-      - tipo: texto
-        rotulo: dado
-        texto: De 35 países, o Brasil é o que ==menos respeita o professor==. [[nsc-varkey-2018]]
-      - tipo: texto
-        rotulo: posicao
-        face: azul
-        texto: Muito discurso, pouca cobrança. E o resultado está nos números.
+  slides:
+    - tipo: esquerda
+      rotulo: O que a esquerda defende
+      frase: Diálogo no lugar da punição. Aluno no centro.
+      contexto: Bonito no papel. Veja no que deu. [[mec-jr-2023]] [[freire-1968]]
+      mais:
+        titulo: Nas palavras deles
+        blocos:
+          - tipo: citacao
+            face: vermelha
+            texto: Na visão "bancária" da educação, o "saber" é uma doação dos que se julgam sábios aos que julgam nada saber.
+            autor: Paulo Freire, Pedagogia do Oprimido (1968)
+            contexto: Para Freire, a escola tradicional, em que o professor transmite o conteúdo ao aluno, é "educação bancária". Ele foi declarado Patrono da Educação Brasileira em 2012.
+            fontes: [freire-1968, lei-12612-2012]
+          - tipo: texto
+            rotulo: declaracao
+            face: vermelha
+            texto: Em 2023, o MEC lançou a ((justiça restaurativa)) nas escolas, com ==diálogo, responsabilização e reparação==. [[mec-jr-2023]]
+          - tipo: texto
+            rotulo: declaracao
+            face: vermelha
+            texto: "O argumento que o governo usa: no Datafolha de 2022, encomendado pelas ONGs Cenpec e Ação Educativa, 70% rejeitaram a militarização das escolas. [[datafolha-2022]]"
+    - tipo: esquerda
+      rotulo: O que a esquerda fez
+      frase: Não é obrigação do MEC cuidar disso.
+      autor: Lula, ao acabar com as escolas cívico-militares (2023)
+      contexto: Eram 202 escolas e cerca de 120 mil alunos. [[pecim-sbt-lula]] [[pecim-poder360]]
+    - tipo: consequencia
+      rotulo: No que deu
+      numero: { valor: 80, sufixo: "%" }
+      frase: dos professores já foram agredidos na escola.
+      contexto: E a violência nas escolas mais que triplicou em 10 anos. [[nova-escola-2023]] [[fapesp-violencia-escolas]]
+      mais:
+        titulo: No que deu
+        blocos:
+          - tipo: texto
+            rotulo: dado
+            texto: O professor perde ==21% da aula== só para manter a ordem. Nos países desenvolvidos, 15%. [[talis-2024]]
+          - tipo: texto
+            rotulo: dado
+            texto: ==7 em cada 10== alunos de 15 anos não aprendem o mínimo de matemática. [[pisa-2022]]
+          - tipo: texto
+            rotulo: dado
+            texto: De 35 países, o Brasil é o que ==menos respeita o professor==. [[nsc-varkey-2018]]
 
 azul:
   rotulo: O que a direita defende
-  capa:
-    titulo: Firmeza com afeto. Autoridade, disciplina e exigência transformam criança em cidadão.
-    subtitulo: Regra clara, consequência certa, respeito ao professor. Sem violência, e sem desculpa.
-    fontes: [baumrind-redalyc, aristoteles]
-  entenda:
-    - tipo: lista
-      rotulo: valor
-      face: azul
-      titulo: Os valores
-      itens:
-        - "**Autoridade do professor**: a sala de aula não é assembleia."
-        - "**Regra clara, consequência certa**: quem errou assume e repara."
-        - "**Exigência alta**: aprovar quem aprendeu, não quem só frequentou."
-        - "**O básico bem feito**: ler, escrever e contar, com método que funciona."
-        - "**Norma culta**: ensinar o pobre a falar e escrever bem é dar a ele a chave que o rico já tem."
-        - "**Civismo e decoro**: respeito ao outro, aos símbolos e ao lugar."
-    - tipo: citacao
-      face: azul
-      texto: Tornamo-nos justos praticando atos justos, temperantes praticando atos temperantes, corajosos praticando atos corajosos.
-      autor: Aristóteles, Ética a Nicômaco
-      contexto: O caráter se forma pelo hábito. É isso que a escola com rotina e exigência ensina.
-      fontes: [aristoteles]
-    - tipo: texto
-      rotulo: fato
-      face: azul
-      texto: "A família é a primeira escola: a Constituição diz que os pais têm o dever de criar e educar os filhos [[cf-art229]], e o Pacto de San José garante a eles o direito à educação moral dos filhos de acordo com suas próprias convicções. [[pacto-sjose]]"
-  prova:
-    - tipo: texto
-      rotulo: fato
-      face: azul
-      texto: Quem une ==exigência alta, regras claras e afeto== (o ((estilo autoritativo|autoritativo))) forma crianças mais maduras e responsáveis, com melhor desempenho escolar. [[baumrind-redalyc]]
-    - tipo: texto
-      rotulo: fato
-      face: azul
-      texto: No maior experimento educacional da história dos EUA, com cerca de 700 mil crianças, o ==ensino direto e explícito== teve o melhor resultado em todas as medidas, inclusive entre os mais pobres. [[hattie-di]] [[hattie-2009]]
-    - tipo: barras
-      titulo: Ideb 2023 no Paraná, cívico-militares × rede estadual
-      unidade: ""
-      itens:
-        - { rotulo: Cívico-militares (anos finais), valor: 5.43, destaque: true }
-        - { rotulo: Rede estadual (anos finais), valor: 5.3 }
-        - { rotulo: Cívico-militares (ensino médio), valor: 4.75, destaque: true }
-        - { rotulo: Rede estadual (ensino médio), valor: 4.63 }
-      fontes: [pr-civico-militar]
-    - tipo: texto
-      rotulo: dado
-      face: azul
-      texto: O Ceará cobra metas, avalia o tempo todo e premia resultado, e alcançou ==85,3%== das crianças alfabetizadas na idade certa, contra 59,2% no Brasil. [[ceara-ica-2024]]
-  contraponto:
-    titulo: O Brasil está com a gente
-    blocos:
-      - tipo: texto
-        rotulo: dado
-        texto: ==46%== dos brasileiros se colocam à direita. Só 29%, à esquerda. [[datafolha-ideologia-2025]]
-      - tipo: texto
-        rotulo: dado
-        texto: ==62%== apoiam proibir o celular nas escolas, e 76% acham que ele atrapalha o aprendizado. [[datafolha-celular-2024]]
-      - tipo: texto
-        rotulo: dado
-        texto: No Paraná, ==66%== das comunidades consultadas aprovaram o modelo cívico-militar. [[pr-345]]
-      - tipo: texto
-        rotulo: dado
-        texto: Quase metade da população (49%) tem alto grau de conservadorismo. [[ipsos-conservadorismo-2025]]
-      - tipo: texto
-        rotulo: posicao
-        texto: As famílias querem ordem, respeito e resultado. Falta a escola ouvir.
+  slides:
+    - tipo: direita
+      rotulo: O que a direita defende
+      frase: Respeito, ordem e exigência transformam criança em cidadão.
+      contexto: Professor é autoridade. A regra é clara. Quem passa do limite, responde.
+      mais:
+        titulo: Os nossos valores
+        blocos:
+          - tipo: lista
+            rotulo: valor
+            face: azul
+            itens:
+              - "**Autoridade do professor**: a sala de aula não é assembleia."
+              - "**Regra clara, consequência certa**: quem errou assume e repara."
+              - "**Civismo**: deveres, respeito aos símbolos e amor ao Brasil."
+              - "**Exigência alta**: aprovar quem aprendeu, não quem só frequentou."
+              - "**Família**: os pais educam, e a escola reforça."
+          - tipo: citacao
+            face: azul
+            texto: Tornamo-nos justos praticando atos justos, temperantes praticando atos temperantes, corajosos praticando atos corajosos.
+            autor: Aristóteles, Ética a Nicômaco
+            contexto: O caráter se forma pelo hábito. É isso que a escola com rotina e exigência ensina.
+            fontes: [aristoteles]
+          - tipo: texto
+            rotulo: fato
+            face: azul
+            texto: A Constituição diz que os pais têm o dever de criar e educar os filhos [[cf-art229]], e o Pacto de San José garante a eles o direito à educação moral dos filhos de acordo com suas próprias convicções. [[pacto-sjose]]
+    - tipo: direita
+      rotulo: Por que funciona
+      frase: A ciência está do nosso lado.
+      contexto: Exigência alta com regra clara forma crianças mais maduras e responsáveis. E o ensino tradicional venceu o maior teste da história. [[baumrind-redalyc]] [[hattie-di]]
+      mais:
+        titulo: Onde a firmeza ficou, funcionou
+        blocos:
+          - tipo: barras
+            titulo: Ideb 2023 no Paraná, cívico-militares × rede estadual
+            unidade: ""
+            itens:
+              - { rotulo: Cívico-militares (anos finais), valor: 5.43, destaque: true }
+              - { rotulo: Rede estadual (anos finais), valor: 5.3 }
+              - { rotulo: Cívico-militares (ensino médio), valor: 4.75, destaque: true }
+              - { rotulo: Rede estadual (ensino médio), valor: 4.63 }
+            fontes: [pr-civico-militar]
+          - tipo: texto
+            rotulo: dado
+            texto: O Ceará cobra metas, avalia o tempo todo e premia resultado, e alcançou ==85,3%== das crianças alfabetizadas na idade certa, contra 59,2% no Brasil. [[ceara-ica-2024]]
+    - tipo: direita
+      rotulo: O Brasil está com a gente
+      numero: { valor: 46, sufixo: "%" }
+      frase: dos brasileiros se colocam à direita. Só 29%, à esquerda.
+      contexto: E 62% querem o celular fora da escola. No Paraná, 66% das comunidades aprovaram as cívico-militares. [[datafolha-ideologia-2025]] [[datafolha-celular-2024]] [[pr-345]]
 
 placar:
+  - { numero: "80%", texto: "dos professores já foram agredidos na escola.", fontes: [nova-escola-2023] }
+  - { numero: "3×", texto: "a violência nas escolas mais que triplicou em 10 anos (de 3.771 para 13.117 casos).", fontes: [fapesp-violencia-escolas] }
   - { numero: "21%", texto: "da aula vai para manter a ordem. Nos países desenvolvidos, 15%.", fontes: [talis-2024] }
-  - { numero: "7 em 10", texto: "alunos de 15 anos não aprendem o mínimo de matemática.", fontes: [pisa-2022] }
-  - { numero: "40 mi", texto: "de brasileiros são analfabetos funcionais. Entre os jovens, piorou.", fontes: [inaf-2024] }
   - { numero: "9%", texto: "acham que o aluno respeita o professor. Último lugar entre 35 países.", fontes: [nsc-varkey-2018] }
-  - { numero: "12", texto: "redações nota mil no Enem 2024, o menor número da história.", fontes: [enem-2024] }
+  - { numero: "7 em 10", texto: "alunos de 15 anos não aprendem o mínimo de matemática.", fontes: [pisa-2022] }
   - { numero: "46%", texto: "dos brasileiros se colocam à direita. Só 29%, à esquerda.", fontes: [datafolha-ideologia-2025] }
   - { numero: "62%", texto: "querem o celular fora da escola.", fontes: [datafolha-celular-2024] }
   - { numero: "5,43", texto: "foi o Ideb dos cívico-militares do Paraná, contra 5,3 da rede estadual (anos finais, 2023).", fontes: [pr-civico-militar] }

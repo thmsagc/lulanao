@@ -84,24 +84,28 @@ Mostrar, com fontes verificáveis e linguagem que qualquer brasileiro entende:
 - **Horizontal (←→)**: aprofunda o mesmo assunto. Quem quer só o essencial segue para cima; quem quer tudo vai para o lado.
 - **Trilho de progresso** no topo (as barrinhas dos Stories) mostra em que camada a pessoa está e quantas faltam.
 
-### 2.2 As 5 camadas de cada post
+### 2.2 Cada post é uma sequência de slides (formato de post de Instagram)
 
-| # | Camada | Pergunta que responde | Conteúdo típico | Tempo |
-|---|---|---|---|---|
-| 0 | **Capa** | "Do que se trata?" | 1 número ou 1 frase grande + 1 imagem/ilustração + selo de fonte | 5–10 s |
-| 1 | **Entenda** | "Me explica como se eu tivesse 12 anos" | 3–5 frases curtas, com áudio | 30–60 s |
-| 2 | **Prova** | "Cadê o documento?" | Gráfico animado, linha do tempo, trecho de decisão, vídeo com minutagem, rastreio do processo | 1–3 min |
-| 3 | **Outro lado** | "O que dizem os citados/defensores?" | Resposta oficial, argumentos contrários, contexto que não favorece a tese do site | 30–60 s |
-| 4 | **Pense nisso** | "E agora?" | Pergunta de reflexão, quiz de 1 pergunta, **Kit Zap**, posts relacionados | 20 s |
+> **Atualização (outubro de 2026):** as 5 camadas (Capa, Entenda, Prova, Outro lado, Pense nisso) foram trocadas por **slides no formato de post de Instagram**. Cada slide tem **uma frase grande e dura**, um **contexto curto em letra grande** e, quando há mais a dizer, o botão **"Quero entender melhor"**, que abre o detalhe numa janela por cima da página. A janela fecha com ✕, com "Continuar lendo" ou arrastando para baixo, e o leitor volta exatamente para onde estava. Os quizzes e o "Verdadeiro ou Falso" saíram.
 
-> A camada **Outro lado** é obrigatória e é uma arma, não uma concessão: mostra ao leitor que nada foi escondido e deixa os fatos falarem mais alto.
+| Tipo de slide | Cor | Rótulo padrão | O que mostra |
+|---|---|---|---|
+| `problema` | Papel | "O problema" | O fato ou número que dói, com fonte |
+| `esquerda` | Vermelho | "O que a esquerda fez" | A decisão ou a fala da esquerda, de preferência nas palavras dela |
+| `consequencia` | Papel | "A consequência" | O que veio depois, em números, com fonte |
+| `direita` | Azul | "A visão da direita" | O valor da direita que responde ao problema |
+| `fecho` | Azul | "Nossa posição" | A frase final para compartilhar (Kit Zap e "Vire a moeda") |
 
-### 2.3 Modos de leitura (escolhidos na primeira visita)
+Regras do formato:
 
-- **"Me explica rápido"** (Modo Simples): o feed mostra Capa + Entenda, com o áudio em destaque. As camadas profundas ficam a um gesto.
-- **"Quero tudo detalhado"** (Modo Completo): abre direto na camada Prova, com as fontes sempre visíveis.
+- **Frase** com no máximo 130 caracteres e **contexto** com no máximo 260. O build recusa textos maiores.
+- Slides `problema`, `esquerda` e `consequencia`, e qualquer slide com número ou citação, **não compilam sem fonte**.
+- O detalhe (gráficos, linha do tempo, citações, "o que eles dizem e a nossa resposta") fica todo no "Quero entender melhor".
+- Dentro da janela, tocar numa fonte ou num termo abre a ficha por cima, com **← Voltar**.
 
-O modo pode ser trocado a qualquer momento pela Bússola e fica salvo no aparelho (localStorage), sem cadastro.
+### 2.3 Modos de leitura
+
+> **Atualização (outubro de 2026):** o seletor "Modo simples / Modo completo" foi retirado. O próprio formato já resolve: quem quer o essencial lê as frases grandes e segue; quem quer tudo toca em "Quero entender melhor".
 
 ### 2.4 Ordem do feed (sem algoritmo nem servidor)
 
@@ -595,6 +599,8 @@ lulanao/
 ```
 
 ### 10.3 Modelo de conteúdo (resumo dos esquemas)
+
+> **Atualização (outubro de 2026):** o esquema abaixo é a proposta original. O esquema em uso, com posts em slides, está em `src/content.config.ts` e resumido no `README.md`.
 
 **Post** (`src/content/posts/*.mdx`)
 

@@ -3,50 +3,47 @@ import { SITE } from '../config';
 import { carregarConteudo, marcar } from '../lib/conteudo';
 const c = await carregarConteudo();
 interface Props { eixoNome: string; eixoIcone: string; eixoPergunta: string }
-const { eixoNome, eixoIcone, eixoPergunta } = Astro.props;
+const { eixoNome, eixoIcone } = Astro.props;
 ---
 <article class="deck t-neutra" id="p-comece-aqui" data-deck data-slug="" aria-label="Comece aqui">
-  <nav class="trilho" aria-label="Camadas">
-    <button type="button" data-ir-camada="0" class="feito" aria-label="1. Boas-vindas"></button>
-    <button type="button" data-ir-camada="1" aria-label="2. Como funciona"></button>
+  <nav class="trilho" aria-label="Slides">
+    <button type="button" data-ir-camada="0" class="feito" aria-label="Slide 1"></button>
+    <button type="button" data-ir-camada="1" aria-label="Slide 2"></button>
   </nav>
   <div class="topo">
     <span class="eixo">Comece aqui</span>
     <button type="button" class="botao-ouvir" data-ouvir aria-pressed="false"><span aria-hidden="true">🔊</span> Ouvir</button>
   </div>
   <div class="camadas" data-camadas>
-    <section class="camada capa" aria-label="Boas-vindas">
+    <section class="camada slide t-neutra" data-face="neutra" aria-label="Boas-vindas">
       <div class="conteudo">
         <h1 class="intro-marca"><span>Lula</span><span class="nao">Não</span></h1>
-        <p class="intro-lema">{SITE.lema}</p>
-        <p class="subtitulo-capa">Este site tem lado: o da direita. Mostramos o que as decisões da esquerda fizeram com o Brasil, com a fonte de cada frase.</p>
-        <p class="intro-dado" set:html={marcar("==46%== dos brasileiros se colocam à direita. Só 29%, à esquerda. [[datafolha-ideologia-2025]]", c)} />
-        <p class="kicker">Tema de hoje: {eixoIcone} {eixoNome}</p>
-        <div class="acoes" data-nao-ler>
-          <button type="button" class="botao" data-ir="proxima">Como funciona <span aria-hidden="true">→</span></button>
-          <button type="button" class="dica-baixo" data-ir="proximo-deck"><i aria-hidden="true">↑</i> Começar</button>
+        <p class="slide-frase media">{SITE.lema}</p>
+        <p class="slide-contexto">Este site tem lado: o da direita. Mostramos o que a esquerda fez com o Brasil, com a fonte de cada frase.</p>
+        <p class="slide-contexto" set:html={marcar('==46%== dos brasileiros se colocam à direita. Só 29%, à esquerda. [[datafolha-ideologia-2025]]', c)} />
+        <div class="slide-acoes" data-nao-ler>
+          <button type="button" class="botao-mais" data-ir="proximo-deck">Começar <span aria-hidden="true">↓</span></button>
+          <button type="button" class="botao-seta" data-ir="proxima" aria-label="Como funciona">→</button>
         </div>
       </div>
     </section>
-    <section class="camada" aria-label="Como funciona">
+    <section class="camada slide t-neutra" data-face="neutra" aria-label="Como funciona">
       <div class="conteudo">
-        <p class="nome-camada" data-nao-ler>Como funciona</p>
+        <p class="slide-rotulo" data-nao-ler>Como funciona</p>
         <div class="gestos">
-          <div class="gesto"><span class="mao cima" aria-hidden="true"><span>☝</span></span><p><strong>Deslize para cima</strong> para ir ao próximo assunto.</p></div>
-          <div class="gesto"><span class="mao lado" aria-hidden="true"><span>👉</span></span><p><strong>Deslize para o lado</strong> para saber mais sobre o mesmo assunto.</p></div>
-          <div class="gesto"><span class="mao" aria-hidden="true"><span class="selo" style="pointer-events:none"><span>Fonte</span><i>✓</i></span></span><p><strong>Toque no selo</strong> para ver de onde veio cada informação.</p></div>
+          <div class="gesto"><span class="mao cima" aria-hidden="true"><span>☝</span></span><p><strong>Para cima:</strong> próximo assunto.</p></div>
+          <div class="gesto"><span class="mao lado" aria-hidden="true"><span>👉</span></span><p><strong>Para o lado:</strong> mais do mesmo assunto.</p></div>
+          <div class="gesto"><span class="mao" aria-hidden="true"><span>＋</span></span><p><strong>Quero entender melhor:</strong> abre os detalhes sem sair daqui.</p></div>
         </div>
         <div class="legenda-intro">
-          <div><i style="background:var(--esq)"></i><p><strong>Vermelho</strong>: o que a esquerda defende e fez.</p></div>
-          <div><i style="background:var(--dir)"></i><p><strong>Azul</strong>: o que nós defendemos.</p></div>
-          <div><i style="background:var(--papel)"></i><p><strong>Papel</strong>: fatos e dados.</p></div>
+          <div><i style="background:var(--esq)"></i><p><strong>Vermelho:</strong> o que a esquerda fez.</p></div>
+          <div><i style="background:var(--dir)"></i><p><strong>Azul:</strong> o que nós defendemos.</p></div>
+          <div><i style="background:var(--papel)"></i><p><strong>Papel:</strong> fatos e números.</p></div>
         </div>
-        <p class="nome-camada" data-nao-ler>Como você prefere?</p>
-        <div class="escolha-modo" data-nao-ler>
-          <button type="button" class="botao" data-escolher-modo="simples">Me explica rápido<small>O essencial, em poucas palavras, com áudio.</small></button>
-          <button type="button" class="botao vazado" data-escolher-modo="completo">Quero tudo detalhado<small>Todos os dados, gráficos e detalhes.</small></button>
+        <p class="slide-contexto">Tema de hoje: {eixoIcone} {eixoNome}</p>
+        <div class="slide-acoes" data-nao-ler>
+          <button type="button" class="botao-mais" data-ir="proximo-deck">Começar <span aria-hidden="true">↓</span></button>
         </div>
-        <p class="subtitulo-capa" style="font-size:1rem">{eixoPergunta}</p>
       </div>
     </section>
   </div>

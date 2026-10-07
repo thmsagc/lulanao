@@ -1,7 +1,11 @@
 ---
-/** Painel que sobe de baixo: ficha da fonte, glossário, placar dos fatos e selo ☭. */
+/** Janela por cima ("Quero entender melhor", fichas de fonte, glossário, placar). Fecha no ✕, arrastando para baixo, tocando fora ou com Esc. */
 ---
 <dialog class="folha" id="folha" aria-label="Detalhes">
-  <div class="folha-alca" aria-hidden="true"></div>
+  <div class="folha-cabeca">
+    <button type="button" class="folha-voltar" id="folha-voltar" hidden>← Voltar</button>
+    <span class="folha-alca" aria-hidden="true"></span>
+    <button type="button" class="fechar" data-fechar aria-label="Fechar">✕</button>
+  </div>
   <div class="folha-corpo" id="folha-corpo"></div>
 </dialog>

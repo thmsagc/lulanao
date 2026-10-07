@@ -564,6 +564,16 @@ p {
   font-size: 0.42em;
   letter-spacing: -0.02em;
 }
+.numero-capa.com-sufixo {
+  font-size: clamp(5.6rem, 30vw, 9.5rem);
+}
+.numero-capa small.longo {
+  display: block;
+  font-size: 0.34em;
+  line-height: 0.9;
+  margin-top: 0.06em;
+  letter-spacing: -0.01em;
+}
 .titulo-capa {
   font-size: clamp(1.65rem, 7vw, 2.35rem);
   font-weight: 800;
@@ -1090,20 +1100,6 @@ p {
   width: 100%;
   accent-color: var(--ouro);
   height: 32px;
-}
-
-/* Modo simples: esconde detalhes até o leitor pedir */
-:root[data-modo='simples'] .detalhe {
-  display: none;
-}
-:root[data-modo='simples'] .camada.mostrar-detalhes .detalhe {
-  display: flex;
-}
-.ver-detalhes {
-  display: none;
-}
-:root[data-modo='simples'] .camada:not(.mostrar-detalhes) .ver-detalhes {
-  display: inline-flex;
 }
 
 /* ---------- Pense nisso ---------- */
@@ -2364,22 +2360,6 @@ dialog::backdrop {
 .gesto .mao.lado span {
   animation: lado-dedo 1.6s infinite;
 }
-.escolha-modo {
-  display: grid;
-  gap: 10px;
-}
-.escolha-modo .botao {
-  justify-content: flex-start;
-  min-height: 60px;
-  border-radius: 16px;
-  text-align: left;
-}
-.escolha-modo .botao small {
-  display: block;
-  font-weight: 400;
-  font-size: 0.85rem;
-  opacity: 0.85;
-}
 
 /* Aviso flutuante */
 .aviso-toast {
@@ -2458,27 +2438,27 @@ dialog::backdrop {
 @keyframes subir-dedo {
   0% {
     transform: translateY(10px);
-    opacity: 0;
+    opacity: 0.35;
   }
   30% {
     opacity: 1;
   }
   100% {
     transform: translateY(-10px);
-    opacity: 0;
+    opacity: 0.35;
   }
 }
 @keyframes lado-dedo {
   0% {
     transform: translateX(10px);
-    opacity: 0;
+    opacity: 0.35;
   }
   30% {
     opacity: 1;
   }
   100% {
     transform: translateX(-10px);
-    opacity: 0;
+    opacity: 0.35;
   }
 }
 
@@ -2496,4 +2476,273 @@ dialog::backdrop {
 .intro-dado {
   font-size: 1.15rem;
   font-weight: 700;
+}
+
+/* =========================================================
+   SLIDES: formato de post de Instagram
+   Frase grande + contexto curto + "Quero entender melhor"
+   ========================================================= */
+
+.camada.slide {
+  background-color: var(--bg);
+  background-image: var(--grao);
+  color: var(--fg);
+  isolation: isolate;
+}
+.slide .conteudo {
+  gap: 18px;
+}
+.slide-rotulo {
+  align-self: flex-start;
+  margin: 0;
+  font-family: var(--f-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: var(--fg);
+  color: var(--bg);
+}
+.t-vermelha .slide-rotulo {
+  background: var(--esq-preto);
+  color: var(--esq-creme);
+}
+.t-azul .slide-rotulo {
+  background: transparent;
+  color: var(--dir-ouro);
+  border: 1px solid var(--dir-ouro);
+}
+.slide-frase {
+  font-family: var(--f-display);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  margin: 0;
+  font-size: clamp(2.7rem, 12.8vw, 4.6rem);
+  text-wrap: balance;
+}
+.slide-frase.media {
+  font-size: clamp(2.3rem, 10.4vw, 3.8rem);
+}
+.slide-frase.longa {
+  font-size: clamp(1.95rem, 8.6vw, 3.1rem);
+}
+.slide-frase.com-numero {
+  font-size: clamp(1.85rem, 8.2vw, 2.8rem);
+  line-height: 1.05;
+}
+.t-vermelha .slide-frase {
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+.t-azul .slide-frase {
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+  font-variation-settings: 'opsz' 144;
+}
+.slide-citacao {
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+.slide-citacao blockquote {
+  margin: 0;
+}
+.slide-citacao figcaption {
+  font-family: var(--f-mono);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.slide-contexto {
+  margin: 0;
+  font-size: clamp(1.28rem, 5.5vw, 1.6rem);
+  line-height: 1.34;
+  font-weight: 500;
+}
+.slide-fontes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+}
+.slide .selo {
+  font-size: 0.8rem;
+  padding: 6px 6px 6px 11px;
+}
+.slide .selo i {
+  width: 20px;
+  height: 20px;
+  font-size: 0.72rem;
+}
+.slide-acoes {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 4px;
+}
+.botao-mais {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  min-height: 60px;
+  border-radius: 999px;
+  border: 2px solid var(--fg);
+  background: var(--fg);
+  color: var(--bg);
+  font-weight: 800;
+  font-size: clamp(0.94rem, 4.3vw, 1.14rem);
+  letter-spacing: -0.01em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 14px 0 18px;
+  transition: transform 0.15s var(--mola);
+}
+.botao-mais:active,
+.botao-seta:active {
+  transform: scale(0.96);
+}
+.botao-mais span {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 1.25rem;
+  line-height: 1;
+}
+.botao-seta {
+  flex: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid var(--fg);
+  background: transparent;
+  color: var(--fg);
+  font-size: 1.6rem;
+  font-weight: 800;
+  transition: transform 0.15s var(--mola);
+}
+.dica-gesto {
+  margin: 0;
+  font-family: var(--f-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg2);
+}
+/* Slide vermelho: faixa construtivista no rodapé */
+.slide.t-vermelha::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: -30%;
+  right: -30%;
+  top: 90%;
+  height: 40%;
+  background: var(--esq-preto);
+  transform: rotate(-14deg);
+  box-shadow: 0 -12px 0 var(--esq-creme);
+}
+/* Slide azul: filete dourado clássico */
+.slide.t-azul .conteudo {
+  border-top: 1px solid var(--dir-ouro);
+  padding-top: 22px;
+  position: relative;
+}
+.slide.t-azul .conteudo::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 40%;
+  height: 1px;
+  background: var(--dir-ouro);
+}
+.slide .kit .linha-botoes .botao {
+  min-height: 54px;
+}
+
+/* Janela por cima ("Quero entender melhor") */
+.folha {
+  max-height: 92dvh;
+}
+.folha-cabeca {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px 2px;
+  flex: none;
+  min-height: 62px;
+}
+.folha-cabeca .folha-alca {
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  translate: -50% 0;
+  margin: 0;
+}
+.folha-cabeca .fechar {
+  margin-left: auto;
+  width: 48px;
+  height: 48px;
+  background: #e9e3d6;
+  border: 1px solid #d6cdbb;
+  color: var(--tinta);
+  font-size: 1.3rem;
+}
+.folha-voltar {
+  border: 0;
+  background: none;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--tinta);
+  padding: 10px 4px;
+}
+.folha .continuar {
+  margin-top: 6px;
+  background: var(--tinta);
+  color: var(--papel);
+  border-color: var(--tinta);
+  min-height: 56px;
+  font-size: 1.08rem;
+}
+.folha .mais {
+  display: grid;
+  gap: 16px;
+}
+.folha .mais h3 {
+  font-size: 1.65rem;
+}
+.folha .etiqueta {
+  justify-self: start;
+}
+.folha .bloco p,
+.folha .bloco li {
+  font-size: 1.22rem;
+}
+.folha .marca {
+  background-size: 100% 100%;
+}
+.folha .barra .trilha i {
+  transform: scaleX(1);
+}
+.folha .mais-fontes {
+  display: grid;
+  gap: 8px;
+}
+.folha .fala.t-azul,
+.folha .fala.t-vermelha {
+  color: var(--fg);
 }

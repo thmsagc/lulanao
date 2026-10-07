@@ -1,76 +1,84 @@
 titulo: Tiraram o civismo da escola
 eixo: escola
-ordem: 5
-face: neutra
-resumo: Moral e Cívica saiu do currículo em 1993. Em 2023, o governo Lula fechou o programa federal de escolas cívico-militares. Onde o modelo ficou, a nota subiu e as famílias aprovaram.
+ordem: 2
+resumo: Por 24 anos, toda escola ensinou Moral e Cívica. Em 1993, acabou. Em 2023, o governo Lula fechou as escolas cívico-militares federais.
 moeda: disciplina-excelencia
 atualizadoEm: 2026-10-07
 kit:
   frase: 'Lula fechou as escolas cívico-militares federais: "Não é obrigação do MEC cuidar disso."'
   fonte: Poder360 e SBT News, 2023
-capa:
-  kicker: Escola em Ruínas
-  titulo: Tiraram o civismo da escola.
-  subtitulo: Primeiro acabou a Moral e Cívica. Em 2023, o governo Lula fechou as escolas cívico-militares federais, com 202 escolas e 120 mil alunos.
-  fontes: [lei-8663-1993, pecim-poder360]
-entenda:
-  - tipo: texto
-    rotulo: fato
-    texto: Por 24 anos, de 1969 a 1993, toda escola do Brasil ensinou ((Educação Moral e Cívica)) e ((OSPB)), com deveres, civismo e respeito aos símbolos. [[dl-869-1969]] [[emc-anpuh]]
-  - tipo: texto
-    rotulo: fato
-    texto: Em 1993, a obrigação acabou, e as horas foram diluídas em outras matérias. [[lei-8663-1993]] [[emc-anpuh]]
-  - tipo: texto
-    rotulo: fato
-    texto: Em 2019, o governo federal criou as escolas cívico-militares. Em 2023, o governo Lula acabou com o programa. [[pecim-poder360]]
-  - tipo: citacao
-    face: vermelha
-    texto: Não é obrigação do MEC cuidar disso.
-    autor: Lula, sobre as escolas cívico-militares
-    contexto: Julho de 2023.
-    fontes: [pecim-sbt-lula]
-prova:
-  - tipo: barras
-    titulo: Ideb 2023 no Paraná, que manteve o modelo
-    unidade: ""
-    itens:
-      - { rotulo: Cívico-militares (anos finais), valor: 5.43, destaque: true }
-      - { rotulo: Rede estadual (anos finais), valor: 5.3 }
-      - { rotulo: Cívico-militares (ensino médio), valor: 4.75, destaque: true }
-      - { rotulo: Rede estadual (ensino médio), valor: 4.63 }
-    fontes: [pr-civico-militar]
-  - tipo: texto
-    rotulo: dado
-    texto: No Paraná, ==66%== das comunidades consultadas aprovaram o modelo, e o estado chegará a 345 colégios cívico-militares. [[pr-345]]
-  - tipo: texto
-    rotulo: posicao
-    texto: O governo federal fechou um modelo que, onde ficou, deu resultado e tem apoio das famílias.
-  - tipo: linha
-    titulo: Quem decidiu o quê
-    detalhe: true
-    itens:
-      - { ano: "1969", texto: "Moral e Cívica vira matéria obrigatória.", quem: Regime militar, fontes: [dl-869-1969] }
-      - { ano: "1993", texto: "Fim da obrigação.", quem: Governo Itamar Franco, fontes: [lei-8663-1993] }
-      - { ano: "2019", texto: "Criadas as escolas cívico-militares federais.", quem: Governo Bolsonaro, fontes: [pecim-poder360] }
-      - { ano: "2023", texto: "Fim do programa federal.", quem: Governo Lula (PT), face: vermelha, fontes: [pecim-poder360, pecim-sbt-lula] }
-outroLado:
-  - tipo: texto
-    rotulo: declaracao
-    face: vermelha
-    texto: A agência de notícias do governo diz que a escola foi usada pela ditadura para difundir ideologia. [[agenciabrasil-ditadura]]
-  - tipo: texto
-    rotulo: declaracao
-    face: vermelha
-    texto: O governo cita uma pesquisa Datafolha de 2022, encomendada pelas ONGs Cenpec e Ação Educativa, em que 70% rejeitaram a militarização das escolas. [[datafolha-2022]]
-  - tipo: texto
-    rotulo: posicao
-    texto: "**Nossa resposta:** civismo não é ditadura, é respeito. E onde as famílias puderam escolher, como no Paraná, a maioria escolheu disciplina. [[pr-345]]"
-penseNisso:
-  posicao: Uma escola que não ensina deveres forma adultos que só conhecem direitos.
-  pergunta: Ensinar respeito, deveres e amor ao Brasil é doutrinação ou formação?
-  quiz:
-    pergunta: O que Lula disse ao acabar com as escolas cívico-militares federais?
-    opcoes: ["Que iria ampliar o programa", "Que não é obrigação do MEC cuidar disso", "Que cada família deveria escolher"]
-    correta: 1
-    explicacao: '"Não é obrigação do MEC cuidar disso", disse Lula em julho de 2023.'
-    fontes: [pecim-sbt-lula]
+  face: vermelha
+slides:
+  - tipo: problema
+    numero: { valor: 24, sufixo: " anos" }
+    frase: com Moral e Cívica obrigatória em toda escola do Brasil. Deveres, respeito e amor à pátria.
+    contexto: Em 1993, a matéria deixou de ser obrigatória e foi diluída em outras disciplinas. [[lei-8663-1993]] [[emc-anpuh]]
+    mais:
+      titulo: A história da Moral e Cívica
+      blocos:
+        - tipo: texto
+          rotulo: fato
+          texto: Em 1969, um decreto tornou obrigatórias ((Educação Moral e Cívica)) e ((OSPB)) em todas as escolas. [[dl-869-1969]]
+        - tipo: texto
+          rotulo: fato
+          texto: Em 1993, uma lei acabou com a obrigação. As horas foram espalhadas pelas outras matérias. [[lei-8663-1993]] [[emc-anpuh]]
+        - tipo: linha
+          titulo: Quem decidiu o quê
+          itens:
+            - { ano: "1969", texto: "Moral e Cívica vira matéria obrigatória.", quem: Regime militar, fontes: [dl-869-1969] }
+            - { ano: "1993", texto: "Fim da obrigação.", quem: Governo Itamar Franco, fontes: [lei-8663-1993] }
+            - { ano: "2019", texto: "Criadas as escolas cívico-militares federais.", quem: Governo Bolsonaro, fontes: [pecim-poder360] }
+            - { ano: "2023", texto: "Fim do programa federal.", quem: Governo Lula (PT), face: vermelha, fontes: [pecim-poder360, pecim-sbt-lula] }
+  - tipo: esquerda
+    frase: Não é obrigação do MEC cuidar disso.
+    autor: Lula, ao acabar com as escolas cívico-militares (2023)
+    contexto: Eram 202 escolas e cerca de 120 mil alunos. [[pecim-poder360]] [[pecim-sbt-lula]]
+    mais:
+      titulo: O que dizem para justificar
+      blocos:
+        - tipo: texto
+          rotulo: declaracao
+          face: vermelha
+          texto: A agência de notícias do governo diz que a escola foi usada pela ditadura para difundir ideologia. [[agenciabrasil-ditadura]]
+        - tipo: texto
+          rotulo: declaracao
+          face: vermelha
+          texto: O governo cita uma pesquisa Datafolha de 2022, encomendada pelas ONGs Cenpec e Ação Educativa, em que 70% rejeitaram a militarização das escolas. [[datafolha-2022]]
+        - tipo: texto
+          rotulo: posicao
+          texto: "**Nossa resposta:** civismo não é ditadura, é respeito. E onde as famílias puderam escolher, como no Paraná, a maioria escolheu disciplina. [[pr-345]]"
+  - tipo: consequencia
+    frase: Hoje, quem manda na sala de aula é a bagunça.
+    contexto: O professor perde 21% da aula só para manter a ordem. Nos países desenvolvidos, 15%. [[talis-2024]]
+    mais:
+      titulo: A sala de aula sem autoridade
+      blocos:
+        - tipo: barras
+          titulo: Professores "bastante interrompidos" pelos alunos
+          itens:
+            - { rotulo: Brasil, valor: 44, destaque: true }
+            - { rotulo: Média da OCDE, valor: 18 }
+          fontes: [talis-2024]
+        - tipo: texto
+          rotulo: dado
+          texto: De 35 países pesquisados, o Brasil é o que ==menos respeita o professor==. [[nsc-varkey-2018]]
+  - tipo: direita
+    frase: Escola é lugar de aprender deveres, não só direitos.
+    contexto: Civismo, hierarquia e respeito aos símbolos formam o cidadão. No Paraná, 66% das comunidades aprovaram o modelo cívico-militar. [[pr-345]]
+    mais:
+      titulo: Onde o modelo ficou, funcionou
+      blocos:
+        - tipo: barras
+          titulo: Ideb 2023 no Paraná
+          unidade: ""
+          itens:
+            - { rotulo: Cívico-militares (anos finais), valor: 5.43, destaque: true }
+            - { rotulo: Rede estadual (anos finais), valor: 5.3 }
+            - { rotulo: Cívico-militares (ensino médio), valor: 4.75, destaque: true }
+            - { rotulo: Rede estadual (ensino médio), valor: 4.63 }
+          fontes: [pr-civico-militar]
+        - tipo: texto
+          rotulo: dado
+          texto: O Paraná vai chegar a 345 colégios cívico-militares. [[pr-345]]
+  - tipo: fecho
+    frase: Uma escola que não ensina deveres forma adultos que só conhecem direitos.

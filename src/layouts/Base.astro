@@ -24,7 +24,7 @@ const c = await carregarConteudo();
 const dados = jsonSeguro(dadosCliente(c));
 ---
 <!doctype html>
-<html lang="pt-BR" data-simbolo={SITE.simboloComunista} data-modo="simples">
+<html lang="pt-BR" data-simbolo={SITE.simboloComunista}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -48,8 +48,6 @@ const dados = jsonSeguro(dadosCliente(c));
       (function () {
         var raiz = document.documentElement;
         try {
-          var modo = localStorage.getItem('lulanao:modo');
-          if (modo === 'simples' || modo === 'completo') raiz.dataset.modo = modo;
           var p = new URLSearchParams(location.search).get('simbolo');
           if (p === 'sempre' || p === 'ancorado' || p === 'desligado') sessionStorage.setItem('lulanao:simbolo', p);
           var s = sessionStorage.getItem('lulanao:simbolo');

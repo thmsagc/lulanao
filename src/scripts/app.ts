@@ -65,13 +65,29 @@ function aviso(texto: string) {
 
 const folha = document.getElementById('folha') as HTMLDialogElement | null;
 const corpoFolha = document.getElementById('folha-corpo');
+const voltarFolha = document.getElementById('folha-voltar');
+const pilhaFolha: string[] = [];
 
-export function abrirFolha(html: string) {
+/** Abre a janela por cima. Se já estiver aberta e `empilhar` for true, o "← Voltar" retorna ao conteúdo anterior. */
+export function abrirFolha(html: string, empilhar = false) {
   if (!folha || !corpoFolha) return;
-  corpoFolha.innerHTML = html;
+  if (empilhar && folha.open) pilhaFolha.push(corpoFolha.innerHTML);
+  else pilhaFolha.length = 0;
+  corpoFolha.innerHTML = `${html}<button type="button" class="botao continuar" data-fechar>Continuar lendo</button>`;
+  if (voltarFolha) voltarFolha.hidden = pilhaFolha.length === 0;
   if (!folha.open) folha.showModal();
   corpoFolha.scrollTop = 0;
 }
+voltarFolha?.addEventListener('click', () => {
+  if (!corpoFolha) return;
+  const anterior = pilhaFolha.pop();
+  if (anterior !== undefined) corpoFolha.innerHTML = anterior;
+  if (voltarFolha) voltarFolha.hidden = pilhaFolha.length === 0;
+  corpoFolha.scrollTop = 0;
+});
+folha?.addEventListener('close', () => {
+  pilhaFolha.length = 0;
+});
 
 folha?.addEventListener('click', (e) => {
   if (e.target === folha) folha.close();
@@ -116,7 +132,7 @@ function fichaFonte(id: string) {
     ? `<p class="usada">Usada em: ${f.usadaEm.map((u) => `<a href="${esc(u.url)}">${esc(u.titulo)}</a>`).join(', ')}</p>`
     : '';
   return `
-    <div class="folha-topo"><div class="etiquetas">${etiquetas}</div><button type="button" class="fechar" data-fechar aria-label="Fechar">✕</button></div>
+    <div class="etiquetas">${etiquetas}</div>
     <h3>${esc(f.titulo)}</h3>
     <p class="veiculo">${meta}</p>
     <blockquote class="trecho">“${esc(f.trecho)}”</blockquote>
@@ -136,7 +152,7 @@ function fichaTermo(id: string) {
   const t = dados.termos[id];
   if (!t) return '<p>Termo não encontrado.</p>';
   return `
-    <div class="folha-topo"><div class="etiquetas"><span class="etiqueta">Glossário</span></div><button type="button" class="fechar" data-fechar aria-label="Fechar">✕</button></div>
+    <div class="etiquetas"><span class="etiqueta">Glossário</span></div>
     <h3>${esc(t.termo)}</h3>
     <p style="font-size:1.12rem">${esc(t.explicacao)}</p>`;
 }
@@ -146,15 +162,6 @@ function referencia(id: string) {
   const hoje = new Date().toLocaleDateString('pt-BR');
   return `${f.veiculo}. ${f.titulo}.${f.data ? ` ${formatarData(f.data)}.` : ''}${f.url ? ` Disponível em: ${f.url}. Acesso em: ${hoje}.` : ''}`;
 }
-
-/* ---------- Modo de leitura ---------- */
-
-function definirModo(modo: 'simples' | 'completo') {
-  raiz.dataset.modo = modo;
-  guardar.gravar('modo', modo);
-  document.querySelectorAll<HTMLElement>('[data-escolher-modo]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.escolherModo === modo)));
-}
-definirModo((raiz.dataset.modo as 'simples' | 'completo') || 'simples');
 
 /* ---------- Leitura em voz alta ---------- */
 
@@ -239,6 +246,11 @@ function atualizarAntesAgora(aa: HTMLElement, faixa: HTMLInputElement) {
 }
 
 function aoMudarCamada(deck: Deck, camada: HTMLElement) {
+  const face = camada?.dataset.face;
+  if (face && !deck.classList.contains(`t-${face}`) && !deck.classList.contains('face')) {
+    deck.classList.remove('t-neutra', 't-vermelha', 't-azul');
+    deck.classList.add(`t-${face}`);
+  }
   if (!deck.classList.contains('ativo')) return;
   animarContagens(camada);
   animarAntesAgora(camada);
@@ -621,14 +633,15 @@ async function compartilhar(kit: HTMLElement) {
 document.addEventListener('click', async (e) => {
   const alvo = e.target as HTMLElement;
 
+  const dentroDaFolha = !!alvo.closest('#folha');
   const fonte = alvo.closest<HTMLElement>('[data-fonte]');
   if (fonte) {
-    abrirFolha(fichaFonte(fonte.dataset.fonte!));
+    abrirFolha(fichaFonte(fonte.dataset.fonte!), dentroDaFolha);
     return;
   }
   const termo = alvo.closest<HTMLElement>('[data-termo]');
   if (termo) {
-    abrirFolha(fichaTermo(termo.dataset.termo!));
+    abrirFolha(fichaTermo(termo.dataset.termo!), dentroDaFolha);
     return;
   }
   const tpl = alvo.closest<HTMLElement>('[data-folha-tpl]');
@@ -648,14 +661,6 @@ document.addEventListener('click', async (e) => {
     return;
   }
 
-  const modo = alvo.closest<HTMLElement>('[data-escolher-modo]');
-  if (modo) {
-    definirModo(modo.dataset.escolherModo as 'simples' | 'completo');
-    aviso(modo.dataset.escolherModo === 'simples' ? 'Pronto: modo "me explica rápido".' : 'Pronto: modo "quero tudo detalhado".');
-    if (modo.closest('[data-deck]')) irParaDeck(1);
-    return;
-  }
-
   const ir = alvo.closest<HTMLElement>('[data-ir]');
   if (ir) {
     const deck = ir.closest<Deck>('[data-deck]');
@@ -668,44 +673,9 @@ document.addEventListener('click', async (e) => {
     irCamada.closest<Deck>('[data-deck]')?.irPara?.(Number(irCamada.dataset.irCamada));
     return;
   }
-  const detalhes = alvo.closest<HTMLElement>('[data-ver-detalhes]');
-  if (detalhes) {
-    detalhes.closest('.camada')?.classList.add('mostrar-detalhes');
-    return;
-  }
   const ouvir = alvo.closest<HTMLElement>('[data-ouvir]');
   if (ouvir) {
     lerEmVozAlta(ouvir);
-    return;
-  }
-
-  const opcao = alvo.closest<HTMLButtonElement>('[data-opcao]');
-  if (opcao) {
-    const quiz = opcao.closest<HTMLElement>('[data-quiz]');
-    if (!quiz || quiz.classList.contains('respondido')) return;
-    const certa = Number(quiz.dataset.correta);
-    const escolhida = Number(opcao.dataset.opcao);
-    quiz.querySelectorAll<HTMLButtonElement>('[data-opcao]').forEach((b) => {
-      b.disabled = true;
-      if (Number(b.dataset.opcao) === certa) b.classList.add('certa');
-    });
-    if (escolhida !== certa) opcao.classList.add('errada');
-    const res = quiz.querySelector('[data-quiz-resultado]');
-    if (res) res.textContent = escolhida === certa ? '✓ Acertou!' : '✗ Não foi dessa vez.';
-    quiz.classList.add('respondido');
-    navigator.vibrate?.(escolhida === certa ? 20 : [10, 60, 10]);
-    return;
-  }
-
-  const resposta = alvo.closest<HTMLElement>('[data-resposta]');
-  if (resposta) {
-    const cartao = resposta.closest<HTMLElement>('[data-vf]');
-    if (!cartao) return;
-    const acertou = cartao.dataset.veredito === 'depende' || cartao.dataset.veredito === resposta.dataset.resposta;
-    const msg = cartao.querySelector('[data-acertou]');
-    if (msg) msg.textContent = acertou ? 'Você acertou.' : 'Você errou, mas agora sabe.';
-    cartao.classList.add('respondido');
-    navigator.vibrate?.(acertou ? 20 : [10, 60, 10]);
     return;
   }
 

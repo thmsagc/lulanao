@@ -21,7 +21,6 @@ const bloco = z.discriminatedUnion('tipo', [
     rotulo: rotulo.default('fato'),
     face: face.optional(),
     fontes,
-    detalhe: z.boolean().default(false),
   }),
   z.object({
     tipo: z.literal('destaque'),
@@ -29,7 +28,6 @@ const bloco = z.discriminatedUnion('tipo', [
     texto: z.string(),
     face: face.optional(),
     fontes: fontesObrigatorias,
-    detalhe: z.boolean().default(false),
   }),
   z.object({
     tipo: z.literal('barras'),
@@ -37,7 +35,6 @@ const bloco = z.discriminatedUnion('tipo', [
     unidade: z.string().default('%'),
     itens: z.array(z.object({ rotulo: z.string(), valor: z.number(), destaque: z.boolean().default(false) })).min(2),
     fontes: fontesObrigatorias,
-    detalhe: z.boolean().default(false),
   }),
   z.object({
     tipo: z.literal('citacao'),
@@ -46,7 +43,6 @@ const bloco = z.discriminatedUnion('tipo', [
     contexto: z.string().optional(),
     face: face.default('neutra'),
     fontes: fontesObrigatorias,
-    detalhe: z.boolean().default(false),
   }),
   z.object({
     tipo: z.literal('linha'),
@@ -62,7 +58,6 @@ const bloco = z.discriminatedUnion('tipo', [
         }),
       )
       .min(1),
-    detalhe: z.boolean().default(false),
   }),
   z.object({
     tipo: z.literal('lista'),
@@ -71,21 +66,6 @@ const bloco = z.discriminatedUnion('tipo', [
     rotulo: rotulo.default('fato'),
     face: face.optional(),
     fontes,
-    detalhe: z.boolean().default(false),
-  }),
-  z.object({
-    tipo: z.literal('vf'),
-    itens: z
-      .array(
-        z.object({
-          afirmacao: z.string(),
-          veredito: z.enum(['verdadeiro', 'falso', 'depende']),
-          explicacao: z.string(),
-          fontes: fontesObrigatorias,
-        }),
-      )
-      .min(1),
-    detalhe: z.boolean().default(false),
   }),
   z.object({
     tipo: z.literal('antesAgora'),
@@ -94,19 +74,36 @@ const bloco = z.discriminatedUnion('tipo', [
     antes: z.object({ rotulo: z.string(), valor: z.number(), texto: z.string() }),
     agora: z.object({ rotulo: z.string(), valor: z.number(), texto: z.string() }),
     fontes: fontesObrigatorias,
-    detalhe: z.boolean().default(false),
   }),
 ]);
 
 export type Bloco = z.infer<typeof bloco>;
 
-const quiz = z.object({
-  pergunta: z.string(),
-  opcoes: z.array(z.string()).min(2),
-  correta: z.number().int().min(0),
-  explicacao: z.string(),
-  fontes: fontesObrigatorias,
+const numero = z.object({
+  valor: z.number(),
+  decimais: z.number().int().default(0),
+  prefixo: z.string().default(''),
+  sufixo: z.string().default(''),
 });
+
+/**
+ * Slide no formato de post de Instagram: frase grande + contexto curto.
+ * O detalhe fica no botão "Quero entender melhor" (janela por cima, sem sair da página).
+ * tipo define a cor e o rótulo: problema/consequencia = fato (papel),
+ * esquerda = vermelho, direita/fecho = azul (a voz do site).
+ */
+const slide = z.object({
+  tipo: z.enum(['problema', 'esquerda', 'consequencia', 'direita', 'fecho']),
+  face: face.optional(),
+  rotulo: z.string().optional(),
+  numero: numero.optional(),
+  frase: z.string().max(130, 'Frase grande demais: no máximo 130 caracteres.'),
+  autor: z.string().optional(), // se houver, a frase é uma citação literal desta pessoa
+  contexto: z.string().max(260, 'Contexto longo demais: no máximo 260 caracteres.').optional(),
+  fontes,
+  mais: z.object({ titulo: z.string().optional(), blocos: z.array(bloco).min(1) }).optional(),
+});
+export type Slide = z.infer<typeof slide>;
 
 /* ---------- Coleções ---------- */
 
@@ -174,28 +171,10 @@ const posts = defineCollection({
     titulo: z.string(),
     eixo: z.string(),
     ordem: z.number(),
-    face: face.default('neutra'),
     resumo: z.string(),
     moeda: z.string().optional(),
-    kit: z.object({ frase: z.string().max(150), fonte: z.string() }),
-    capa: z.object({
-      kicker: z.string().optional(),
-      numero: z
-        .object({
-          valor: z.number(),
-          decimais: z.number().int().default(0),
-          prefixo: z.string().default(''),
-          sufixo: z.string().default(''),
-        })
-        .optional(),
-      titulo: z.string(),
-      subtitulo: z.string().optional(),
-      fontes: fontesObrigatorias,
-    }),
-    entenda: z.array(bloco).min(1),
-    prova: z.array(bloco).min(1),
-    outroLado: z.array(bloco).min(1),
-    penseNisso: z.object({ posicao: z.string(), pergunta: z.string().optional(), quiz: quiz.optional() }),
+    kit: z.object({ frase: z.string().max(150), fonte: z.string(), face: face.default('neutra') }),
+    slides: z.array(slide).min(3).max(7),
     risco: z.enum(['baixo', 'medio', 'alto']).default('baixo'),
     revisao: z.object({ editorial: z.boolean().default(false), juridica: z.boolean().default(false) }).default({ editorial: false, juridica: false }),
     atualizadoEm: z.coerce.date(),
@@ -204,11 +183,8 @@ const posts = defineCollection({
 
 const faceMoeda = z.object({
   rotulo: z.string(),
-  capa: z.object({ titulo: z.string(), subtitulo: z.string().optional(), fontes: fontesObrigatorias }),
   selo: z.object({ texto: z.string(), fontes: fontesObrigatorias }).optional(),
-  entenda: z.array(bloco).min(1),
-  prova: z.array(bloco).min(1),
-  contraponto: z.object({ titulo: z.string(), blocos: z.array(bloco).min(1) }),
+  slides: z.array(slide).min(2).max(5),
 });
 
 const moedas = defineCollection({

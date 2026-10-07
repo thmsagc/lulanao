@@ -1,56 +1,44 @@
 titulo: Encheram as salas, esvaziaram o ensino
 eixo: escola
-ordem: 4
-face: neutra
+ordem: 7
 resumo: O Brasil colocou quase todas as crianças na escola e esqueceu de ensinar. Hoje, 7 em cada 10 alunos de 15 anos não aprendem o mínimo de matemática.
 moeda: disciplina-excelencia
 atualizadoEm: 2026-10-07
 kit:
   frase: O Brasil encheu as salas e esvaziou o ensino. 7 em cada 10 alunos não aprendem o mínimo de matemática.
   fonte: IBGE; OCDE, PISA 2022
-capa:
-  kicker: Escola em Ruínas
-  titulo: Encheram as salas. Esvaziaram o ensino.
-  subtitulo: Quase todas as crianças estão na escola. E 7 em cada 10 não aprendem o mínimo de matemática.
-  fontes: [escolarizacao, pisa-2022]
-entenda:
-  - tipo: texto
-    rotulo: dado
-    texto: Em 1970, só ==67%== das crianças de 7 a 14 anos estavam na escola. [[escolarizacao]]
-  - tipo: texto
-    rotulo: dado
-    texto: Em 2005, já eram ==96%==. A escola abriu as portas. [[escolarizacao]]
-  - tipo: texto
-    rotulo: posicao
-    texto: Abrir as portas foi certo. O erro foi baixar o padrão para caber todo mundo.
-prova:
-  - tipo: antesAgora
-    titulo: Crianças de 7 a 14 anos na escola
-    antes: { rotulo: "1970", valor: 67, texto: 1 em cada 3 fora da escola }
-    agora: { rotulo: "2005", valor: 96, texto: quase todas dentro da escola }
-    fontes: [escolarizacao]
-  - tipo: barras
-    titulo: Alunos de 15 anos que não aprenderam o mínimo de matemática
-    itens:
-      - { rotulo: Brasil, valor: 73, destaque: true }
-      - { rotulo: Países desenvolvidos (OCDE), valor: 31 }
-    fontes: [pisa-2022]
-  - tipo: texto
-    rotulo: dado
-    texto: E dentro da sala, ==21% da aula== vai para manter a ordem. Nos países da OCDE, 15%. [[talis-2024]]
-outroLado:
-  - tipo: texto
-    rotulo: contexto
-    texto: Vão dizer que é saudade de quem viveu outra época. Há até um estudo mostrando que adultos tendem a achar as crianças de hoje piores do que eram. [[protzko-2019]] [[protzko-popsci]]
-  - tipo: texto
-    rotulo: posicao
-    texto: "**Não é saudade. É número.** Comparado com os outros países hoje, o Brasil está no fim da fila em disciplina e em aprendizado. [[talis-2024]] [[pisa-2022]]"
-penseNisso:
-  posicao: Escola para todos, sim. Mas com o padrão de antes, com ordem, exigência e respeito.
-  pergunta: Por que não podemos ter as duas coisas?
-  quiz:
-    pergunta: Quantos alunos brasileiros de 15 anos não aprendem o mínimo de matemática?
-    opcoes: ["2 em cada 10", "5 em cada 10", "7 em cada 10"]
-    correta: 2
-    explicacao: São 73%, segundo o PISA 2022. Nos países desenvolvidos, 31%.
-    fontes: [pisa-2022]
+slides:
+  - tipo: problema
+    frase: Encheram as salas. Esvaziaram o ensino.
+    contexto: Em 1970, 1 em cada 3 crianças estava fora da escola. Hoje quase todas estão dentro, e 7 em cada 10 não aprendem o mínimo de matemática. [[escolarizacao]] [[pisa-2022]]
+    mais:
+      titulo: Mais gente na escola, menos ensino
+      blocos:
+        - tipo: antesAgora
+          titulo: Crianças de 7 a 14 anos na escola
+          antes: { rotulo: "1970", valor: 67, texto: 1 em cada 3 fora da escola }
+          agora: { rotulo: "2005", valor: 96, texto: quase todas dentro da escola }
+          fontes: [escolarizacao]
+        - tipo: barras
+          titulo: Alunos de 15 anos que não aprendem o mínimo de matemática
+          itens:
+            - { rotulo: Brasil, valor: 73, destaque: true }
+            - { rotulo: Países desenvolvidos (OCDE), valor: 31 }
+          fontes: [pisa-2022]
+  - tipo: consequencia
+    frase: Não é saudade. É número.
+    contexto: Comparado com os outros países hoje, o Brasil está no fim da fila em disciplina e em aprendizado. [[talis-2024]] [[pisa-2022]]
+    mais:
+      titulo: Vão dizer que é saudosismo
+      blocos:
+        - tipo: texto
+          rotulo: contexto
+          texto: Há um estudo mostrando que adultos tendem a achar as crianças de hoje piores do que eram. [[protzko-2019]] [[protzko-popsci]]
+        - tipo: texto
+          rotulo: posicao
+          texto: "**Nossa resposta:** por isso comparamos o Brasil com outros países hoje, e não com a memória. Hoje, o professor brasileiro perde 21% da aula com bagunça, contra 15% lá fora. [[talis-2024]]"
+  - tipo: direita
+    frase: Escola para todos, sim. Com o padrão de antes.
+    contexto: Ordem, exigência e respeito não são privilégio. São o que todo aluno merece.
+  - tipo: fecho
+    frase: Abrir as portas foi certo. Baixar o padrão foi o erro.
