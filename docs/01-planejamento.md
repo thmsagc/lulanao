@@ -1,0 +1,660 @@
+# Planejamento completo — lulanao.com.br
+
+> **Fatos com fonte. Conclusão sua.**
+
+Documento-mestre do projeto. Define o conceito, a experiência, a navegação, a identidade visual, a tecnologia, o recurso de IA, a publicação gratuita na Cloudflare e o cronograma.
+
+Documentos irmãos:
+
+- [`02-protocolo-editorial.md`](02-protocolo-editorial.md): regras de verdade, fontes, linguagem e segurança jurídica. **Leitura obrigatória antes de escrever qualquer conteúdo.**
+- [`03-pautas.md`](03-pautas.md): backlog de conteúdo por eixo, com fatos já levantados, fontes iniciais e status de verificação.
+
+---
+
+## 0. Resumo em 1 minuto
+
+| | |
+|---|---|
+| **O que é** | Um "feed" interativo, no formato de posts de rede social desenhados por designers, que mostra **o que Lula, o PT e seu entorno defendem e fizeram**, além das **investigações** que os envolveram. Cada afirmação traz a fonte a um toque de distância. |
+| **Para quem** | Do eleitor com pouca escolaridade, que usa um Android simples e se informa pelo WhatsApp, ao leitor cético que quer ver o documento original. |
+| **Grande ideia** | **O Feed em Camadas**: deslizar para cima leva ao próximo assunto, e deslizar para o lado aprofunda o mesmo assunto (10 segundos, 1 minuto, prova, outro lado, reflexão). Cada pessoa escolhe até onde quer ir. |
+| **Diferencial** | As fontes são o centro do site, e não uma nota de rodapé. Cada frase tem um **selo de fonte**; cada post tem um **recibo de fontes**; o site tem uma **Biblioteca de Fontes** pesquisável. O lema interno é: *sem fonte, não compila* (o site nem é gerado se faltar fonte). |
+| **Sem cabeçalho/rodapé** | A navegação toda acontece por gestos e por um **Orbe** flutuante (a "Bússola"), com busca por voz. |
+| **Tecnologia** | Site 100% estático (Astro + ilhas Svelte + GSAP), publicado de graça na Cloudflare. Sem banco de dados. A IA opcional usa uma função serverless gratuita da própria Cloudflare. |
+| **Tom** | Firme, sem xingamento. Mostra fatos, compara, pergunta. Quem tira a conclusão é o leitor. É isso que dá credibilidade e proteção jurídica. |
+
+---
+
+## 1. Missão, público e princípios
+
+### 1.1 Missão
+
+Mostrar, com fontes verificáveis e linguagem que qualquer brasileiro entende:
+
+1. **O que o campo político de Lula defende**: propostas, votações, declarações, decisões de governo e de aliados, em temas como educação, segurança e direito de defesa, família e fé, espaços femininos, raça e cotas, civismo, política externa e economia do dia a dia.
+2. **O estado das coisas**: dados que medem o descaso (aprendizado, alfabetização, violência contra professores, patrimônio público).
+3. **Tudo o que Lula e pessoas diretamente ligadas a ele foram investigados**, com o status jurídico exato de cada caso: investigado, denunciado, réu, condenado, absolvido, anulado, prescrito ou arquivado. Sem imputar crime a ninguém, mas sem deixar nada escondido.
+
+### 1.2 Personas (para quem desenhamos)
+
+| Persona | Perfil | O que precisa | Como o site atende |
+|---|---|---|---|
+| **Dona Cida, 61** | Ensino fundamental, Android de entrada, plano pré-pago, WhatsApp "ilimitado" | Entender em segundos; ouvir em vez de ler; mandar para a família | Camada "10 segundos", botão **Ouvir**, **Kit Zap** (imagem pronta com a fonte impressa) |
+| **Rogério, 38** | Motorista de aplicativo, ensino médio, lê nos intervalos | Coisas curtas, números que dá para comparar | Números traduzidos ("isso dá X escolas"), posts de 1 minuto, "continuar de onde parei" |
+| **Pastor Elias, 50** | Líder comunitário, repassa conteúdo para grupos | Material confiável e pronto para repassar sem passar vergonha | Kit Zap, recibo de fontes, selo "verificado em DD/MM" |
+| **Júlia, 23** | Universitária e cética | Documento original, contexto, o outro lado | Camadas "Prova" e "Outro lado", Biblioteca de Fontes, versões arquivadas |
+| **O adversário** | Jornalista ou militante procurando um erro | Um deslize para desacreditar tudo | Protocolo editorial rígido, errata pública e status jurídico exato. O site precisa **aguentar escrutínio**. |
+
+> O "adversário" é a persona mais importante para a qualidade: se o site resiste a ele, convence todos os outros.
+
+> **Insight brasileiro:** milhões de usuários pré-pagos têm WhatsApp sem custo de dados, mas pagam para abrir links. Por isso a mensagem precisa viajar **dentro** do WhatsApp (imagem e texto com a fonte impressa), e não só como link.
+
+### 1.3 Princípios
+
+1. **Verdade verificável**: nenhuma frase sem fonte, nenhum status jurídico impreciso.
+2. **Simples primeiro, profundo sob demanda**: cada assunto começa com uma frase e um número e termina no documento original.
+3. **Mostrar, não xingar**: criticar ideias, políticas e atos, nunca pessoas por quem elas são.
+4. **Celular de entrada primeiro**: tem que ser rápido num celular de R$ 600 com 4G fraco.
+5. **Compartilhável por natureza**: cada tela é uma peça pronta para circular, e a fonte vai junto.
+6. **Transparência radical**: errata pública, data de atualização, expediente com responsável identificado.
+
+---
+
+## 2. O conceito: o Feed em Camadas
+
+### 2.1 A grande ideia: navegação em duas dimensões
+
+```
+                 ↑  próximo assunto
+                 │
+   ┌─────────────┼─────────────────────────────────────────────────────┐
+   │  CAPA  →  ENTENDA  →  PROVA  →  OUTRO LADO  →  PENSE NISSO        │  ← post atual
+   │  10 s       1 min      dados     contraponto     pergunta + kit    │     (deslize →
+   └─────────────┼─────────────────────────────────────────────────────┘      para aprofundar)
+                 │
+                 ↓  assunto anterior
+```
+
+- **Vertical (↑↓)**: muda de assunto, como no Reels/TikTok/Stories. Todo mundo já sabe usar.
+- **Horizontal (←→)**: aprofunda o mesmo assunto. Quem quer só o essencial segue para cima; quem quer tudo vai para o lado.
+- **Trilho de progresso** no topo (as barrinhas dos Stories) mostra em que camada a pessoa está e quantas faltam.
+
+### 2.2 As 5 camadas de cada post
+
+| # | Camada | Pergunta que responde | Conteúdo típico | Tempo |
+|---|---|---|---|---|
+| 0 | **Capa** | "Do que se trata?" | 1 número ou 1 frase grande + 1 imagem/ilustração + selo de fonte | 5–10 s |
+| 1 | **Entenda** | "Me explica como se eu tivesse 12 anos" | 3–5 frases curtas, com áudio | 30–60 s |
+| 2 | **Prova** | "Cadê o documento?" | Gráfico animado, linha do tempo, trecho de decisão, vídeo com minutagem, rastreio do processo | 1–3 min |
+| 3 | **Outro lado** | "O que dizem os citados/defensores?" | Resposta oficial, argumentos contrários, contexto que não favorece a tese do site | 30–60 s |
+| 4 | **Pense nisso** | "E agora?" | Pergunta de reflexão, quiz de 1 pergunta, **Kit Zap**, posts relacionados | 20 s |
+
+> A camada **Outro lado** é obrigatória e é uma arma, não uma concessão: mostra ao leitor que nada foi escondido e deixa os fatos falarem mais alto.
+
+### 2.3 Modos de leitura (escolhidos na primeira visita)
+
+- **"Me explica rápido"** (Modo Simples): o feed mostra Capa + Entenda, com o áudio em destaque. As camadas profundas ficam a um gesto.
+- **"Quero tudo detalhado"** (Modo Completo): abre direto na camada Prova, com as fontes sempre visíveis.
+
+O modo pode ser trocado a qualquer momento pela Bússola e fica salvo no aparelho (localStorage), sem cadastro.
+
+### 2.4 Ordem do feed (sem algoritmo nem servidor)
+
+- **"Comece aqui"**: sequência curada de 7 posts que apresenta o site e os eixos.
+- Depois, o feed **alterna eixos** (educação, casos, segurança...) para não cansar.
+- **Continuar de onde parei**, **Salvos** e **Já vi** ficam guardados no aparelho.
+- Quem chega por um link compartilhado cai direto no post. Ao terminar, recebe "mais deste tema" e depois volta ao feed geral.
+
+---
+
+## 3. Navegação sem cabeçalho nem rodapé
+
+### 3.1 O Orbe e a Bússola
+
+Um único botão flutuante (o **Orbe**) fica na zona do polegar, embaixo e ao centro. Ele substitui o menu, o cabeçalho e o rodapé.
+
+- **Toque**: abre a **Bússola**, uma tela cheia com os eixos em ícones grandes e coloridos, além de Buscar, Pergunte, Linha do Tempo, Teia, Fontes e Salvos.
+- **Toque longo**: **busca por voz** ("fale o que você quer saber"). É essencial para quem tem dificuldade de digitar.
+- **Arrastar o Orbe para cima**: atalho para a Biblioteca de Fontes do post atual.
+- O Orbe "respira" (animação sutil) só nas primeiras visitas, para ensinar que ele existe.
+
+```
+┌────────────────────────────┐        ┌────────────────────────────┐
+│ ▬▬▬ ▭▭▭ ▭▭▭ ▭▭▭ ▭▭▭        │        │  BÚSSOLA            ✕      │
+│ 🛡 DIREITO DE DEFESA        │        │                            │
+│                            │        │  🎤 Fale ou digite...       │
+│          63,94%            │        │                            │
+│                            │        │  🕵 Os Casos   🎓 Escola    │
+│   dos eleitores disseram   │        │  🛡 Defesa     👪 Família   │
+│   NÃO à proibição da venda │        │  ♀ Mulher     ⚖ Iguais     │
+│   de armas, em 2005.       │        │  🇧🇷 Orgulho   🌎 Lá Fora   │
+│                 [TSE ✓]    │        │  👥 Com Quem  💰 Seu Bolso  │
+│                            │        │                            │
+│  🔊 Ouvir        Entenda → │        │  ⏱ Linha do tempo  🕸 Teia  │
+│                            │        │  📚 Fontes   💬 Pergunte    │
+│            ( ◉ )           │        │  🔖 Salvos   ⚙ Modo simples│
+└────────────────────────────┘        └────────────────────────────┘
+   Tela de capa de um post                 Bússola (toque no Orbe)
+```
+
+### 3.2 Gestos, com alternativas sempre visíveis
+
+| Gesto | Ação | Alternativa sem gesto |
+|---|---|---|
+| Deslizar ↑ / ↓ | Próximo / anterior assunto | Setas discretas na borda; teclado ↑↓ |
+| Deslizar → / ← | Aprofundar / voltar camada | Botão "Entenda →"; teclado →← |
+| Tocar no selo `[fonte ✓]` | Abre a ficha da fonte (painel de baixo) | Botão "Fontes" no fim de cada camada |
+| Toque longo no Orbe | Busca por voz | Campo de busca na Bússola |
+| Tocar numa palavra sublinhada | Glossário ("o que é *réu*?") | Página Glossário |
+
+**Tutorial de 3 segundos** na primeira visita: uma mão animada mostra "↑ próximo assunto" e "→ saber mais". Pode ser pulado e não volta a aparecer.
+
+### 3.3 No computador: a "Mesa de Investigação"
+
+No desktop, o feed vira uma coluna central (como um celular) e as laterais ganham função:
+
+```
+┌──────────────────┬──────────────────────────┬────────────────────────┐
+│  EIXOS / MAPA    │                          │  FONTES DESTE TRECHO   │
+│  ● Os Casos      │     [ post atual em      │  ┌──────────────────┐  │
+│  ○ Escola        │       formato celular ]  │  │ TSE — Resultado   │  │
+│  ○ Defesa        │                          │  │ do Referendo 2005 │  │
+│  ...             │     ← → camadas          │  │ ver original ↗    │  │
+│                  │     ↑ ↓ assuntos         │  │ ver arquivado ↗   │  │
+│  Linha do tempo  │                          │  └──────────────────┘  │
+│  ▁▂▃▅▇ (mini)    │                          │  (atualiza conforme    │
+│                  │                          │   a leitura avança)    │
+└──────────────────┴──────────────────────────┴────────────────────────┘
+```
+
+As fontes acompanham a leitura em tempo real: é a experiência do leitor cético.
+
+### 3.4 Endereços curtos e compartilháveis
+
+| Rota | Conteúdo |
+|---|---|
+| `/` | Feed (começa em "Comece aqui" ou onde parou) |
+| `/p/{slug}` | Post (abre na camada Capa; `?c=2` abre direto na Prova) |
+| `/e/{eixo}` | Feed filtrado por eixo |
+| `/caso/{id}` | Dossiê do caso, com Rastreio do Processo |
+| `/pessoa/{id}` | Ficha da pessoa: cargos, vínculo com Lula (com fonte) e casos com status |
+| `/fontes` | Biblioteca de Fontes |
+| `/fontes/{id}` | Ficha de uma fonte e todos os posts que a usam |
+| `/linha-do-tempo` | Linha do tempo interativa |
+| `/teia` | Teia de conexões |
+| `/pergunte` | Pergunta Aí (perguntas guiadas e IA) |
+| `/glossario` | Glossário em linguagem simples |
+| `/sobre` | Missão, expediente (responsável), protocolo editorial, contato |
+| `/errata` | Todas as correções e atualizações, com data |
+
+---
+
+## 4. Formatos-assinatura (componentes interativos)
+
+São as "peças de designer" que dão identidade ao site. Cada post usa um ou mais destes formatos na camada Prova.
+
+| # | Formato | O que faz | Exemplo de uso |
+|---|---|---|---|
+| 1 | **Rastreio do Processo** | Mostra a vida de um caso judicial como o rastreio de uma encomenda: cada etapa com data, órgão e fonte | Triplex: denúncia → condenação → prisão → anulação → prescrição |
+| 2 | **A Teia** | Mapa interativo de pessoas, empresas, cargos e operações. Cada linha é um fato documentado ("foi ministro de", "foi tesoureiro de"), com fonte e status | Entorno de Lula nos casos Mensalão, Lava Jato e INSS |
+| 3 | **Linha do Tempo Viva** | Do 1980 a hoje, com zoom e filtros por eixo; governos ao fundo como faixas coloridas | "O que aconteceu na educação de 2003 a 2026" |
+| 4 | **Placar** | Resultado de votação, referendo ou pesquisa, animado por estado | Referendo 2005; votações nominais na Câmara |
+| 5 | **Disse × Fez** | Declaração (com vídeo e minutagem) lado a lado com um ato ou dado | Promessa de campanha × preço medido pelo IBGE |
+| 6 | **Quanto Custa?** | Converte valores enormes em coisas concretas: salários mínimos, cestas básicas, escolas, ambulâncias. Os custos unitários também têm fonte | "R$ X bilhões = Y escolas novas" |
+| 7 | **Antes × Agora** | Controle deslizante comparando dados (ou fotos licenciadas) de dois momentos | Indicadores educacionais ao longo dos anos |
+| 8 | **Verdadeiro ou Falso?** | Cartas para deslizar (→ verdadeiro, ← falso). Cada resposta revela a fonte. **Inclui boatos dos dois lados**, o que dá credibilidade | "Lula foi absolvido no caso do triplex?" (Resposta: não, foi anulado e depois prescreveu) |
+| 9 | **Raio-X do Documento** | Trecho de documento oficial (decisão, plano de governo, decreto) com marca-texto animado nas partes importantes e link para o PDF | Plano de governo registrado no TSE; decreto de armas de 2023 |
+| 10 | **Mapa do Brasil** | Mapa por estado com dados oficiais | Alfabetização por estado (Indicador Criança Alfabetizada) |
+| 11 | **Quem Decidiu?** | Etiqueta que mostra, sem ambiguidade, quem tomou cada decisão: Presidente/Executivo, Ministério, STF, Congresso, Estado/Município, PT ou aliado | Evita atribuir a Lula o que foi do STF (e vice-versa) |
+| 12 | **Contagem Viva** | Números que "sobem" ao entrar na tela, com comparação ("4 vezes a média") | TALIS: 12,5% contra 3,4% |
+
+### 4.1 Dois exemplos completos (storyboards)
+
+**A) "O povo disse NÃO" (eixo Direito de Defesa)**
+
+| Camada | Tela |
+|---|---|
+| Capa | **63,94%** sobe na tela: "dos eleitores votaram NÃO à proibição da venda de armas, em 2005." Selo `[TSE ✓]` |
+| Entenda | "Em 2005, o Brasil votou num referendo. A pergunta: *o comércio de armas e munição deve ser proibido?* A maioria disse NÃO. A venda continuou permitida." 🔊 |
+| Prova | **Placar** por estado + **Linha do Tempo**: 2003, Estatuto do Desarmamento sancionado; 2005, referendo; 2019–2022, decretos que flexibilizam; 2023, decretos que voltam a restringir. Cada marco com fonte. |
+| Outro lado | "Quem defende mais restrições argumenta que..." (com fonte de pesquisadores e entidades dessa posição). "Atenção: o referendo tratava só da **venda**, e não do Estatuto inteiro." |
+| Pense nisso | "Se a maioria disse NÃO à proibição da venda, regras que dificultam o acesso respeitam essa decisão? O que você acha?" + quiz + Kit Zap |
+
+> Repare na precisão: o referendo foi sobre o artigo 35 (proibição do comércio), e não sobre o Estatuto inteiro. Dizer isso corretamente **fortalece** o argumento e tira munição de quem quiser desmentir.
+
+**B) "Triplex: o que aconteceu de verdade" (eixo Os Casos)**
+
+```
+TRIPLEX DO GUARUJÁ — rastreio do processo          (datas a confirmar nas fontes primárias)
+● 2016  Denunciado pelo MPF ..................................... [fonte]
+● 2017  Condenado em 1ª instância (9 anos e 6 meses) ............ [fonte]
+● 2018  Condenado em 2ª instância — TRF4 (12 anos e 1 mês) ...... [fonte]
+● 2018  Preso. Ficou 580 dias ................................... [fonte]
+● 2019  STJ mantém a condenação e reduz a pena .................. [fonte]
+● 2019  Solto após o STF mudar o entendimento sobre 2ª instância  [fonte]
+◆ 2021  STF anula: o caso deveria ter corrido em Brasília ........ [fonte]
+◆ 2021  STF declara o juiz Sergio Moro parcial ................... [fonte]
+○ 2021–22 Em Brasília: prescrição (prazo cai pela metade
+          para maiores de 70) → caso arquivado ................... [fonte]
+     ╰─▶  ANULADO não é o mesmo que INOCENTADO.
+          O mérito (se houve ou não crime) não foi julgado de novo.
+```
+
+- **Outro lado**: a defesa sustenta que houve perseguição (lawfare); o STF reconheceu a parcialidade do juiz; houve as mensagens reveladas em 2019 ("Vaza Jato"). Tudo com fonte.
+- **Pense nisso**: "A Justiça não condenou nem absolveu de novo. O tempo acabou. O que você conclui?"
+
+---
+
+## 5. As fontes: o coração do site
+
+### 5.1 Peças do sistema de fontes
+
+| Peça | Onde aparece | O que mostra |
+|---|---|---|
+| **Selo de fonte** `[Folha ✓]` | Ao lado de cada afirmação | Tocar abre a **ficha da fonte** num painel de baixo, sem sair do post |
+| **Ficha da fonte** | Painel de baixo / página `/fontes/{id}` | Veículo, título, autor, data, **trecho literal** citado, tipo, nível de confiabilidade, link original, **link arquivado**, "copiar referência" e posts que usam a fonte |
+| **Recibo de fontes** | Fim de cada post | Lista numerada de todas as fontes do post, no estilo cupom fiscal, com o resumo: "9 fontes · 4 documentos oficiais · 5 veículos diferentes · verificado em 07/10/2026" |
+| **Biblioteca de Fontes** | `/fontes` | Todas as fontes do site, com busca e filtros: eixo, tipo (decisão judicial, dado oficial, reportagem...), veículo, ano. Mostra estatísticas de transparência |
+| **Selos de confiança** | Na ficha | `DOCUMENTO OFICIAL` · `DECISÃO JUDICIAL` · `DADO DO PRÓPRIO GOVERNO` · `NOTICIADO POR VEÍCULOS DE LINHAS DIFERENTES` |
+
+> **Selo "Dado do próprio governo"**: quando o dado vem do MEC, do Inep, do IBGE ou do Portal da Transparência, isso é destacado. É a fonte mais difícil de contestar.
+
+### 5.2 Fontes que não somem
+
+- Todo link de fonte tem uma **versão arquivada** (Wayback Machine / archive.today), gerada por script no momento em que a fonte é cadastrada.
+- Um robô semanal (GitHub Actions, gratuito) verifica links quebrados e abre um alerta.
+- Paywall: a ficha mostra o trecho literal citado, e o leitor não precisa assinar o jornal para conferir o essencial.
+
+### 5.3 Medir a "taxa de checagem"
+
+Indicador exclusivo do site: **quantas pessoas abriram pelo menos uma fonte**. Sem script de rastreamento, os cliques em "ver original" passam por uma rota estática `/ir/{fonte}` que redireciona na hora e aparece como visualização no Cloudflare Web Analytics (que não usa cookies).
+
+---
+
+## 6. Arquitetura de informação
+
+### 6.1 Os 10 eixos
+
+| # | Eixo | Pergunta central | Ícone/cor |
+|---|---|---|---|
+| 1 | **Os Casos** | Do que Lula e pessoas diretamente ligadas a ele foram investigados, e como cada caso terminou? | 🕵 vermelho-brasa |
+| 2 | **Com Quem Andas** | O que os aliados (ministros, partidos da base, movimentos) defendem e como votam? | 👥 laranja |
+| 3 | **Escola em Ruínas** | O que aconteceu com o aprendizado, a disciplina e o respeito ao professor? | 🎓 amarelo |
+| 4 | **Direito de Defesa** | O povo votou contra a proibição da venda de armas. O que foi feito desde então? E a segurança pública? | 🛡 azul-anil |
+| 5 | **Família e Fé** | Qual o lugar da família e da fé nas propostas e decisões (aborto, drogas, gênero na escola)? | 👪 verde |
+| 6 | **Espaço da Mulher** | Esporte, presídios, vestiários: sexo biológico ou identidade de gênero? O que foi decidido e por quem? | ♀ magenta |
+| 7 | **Iguais Perante a Lei** | Cotas raciais, bancas de heteroidentificação: como funcionam e o que dizem os dois lados? | ⚖ violeta |
+| 8 | **Orgulho de Ser Brasileiro** | Símbolos, civismo, patrimônio público: o que se perdeu? | 🇧🇷 verde e amarelo |
+| 9 | **O Brasil Lá Fora** | Com quais regimes o governo se alinha e o que disse sobre eles? Quanto o BNDES emprestou lá fora e quanto voltou? | 🌎 turquesa |
+| 10 | **No Seu Bolso** | Impostos, preços, gastos do governo: o que mudou no dia a dia? | 💰 ouro |
+
+### 6.2 Entidades que atravessam os eixos
+
+- **Casos**: cada investigação ou processo, com etapas e status.
+- **Pessoas**: cargos, períodos, vínculo com Lula (documentado) e casos.
+- **Fontes**: a biblioteca.
+- **Linha do tempo**: eventos com data, eixo e fonte, gerados automaticamente a partir dos posts, casos e pessoas.
+- **Glossário**: termos jurídicos e técnicos em linguagem simples (réu, denúncia, delação premiada, prescrição, anulação, foro, STF, TRF...).
+
+---
+
+## 7. Identidade visual e movimento
+
+### 7.1 Conceito visual: "Documento Vivo"
+
+A estética mistura **papel de documento** com **design de post de rede social**:
+
+- **Fundo papel** (claro) ou **noite** (escuro), com textura sutil de grão.
+- **Marca-texto amarelo** que "passa" sobre as frases-chave quando elas entram na tela.
+- **Carimbos** para status jurídico (`ANULADO`, `PRESCRITO`, `CONDENADO EM 2ª INSTÂNCIA`, `ARQUIVADO`), que "batem" na tela com um pequeno tremor.
+- **Recortes de jornal** com borda rasgada para as fichas de fonte.
+- **Fios vermelhos** de quadro de investigação na Teia.
+- **Tipografia cinética**: números e palavras grandes que se expandem, usando o eixo de largura da fonte variável.
+
+Não usamos cards padrão, grades de blog nem barras de menu. Cada tela é uma **composição** pensada como peça de designer.
+
+### 7.2 Paleta (tokens)
+
+| Token | Uso | Valor inicial |
+|---|---|---|
+| `--papel` | Fundo claro | `#F3EFE6` |
+| `--noite` | Fundo escuro | `#0B0E13` |
+| `--tinta` | Texto principal (claro) | `#14171C` |
+| `--giz` | Texto principal (escuro) | `#F2F2EE` |
+| `--ouro` | Destaque e marca-texto | `#FFC72C` |
+| `--verde` | Verificado / dado oficial | `#009C3B` |
+| `--anil` | Navegação e links | `#1F4FD8` (claro) / `#7FA6FF` (escuro) |
+| `--brasa` | Alertas | `#E5484D` |
+
+**Cores de status jurídico** (sempre acompanhadas de ícone e texto, nunca só a cor, por causa do daltonismo):
+
+| Status | Cor | Ícone |
+|---|---|---|
+| Citado (delação/reportagem) | cinza `#8A8F98` | 💬 |
+| Investigado / indiciado | âmbar `#F5A524` | 🔍 |
+| Denunciado / réu | laranja `#F97316` | ⚖ |
+| Condenado (indicar a instância) | vermelho `#E5484D` | ⛓ |
+| Absolvido | verde-água `#12A594` | ✓ |
+| Anulado | roxo `#8E4EC6` | ⊘ |
+| Prescrito / arquivado | ardósia `#64748B` | ⌛ |
+
+> Todos os pares de cor serão validados para contraste WCAG AA (4,5:1 para texto) nos dois temas.
+
+### 7.3 Tipografia (todas gratuitas, licença OFL, hospedadas no próprio site)
+
+| Papel | Fonte | Por quê |
+|---|---|---|
+| Títulos e números | **Archivo** (variável, eixo de largura) | Impacto de pôster; o eixo de largura permite animar palavras "esticando" |
+| Texto | **Atkinson Hyperlegible Next** | Criada para máxima legibilidade, ideal para baixa visão e baixa escolaridade |
+| Fontes, datas, carimbos | **JetBrains Mono** ou **IBM Plex Mono** | Ar de documento, protocolo, processo |
+
+Texto do corpo com no mínimo 18 px no celular e títulos de capa entre 48 e 96 px.
+
+### 7.4 Princípios de movimento
+
+1. **Movimento com significado**: anima para explicar (número subindo, etapa do processo acendendo, marca-texto destacando) e nunca para enfeitar.
+2. **Rápido**: 200–450 ms nas transições; nada atrasa a leitura.
+3. **Respeita o usuário**: com `prefers-reduced-motion` ou no Modo Economia, as animações viram transições simples.
+4. **Nativo primeiro**: rolagem com *scroll-snap* do CSS, transições com a View Transitions API e animações por rolagem em CSS onde o navegador suporta. A GSAP entra no que o CSS não faz.
+
+**Catálogo de micro-interações:** contagem viva; marca-texto; carimbo; "virar a página" ao abrir a ficha da fonte; vibração leve (Vibration API, Android) ao acertar o quiz; brilho no selo de fonte na primeira vez que aparece; transição de "zoom" do selo para a ficha.
+
+### 7.5 Acessibilidade (WCAG 2.2 AA como piso)
+
+- Alvos de toque de pelo menos 48×48 px; tudo navegável por teclado e leitor de tela.
+- Ícone sempre com texto; nenhuma informação transmitida só por cor.
+- Botão **Ouvir** em todo post (leitura em voz alta).
+- Busca por voz.
+- **Modo Economia de Dados**: detectado automaticamente pelo cabeçalho `Save-Data` / `prefers-reduced-data` ou ativado manualmente. Desliga vídeos e animações pesadas e baixa imagens menores.
+
+---
+
+## 8. Linguagem para quem tem pouca instrução (sem subestimar ninguém)
+
+Regras de redação (detalhes no protocolo):
+
+- **Uma ideia por tela.** Frases com até 15 palavras. Voz ativa ("O STF anulou", e não "Foi anulado pelo STF").
+- **Palavras do dia a dia.** Sigla só com explicação: "STF (o tribunal mais alto do país)".
+- **Número sempre com comparação**: "12,5%, quase 4 vezes a média dos outros países".
+- **Termos jurídicos com glossário embutido**: "réu" sublinhado explica "pessoa que responde a um processo; ainda não foi julgada".
+- **Falar com "você".**
+- **Áudio** em todos os posts. Na fase 1, voz do próprio navegador (`speechSynthesis`, gratuita e offline). Na fase 3, narração humana gravada nos 20 posts principais.
+- **Teste real**: antes de publicar, ler o post para alguém do público-alvo e perguntar "o que você entendeu?".
+
+---
+
+## 9. IA: "Pergunta Aí"
+
+### 9.1 Por que em fases
+
+Uma IA que responde sobre política em ano eleitoral pode errar, inventar ou ser usada para gerar frases fora de contexto. Isso destruiria a credibilidade do site e geraria risco jurídico. Por isso a IA entra em degraus:
+
+| Fase | O que é | Custo | Risco |
+|---|---|---|---|
+| **A: Perguntas guiadas** (sem IA) | Botões com as perguntas mais comuns ("Lula foi absolvido?", "O que foi o Mensalão?") que levam a respostas prontas e revisadas por humanos + busca por texto e voz no conteúdo do site (Pagefind) | Zero | Zero |
+| **B: IA ancorada no site (RAG)** | A pessoa pergunta com as próprias palavras. A IA responde **somente com base no conteúdo já publicado e verificado do site**, sempre com selos de fonte. Se não houver base, responde "ainda não verificamos isso" e sugere posts próximos | Gratuito dentro da cota diária | Baixo, com as travas abaixo |
+| **C: "Checar boato"** | A pessoa cola uma mensagem recebida no WhatsApp; a IA separa o que **tem** respaldo nas fontes do site, o que **contradiz** as fontes e o que **não temos como verificar** | Mesma cota | Baixo, com as travas |
+
+### 9.2 Como funciona (fase B), sem "backend" para manter
+
+"Sem backend" continua valendo no espírito: não há servidor nem banco de dados para administrar. O único detalhe é que a chave da IA não pode ficar no navegador (seria roubada), então usamos **uma função serverless da própria Cloudflare** (Worker), gratuita e sem manutenção.
+
+```
+[Celular] ──pergunta + verificação anti-robô (Turnstile)──▶ [Worker /api/pergunta]
+    ▲                                                        │ 1. valida Turnstile + limite por minuto
+    │                                                        │ 2. busca os trechos mais relevantes do SITE
+    │                                                        │    (índice vetorial gerado no deploy)
+    │                                                        │ 3. Workers AI escreve a resposta SÓ com esses trechos
+    │                                                        │ 4. confere: toda frase tem [fonte]? senão → "não sei"
+    └────────────── resposta curta + selos de fonte ◀────────┘
+```
+
+- **Índice**: no deploy, um script divide posts e fichas de fonte em trechos, gera *embeddings* (modelo multilíngue do Workers AI) e grava no Vectorize (índice vetorial da Cloudflare).
+- **Modelo**: um modelo aberto do catálogo Workers AI com bom português. Escolher por teste comparativo com 30 perguntas reais.
+- **Cota gratuita**: o Workers AI dá 10.000 "neurons"/dia no plano gratuito, o que dá na ordem de **dezenas a poucas centenas de respostas por dia**, dependendo do modelo. Para estender:
+  - as 50–100 perguntas mais comuns viram **respostas prontas estáticas** (custo zero);
+  - respostas repetidas ficam em **cache**;
+  - quando a cota acaba, o site volta automaticamente para a Fase A.
+
+### 9.3 Travas obrigatórias (prompt de sistema e validação)
+
+1. Responder **apenas** com base nos trechos recuperados; proibido usar "conhecimento próprio".
+2. Toda frase factual termina com o identificador de fonte; frase sem fonte é removida antes de exibir.
+3. Usar exatamente o vocabulário de status jurídico do protocolo; nunca chamar alguém de criminoso sem condenação definitiva.
+4. **Nunca recomendar voto nem ranquear candidatos.** As regras do TSE para 2026 proíbem sistemas de IA de sugerir em quem votar.
+5. Não simular a fala de nenhuma pessoa real.
+6. Resposta em até 120 palavras, linguagem simples, com botões "explica mais simples" e "quero o detalhe".
+7. **Rótulo visível**: "Resposta gerada por inteligência artificial a partir do conteúdo verificado deste site. Confira as fontes."
+8. Registro anônimo das perguntas sem resposta (sem dados pessoais) para virar **sugestão de pauta**.
+
+> Recomendação: lançar a fase B **depois de revisão jurídica**, e não durante as últimas 72 horas antes da votação.
+
+---
+
+## 10. Arquitetura técnica
+
+### 10.1 Stack
+
+| Camada | Escolha | Por quê |
+|---|---|---|
+| Gerador do site | **Astro** (última versão estável), saída 100% estática | HTML pronto, quase zero JavaScript por padrão, ótimo em celular fraco; *Content Collections* com validação de esquema |
+| Componentes interativos | **Svelte 5** como "ilhas" | Runtime minúsculo, transições nativas, ótimo para animação |
+| Animação | **GSAP 3** (ScrollTrigger, Flip, SplitText, Observer, Draggable, hoje 100% gratuitos) + CSS moderno (*scroll-snap*, animações por rolagem, View Transitions) | O melhor do mercado, com o nativo do navegador cuidando do pesado |
+| Ilustrações animadas | **Rive** (ou Lottie) | Arquivos leves, animações interativas com estados |
+| Teia | **Sigma.js + graphology**, com o layout calculado no build | WebGL rápido; o celular não precisa calcular a posição dos nós |
+| Gráficos | SVG gerado **no build** a partir dos dados e animado no cliente | Zero custo de JS para desenhar; nítido em qualquer tela |
+| Busca | **Pagefind** | Busca estática, índice fatiado (baixa pouco), suporte a português |
+| Imagens | Astro Assets (sharp): AVIF/WebP responsivo | Leve para planos de dados limitados |
+| Imagens para compartilhar | **Satori + resvg** no build | Gera automaticamente as imagens do Kit Zap e de prévia (Open Graph) de cada post |
+| App instalável / offline | **PWA** (@vite-pwa/astro) | "Adicionar à tela inicial", leitura offline dos salvos |
+| Estilo | CSS moderno com *design tokens* (camadas, container queries, `:has`, `oklch`) | Visual autoral, sem cara de template |
+| Qualidade | TypeScript, ESLint, Prettier, Playwright, axe (acessibilidade), Lighthouse CI | Evita regressões |
+| Hospedagem | **Cloudflare** (Workers com Static Assets, ou Pages) | Gratuito, CDN global, proteção anti-DDoS inclusa |
+| IA (fase B/C) | Cloudflare Worker + Workers AI + Vectorize + Turnstile | Tudo no plano gratuito |
+| Métricas | Cloudflare Web Analytics | Gratuito, sem cookies, compatível com a LGPD |
+
+### 10.2 Estrutura do repositório (proposta)
+
+```
+lulanao/
+├─ docs/                         planejamento, protocolo, pautas
+├─ src/
+│  ├─ content/
+│  │  ├─ posts/                  *.mdx  (um post = um assunto com 5 camadas)
+│  │  ├─ fontes/                 *.yaml (uma ficha por fonte)
+│  │  ├─ pessoas/                *.yaml
+│  │  ├─ casos/                  *.yaml (etapas do processo + status)
+│  │  ├─ eixos/                  *.yaml
+│  │  ├─ glossario/              *.yaml
+│  │  └─ quiz/                   *.yaml
+│  ├─ content.config.ts          esquemas (Zod): "sem fonte, não compila"
+│  ├─ components/
+│  │  ├─ feed/                   Feed2D, Tela, TrilhoProgresso
+│  │  ├─ navegacao/              Orbe, Bussola, BuscaVoz
+│  │  ├─ fontes/                 SeloFonte, FichaFonte, ReciboFontes
+│  │  ├─ formatos/               RastreioProcesso, Teia, LinhaDoTempo, Placar,
+│  │  │                          DisseFez, QuantoCusta, AntesAgora,
+│  │  │                          VerdadeiroFalso, RaioXDocumento, MapaBrasil
+│  │  └─ acessibilidade/         ModoOuvir, Glossario, ModoEconomia
+│  ├─ layouts/
+│  ├─ pages/                     rotas do item 3.4
+│  ├─ styles/                    tokens.css, base.css, movimento.css
+│  └─ lib/                       status-juridico.ts, numeros.ts, datas.ts
+├─ scripts/
+│  ├─ arquivar-fontes.ts         gera links arquivados
+│  ├─ gerar-kit-zap.ts           imagens 1080×1350 e 1080×1920 por post
+│  ├─ gerar-teia.ts              calcula o layout da teia
+│  ├─ indexar-ia.ts              (fase B) embeddings → Vectorize
+│  └─ checar-links.ts
+├─ worker/                       (fase B) API /api/pergunta
+├─ public/
+└─ wrangler.jsonc                configuração Cloudflare
+```
+
+### 10.3 Modelo de conteúdo (resumo dos esquemas)
+
+**Post** (`src/content/posts/*.mdx`)
+
+```yaml
+titulo: "O povo disse NÃO"
+slug: referendo-2005
+eixo: direito-de-defesa
+gancho: "63,94% votaram NÃO à proibição da venda de armas."   # ≤ 90 caracteres
+resumo10s: "Em 2005, a maioria votou contra proibir a venda de armas."
+formatos: [placar, linha-do-tempo]
+quemDecidiu: [povo-referendo, executivo]
+pessoas: [lula]
+casos: []
+afirmacoes:                     # cada afirmação PRECISA de ao menos 1 fonte
+  - texto: "63,94% dos votos válidos foram NÃO."
+    tipo: dado                  # fato | dado | declaracao | contexto | opiniao-do-site
+    fontes: [tse-referendo-2005-resultado]
+contraponto:
+  texto: "Defensores de mais restrições argumentam que..."
+  fontes: [fonte-x]
+perguntaReflexao: "Regras que dificultam o acesso respeitam o resultado do referendo?"
+risco: baixo                    # baixo | medio | alto (alto exige revisão jurídica)
+atualizadoEm: 2026-10-07
+revisadoPor: ["editor", "juridico"]
+```
+
+**Fonte** (`src/content/fontes/*.yaml`)
+
+```yaml
+id: tse-referendo-2005-resultado
+tipo: dado-oficial        # decisao-judicial | documento-oficial | dado-oficial | reportagem |
+                          # entrevista-video | artigo-academico | checagem | declaracao-oficial
+nivel: A                  # A (primária/oficial) | B (imprensa profissional) | C (complementar)
+veiculo: "Tribunal Superior Eleitoral"
+titulo: "Referendo 2005 — resultado"
+data: 2005-10-23
+url: "https://..."
+urlArquivo: "https://web.archive.org/..."
+trecho: "texto literal citado"
+localizador: "p. 3" | "12:41"   # página ou minutagem
+acessadoEm: 2026-10-07
+```
+
+**Caso** (`src/content/casos/*.yaml`): nome, operação, período, acusação em linguagem simples, envolvidos (cada um com papel e **status individual**), `etapas[]` (data, tipo, órgão, fonte), `statusAtual`, `oQueSeSabe`, `oQueNaoSeSabe`, `oQueDizADefesa`.
+
+**Pessoa** (`src/content/pessoas/*.yaml`): nome, cargos (com período e fonte), partido, **vínculo com Lula descrito como fato documentado** ("foi ministro da Casa Civil de 2003 a 2005"), casos.
+
+**Validação no build**: o esquema Zod faz o build **falhar** se algum post tiver uma afirmação sem fonte, um status jurídico fora do vocabulário, um post de risco "alto" sem revisão jurídica ou uma fonte sem link arquivado.
+
+### 10.4 Orçamento de desempenho
+
+| Métrica | Meta (celular de entrada, 4G lento) |
+|---|---|
+| JavaScript inicial | ≤ 90 KB comprimido |
+| Peso da primeira tela | ≤ 500 KB |
+| LCP | ≤ 2,0 s |
+| CLS | < 0,05 |
+| INP | < 200 ms |
+| Lighthouse (Performance, Acessibilidade, Boas práticas, SEO) | ≥ 95 |
+
+Técnicas: ilhas carregadas só quando visíveis, fontes com subconjunto latino, imagens AVIF, prefetch do próximo post do feed e *service worker* para leituras repetidas.
+
+### 10.5 Compartilhamento: o **Kit Zap**
+
+Cada post gera automaticamente, no build:
+
+- **Imagem de feed** (1080×1350) e **imagem de status/stories** (1080×1920) com a mensagem principal, a fonte impressa ("Fonte: TSE, 2005") e o endereço curto `lulanao.com.br/p/...`;
+- **Texto pronto** para colar, com a fonte e o link;
+- Botão **"Mandar no WhatsApp"** (Web Share API, com `wa.me` como alternativa);
+- Prévia de link (Open Graph) desenhada, e não a genérica.
+
+> Princípio: **a fonte viaja junto com a mensagem.** Quem recebe o print sem abrir o link continua vendo de onde veio o dado.
+
+### 10.6 Privacidade e segurança
+
+- **Sem cookies e sem coleta de dados pessoais**: salvos e preferências ficam só no aparelho. Página de privacidade simples.
+- Cabeçalhos de segurança (CSP restritiva, HSTS, `X-Content-Type-Options`, `Referrer-Policy`) via arquivo `_headers`.
+- Nenhum script de terceiros além da métrica da Cloudflare.
+- **Autenticação em 2 fatores** em GitHub, Cloudflare e Registro.br; **DNSSEC** ativado; branch `main` protegida.
+- Site estático é muito difícil de "hackear": não há banco nem login. A proteção anti-DDoS da Cloudflare (gratuita) cobre ataques de tráfego, que são comuns em sites políticos.
+
+---
+
+## 11. Publicação gratuita na Cloudflare (passo a passo)
+
+1. **Conta Cloudflare** (plano Free) → *Add a site* → `lulanao.com.br`. A Cloudflare mostra **2 nameservers**.
+2. **Registro.br** → seu domínio → *Alterar servidores DNS* → colar os 2 nameservers da Cloudflare. A propagação leva de minutos a 48 h.
+3. **DNSSEC**: ativar na Cloudflare e copiar o registro DS para o Registro.br.
+4. **Deploy**: *Workers & Pages* → *Create* → importar o repositório do GitHub (`thmsagc/lulanao`). Build: `npm run build`; saída: `dist`. A cada `git push` na `main`, o site é publicado sozinho; outros branches geram endereços de pré-visualização.
+5. **Domínio**: adicionar `lulanao.com.br` e `www.lulanao.com.br`; regra de redirecionamento `www` → domínio principal.
+6. **HTTPS**: SSL "Full (strict)" (automático), *Always Use HTTPS*, HSTS.
+7. **E-mail grátis**: *Email Routing* → `contato@lulanao.com.br` e `correcoes@lulanao.com.br` encaminhados para o seu e-mail pessoal (para direito de resposta e correções).
+8. **Métricas**: ativar *Web Analytics*.
+9. **Proteção**: *Bot Fight Mode*, regras gerenciadas do WAF (gratuitas) e, na fase B, limite de requisições para `/api/pergunta` + Turnstile.
+
+**Limites do plano gratuito** (conferidos em out/2026): arquivos estáticos com requisições ilimitadas; 100 mil execuções/dia de Workers (só a IA usaria); 500 builds/mês; 10 mil neurons/dia de Workers AI. Para este projeto, **custo zero**.
+
+---
+
+## 12. Contexto eleitoral e jurídico (resumo)
+
+Hoje (07/10/2026) o país está **entre o 1º e o 2º turno**: a votação final é em **25/10/2026**, e Lula disputa com Flávio Bolsonaro. Um site com este conteúdo, publicado agora, é manifestação política em período eleitoral e está sujeito à Lei 9.504/97 e à Resolução TSE 23.610/2019, alterada para 2026 pela **Resolução TSE 23.755/2026**. Os pontos práticos (detalhes e checklist no protocolo):
+
+- **Identificação do responsável**: o anonimato é vedado (Constituição, art. 5º, IV). As regras de 2026 tratam como anônimo o perfil sem contato do responsável. O site terá **expediente** com nome e contato.
+- **Sem impulsionamento pago**: pessoa física não pode pagar para impulsionar propaganda eleitoral; só candidatos e partidos podem.
+- **Sem disparo em massa** de mensagens.
+- **IA**: conteúdo gerado ou alterado por IA precisa de **rótulo**; deepfakes são proibidos; nas **72 h antes e 24 h depois** da votação é proibido circular conteúdo novo feito com IA que altere imagem ou voz de candidatos; sistemas de IA **não podem sugerir em quem votar**.
+- **Conteúdo sabidamente falso ou descontextualizado** pode ser removido por ordem da Justiça Eleitoral e gerar multa. O protocolo editorial existe exatamente para isso não acontecer.
+- **Fora do período eleitoral** continuam valendo os crimes contra a honra (calúnia, difamação, injúria), o direito de resposta (Lei 13.188/2015) e a equiparação da homotransfobia ao crime de racismo pelo STF (ADO 26 / MI 4733, 2019). Daí a regra de **criticar políticas e atos, nunca a identidade das pessoas**.
+
+> ⚠️ Este planejamento não substitui um advogado. **Recomendo fortemente revisão jurídica** dos dossiês do eixo "Os Casos" antes de publicar.
+
+---
+
+## 13. Cronograma
+
+| Fase | Duração estimada | Entregas |
+|---|---|---|
+| **0: Fundação** | 2–3 dias | Projeto Astro, deploy na Cloudflare, DNS e e-mail, *design tokens*, esquemas de conteúdo com validação, páginas Sobre/Expediente/Privacidade |
+| **1: MVP "Feed em Camadas"** | ~2 semanas | Feed 2D com gestos, Orbe e Bússola, Selo/Ficha/Recibo/Biblioteca de fontes, **Rastreio do Processo**, **Placar**, **Contagem Viva**, Kit Zap, Modo Ouvir, busca com voz, PWA, métricas. **12 posts** em 3 eixos (Os Casos, Escola em Ruínas, Direito de Defesa) |
+| **2: Profundidade** | semanas 3–6 | Os 7 eixos restantes (30–40 posts), Linha do Tempo, Teia, Verdadeiro ou Falso, Disse × Fez, Quanto Custa, Antes × Agora, Raio-X dos Planos de Governo, Placar de votações da Câmara, glossário, layout "Mesa de Investigação" no desktop |
+| **3: IA e voz** | semanas 6–10 | Pergunta Aí (fase B, após revisão jurídica), Checar Boato (fase C), narração humana dos 20 posts principais |
+| **Contínuo** | sempre | Revisão mensal de status jurídico, verificação semanal de links, errata, novas pautas |
+
+> **Se o objetivo for ter algo no ar antes de 25/10**: um "lançamento relâmpago" com a Fase 0 + o essencial da Fase 1 (feed, fontes, Kit Zap) e **6 a 8 posts muito bem checados** é viável. Qualidade acima de quantidade: um erro nessa reta final custaria mais do que dez posts acrescentariam.
+
+---
+
+## 14. Como medir se está funcionando
+
+| Indicador | O que revela |
+|---|---|
+| **Taxa de checagem** (% de visitas que abrem ≥ 1 fonte) | Se o site está cumprindo a promessa de transparência |
+| **Profundidade média** (camadas vistas por post) | Se o conteúdo prende e aprofunda |
+| **Downloads do Kit Zap / compartilhamentos** | Alcance real no WhatsApp |
+| **Retorno em 7 dias** | Se virou referência |
+| **Correções por mês** (meta: poucas, todas públicas) | Qualidade editorial |
+| **Core Web Vitals** | Se o site é rápido para quem tem celular simples |
+
+---
+
+## 15. Riscos e como reduzi-los
+
+| Risco | Probabilidade | Mitigação |
+|---|---|---|
+| Processo por difamação ou pedido de direito de resposta | Média | Protocolo editorial, vocabulário jurídico exato, "Outro lado" obrigatório, revisão jurídica nos posts de risco alto, canal de correções |
+| Remoção pela Justiça Eleitoral | Média no período eleitoral | Cumprir o checklist eleitoral; nada sem fonte; nada de IA sem rótulo |
+| Um erro factual viralizar contra o site | Média | "Sem fonte, não compila", dupla checagem, errata pública e rápida |
+| Ser rotulado como "panfleto partidário" | Alta | Contrapontos reais, fontes de linhas editoriais diferentes, dados oficiais do próprio governo, boatos dos dois lados no quiz |
+| Ataque de tráfego (DDoS) / tentativa de invasão | Média | Site estático + Cloudflare + 2FA + DNSSEC |
+| Links de fontes quebrando ou atrás de paywall | Alta | Arquivamento automático + trecho literal na ficha |
+| Uso de imagem sem licença | Média | Só imagens com licença (Agência Brasil, Agências Senado/Câmara, Wikimedia Commons, próprias), sempre com crédito |
+| Cota de IA esgotar | Alta (se viralizar) | Respostas prontas, cache e queda automática para a Fase A |
+| Conteúdo desatualizado (status de processos muda) | Alta | Data de verificação visível + revisão mensal agendada |
+
+---
+
+## 16. Decisões que preciso de você
+
+1. **Prazo**: queremos lançar algo antes do 2º turno (25/10) ou construir com calma o projeto completo?
+2. **Expediente**: quem aparece como responsável (nome ou pessoa jurídica) e qual e-mail de contato?
+3. **Revisão jurídica**: há um advogado que possa revisar os dossiês do eixo "Os Casos"?
+4. **Voz**: narração humana (a sua voz, por exemplo) nos posts principais, ou só a voz sintética do navegador?
+5. **Imagens**: existe acervo próprio de fotos (escolas, universidades)? Caso contrário, usamos acervos públicos licenciados e ilustrações.
+6. **IA**: aprova o uso de uma função serverless gratuita da Cloudflare para a fase B (necessária para proteger a chave da IA)?
+7. **Marca**: o nome exibido será "Lula Não"? Gostou do lema "Fatos com fonte. Conclusão sua."?
