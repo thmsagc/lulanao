@@ -1,0 +1,502 @@
+# Biblioteca de fontes — cada afirmação do site aponta para um destes ids.
+# trechoConferido: false = o trecho veio da apuração preliminar e PRECISA ser conferido
+# palavra por palavra no original antes da publicação (o modo produção bloqueia o build).
+
+- id: talis-2024
+  curto: OCDE · TALIS 2024
+  tipo: reportagem
+  nivel: B
+  veiculo: O Povo (dados da OCDE)
+  titulo: Professor brasileiro perde 21% do tempo de aula para manter disciplina
+  data: "2025-10-07"
+  url: https://mais.opovo.com.br/jornal/farol/2025/10/07/professor-brasileiro-perde-21-do-tempo-de-aula-para-manter-disciplina.html
+  trecho: "No Brasil, os professores perdem, em média, 21% do tempo de aula para manter a ordem em sala, conforme dados da Pesquisa Internacional sobre Ensino e Aprendizagem (Talis) 2024, divulgada pela OCDE. Enquanto isso, nos países-membros da OCDE a média é menor, 15%. […] Quase a metade dos professores brasileiros (44%) relatam que são bastante interrompidos pelos alunos […] média da OCDE, que é de 18%. […] manter a disciplina em sala de aula é fonte de estresse para 63,8% dos docentes brasileiros, em comparação com a média da OCDE de 44,8%."
+  nota: Buscar e citar também o relatório original da OCDE (TALIS 2024), que é fonte nível A.
+  acessadoEm: "2026-10-07"
+
+- id: talis-2013-usp
+  curto: OCDE · TALIS 2013
+  tipo: reportagem
+  nivel: B
+  veiculo: Jornal da USP
+  titulo: Brasil lidera ranking de violência contra professores
+  url: https://jornal.usp.br/?p=57757
+  trecho: "12,5% dos professores ouvidos no Brasil disseram ser vítimas de agressões verbais ou de intimidação de alunos pelo menos uma vez por semana […] o maior índice entre os 34 países pesquisados, onde a média é de 3,4%."
+  acessadoEm: "2026-10-07"
+
+- id: pisa-2022-gazeta
+  curto: OCDE · PISA 2022
+  tipo: reportagem
+  nivel: B
+  veiculo: Gazeta do Povo
+  titulo: Indisciplina nas escolas faz Brasil ser lanterna na educação
+  url: https://www.gazetadopovo.com.br/educacao/indisciplina-nas-escolas-faz-brasil-ser-lanterna-na-educacao/
+  trecho: "Ultrapassa os 40% o índice de alunos que reconhecem que, em todas ou na maioria das aulas, o professor precisa esperar muito tempo para ensinar, até conseguir que a turma pare de bagunçar, enquanto a média dos países membros da OCDE é muito menor: 26%."
+  acessadoEm: "2026-10-07"
+
+- id: nsc-varkey-2018
+  curto: Varkey · 2018
+  tipo: reportagem
+  nivel: B
+  veiculo: NSC Total
+  titulo: O Brasil é o país onde os professores são menos valorizados, diz pesquisa
+  data: "2018-11"
+  url: https://www.nsctotal.com.br/?p=6185920
+  trecho: "O Brasil apareceu em último lugar entre 35 países no Global Teacher Status Index 2018, da Varkey Foundation. […] No Brasil apenas 9% acreditam que os alunos respeitam seus professores."
+  acessadoEm: "2026-10-07"
+
+- id: varkey-gtsi
+  curto: Varkey Foundation
+  tipo: documento-oficial
+  nivel: A
+  veiculo: Varkey Foundation
+  titulo: Global Teacher Status Index
+  url: https://www.varkeyfoundation.org/global-teacher-status
+  trecho: "Pesquisa internacional com mais de 35 mil adultos de 16 a 64 anos e mais de 5.500 professores, medindo a percepção social da docência, o prestígio da profissão e o respeito dos alunos aos professores."
+  nota: Página oficial do índice; conferir os números no relatório em PDF de 2018.
+  acessadoEm: "2026-10-07"
+
+- id: edweek-2013
+  curto: Education Week · 2013
+  tipo: reportagem
+  nivel: B
+  veiculo: Education Week (EUA)
+  titulo: "Study: Where Are Teachers Most Respected?"
+  data: "2013-10"
+  url: https://www.edweek.org/policy-politics/study-where-are-teachers-most-respected/2013/10
+  trecho: "Teachers have the lowest social status in Israel, with Brazil, the Czech Republic, and Italy not far behind."
+  acessadoEm: "2026-10-07"
+
+- id: pt-temer-varkey
+  curto: Site do PT · 2018
+  tipo: declaracao-oficial
+  nivel: A
+  veiculo: Partido dos Trabalhadores (pt.org.br)
+  titulo: Com Temer, Brasil é último no ranking de prestígio do professor
+  data: "2018-11"
+  url: https://pt.org.br/com-temer-brasil-e-ultimo-no-ranking-de-prestigio-do-professor/
+  trecho: "Com Temer, Brasil é último no ranking de prestígio do professor"
+  selos: [campo-esquerda]
+  nota: Título da publicação no site oficial do partido.
+  acessadoEm: "2026-10-07"
+
+- id: enem-2024
+  curto: Inep · Enem 2024
+  tipo: reportagem
+  nivel: B
+  veiculo: A Gazeta (dados do Inep)
+  titulo: Enem 2024 teve apenas 12 redações nota mil, menor número da história
+  data: "2025-01"
+  url: https://www.agazeta.com.br/brasil/enem-2024-teve-apenas-12-redacoes-nota-mil-menor-numero-da-historia-0125
+  trecho: "Apenas 12 estudantes conseguiram nota mil na redação do Enem 2024, sendo o menor número na história do exame."
+  acessadoEm: "2026-10-07"
+
+- id: livro-2011-bnews
+  curto: Bnews · 2011
+  tipo: reportagem
+  nivel: B
+  veiculo: Bnews
+  titulo: Ministério da Educação e os seus polêmicos livros
+  url: https://www.bnews.com.br/noticias/educacao/12829-ministerio-da-educacao-e-os-seus-polemicos-livros.html
+  trecho: "O MEC distribuiu o livro 'Por uma Vida Melhor' pelo PNLD-EJA a 484.195 alunos de 4.236 escolas. […] O livro apresentava exemplos como 'nós pega o peixe' […] admite a troca dos conceitos de 'certo e errado' por 'adequado ou inadequado'."
+  acessadoEm: "2026-10-07"
+
+- id: livro-2011-cef
+  curto: Congresso em Foco · 2011
+  tipo: reportagem
+  nivel: B
+  veiculo: Congresso em Foco
+  titulo: Críticos são injustos e não leram livro, diz Haddad
+  data: "2011-05"
+  url: https://www.congressoemfoco.com.br/noticia/75637/criticos-sao-injustos-e-nao-leram-livro-diz-haddad
+  trecho: "Críticos são injustos e não leram livro, diz Haddad"
+  nota: Título da reportagem. Conferir a fala literal do ministro no corpo do texto.
+  acessadoEm: "2026-10-07"
+
+- id: escolarizacao
+  curto: IBGE · teses PUC-Rio
+  tipo: artigo-academico
+  nivel: B
+  veiculo: PUC-Rio (Biblioteca Maxwell), com dados do IBGE
+  titulo: Tese sobre a expansão do ensino fundamental no Brasil
+  url: https://www.maxwell.vrac.puc-rio.br/9866/9866_2.PDF
+  trecho: "Em 1970, 67,1% da população de sete a 14 anos frequentavam a escola. Esse número sobe para 81,8% em 1985 […] A taxa de escolarização das crianças de 7 a 14 anos, no Brasil, aumentou de 92% em 1997 para 96,2% em 2005."
+  nota: O dado de 1997–2005 pode estar em outro capítulo ou fonte; substituir por série oficial do IBGE (PNAD) antes de publicar.
+  acessadoEm: "2026-10-07"
+
+- id: aosfatos-ditadura
+  curto: Aos Fatos · Nova Escola
+  tipo: checagem
+  nivel: B
+  veiculo: Aos Fatos / Nova Escola
+  titulo: Educação era melhor na época da ditadura?
+  url: https://www.aosfatos.org/noticias/educacao-era-melhor-na-epoca-da-ditadura/
+  trecho: "Uma limitação importante nessa comparação é a ausência de dados qualitativos sobre a educação no período militar, em parte como consequência de decisões dos próprios governantes militares, incluindo o fechamento de centros de pesquisa do Inep em 1973 e 1976."
+  selos: [linhas-diferentes]
+  acessadoEm: "2026-10-07"
+
+- id: protzko-2019
+  curto: Science Advances · 2019
+  tipo: artigo-academico
+  nivel: A
+  veiculo: Science Advances
+  titulo: "Kids these days: Why the youth of today seem lacking"
+  autor: John Protzko e Jonathan Schooler
+  data: "2019"
+  url: https://www.science.org/doi/10.1126/sciadv.aav5916
+  trecho: "Adultos que se destacam em um traço (respeito aos mais velhos, inteligência, gosto pela leitura) tendem a ver as crianças de hoje como fracas justamente nesse traço."
+  nota: Resumo do achado; conferir o texto do artigo.
+  acessadoEm: "2026-10-07"
+
+- id: protzko-popsci
+  curto: Popular Science · 2019
+  tipo: reportagem
+  nivel: B
+  veiculo: Popular Science
+  titulo: Kids these days only seem dumb if you think you're a genius
+  data: "2019"
+  url: https://www.popsci.com/kids-these-days-only-seem-dumb-if-you-think-youre-genius/
+  trecho: "Adults who tested especially strong in one of the categories tended to see children today as weak in it."
+  acessadoEm: "2026-10-07"
+
+- id: gershoff-2016
+  curto: Gershoff · 2016
+  tipo: artigo-academico
+  nivel: A
+  veiculo: Journal of Family Psychology
+  titulo: "Spanking and child outcomes: Old controversies and new meta-analyses"
+  autor: Elizabeth Gershoff e Andrew Grogan-Kaylor
+  data: "2016"
+  url: https://doi.org/10.1037/fam0000191
+  trecho: "Metanálise de 75 estudos com mais de 160 mil crianças: palmadas foram associadas a 13 de 17 resultados negativos e não foram associadas a mais obediência."
+  nota: Resumo do achado; conferir o resumo (abstract) do artigo.
+  acessadoEm: "2026-10-07"
+
+- id: gershoff-utexas
+  curto: Univ. do Texas · 2016
+  tipo: reportagem
+  nivel: B
+  veiculo: UT News (Universidade do Texas em Austin)
+  titulo: Risks of Harm from Spanking Confirmed by Researchers
+  data: "2016-04-25"
+  url: https://news.utexas.edu/2016/04/25/risks-of-harm-from-spanking-confirmed-by-researchers
+  trecho: "The researchers found that spanking was associated with unintended detrimental outcomes and was not associated with more immediate or long-term compliance, which are parents' intended outcomes when they discipline their children."
+  acessadoEm: "2026-10-07"
+
+- id: baumrind-redalyc
+  curto: Estilos parentais · revisão
+  tipo: artigo-academico
+  nivel: B
+  veiculo: Redalyc (revista acadêmica)
+  titulo: Estilos parentais e desenvolvimento (revisão da obra de Diana Baumrind)
+  url: https://www.redalyc.org/pdf/188/18817305.pdf
+  trecho: "Baumrind propôs o controle parental autoritativo como sendo o mais efetivo que os dois outros tipos de controle: o autoritário e o permissivo. […] Maior assertividade, maior maturidade, conduta independente e empreendedora, responsabilidade social foram associados com o estilo parental chamado por Baumrind de autoritativo."
+  acessadoEm: "2026-10-07"
+
+- id: hattie-2009
+  curto: Hattie · 2009
+  tipo: livro
+  nivel: A
+  veiculo: Routledge
+  titulo: "Visible Learning: A Synthesis of Over 800 Meta-Analyses Relating to Achievement"
+  autor: John Hattie
+  data: "2009"
+  trecho: "Quatro metanálises sobre Instrução Direta (304 estudos, mais de 42 mil alunos) com efeito médio de 0,59, acima do ponto de referência de 0,40."
+  nota: Livro; conferir página do capítulo sobre Direct Instruction.
+  acessadoEm: "2026-10-07"
+
+- id: hattie-di
+  curto: Wikipedia · Instr. Direta
+  tipo: enciclopedia
+  nivel: C
+  veiculo: Wikipedia (inglês)
+  titulo: Direct instruction
+  url: https://en.wikipedia.org/wiki/Direct_instruction
+  trecho: "Only the Direct Instruction Model had positive scores on all three types of outcome measures (Basic Skills, Cognitive, and Affective) […] Over 700,000 children in 170 disadvantaged communities across the United States participated."
+  nota: Nível C. Substituir pelo relatório oficial do Project Follow Through (Abt Associates, 1977).
+  acessadoEm: "2026-10-07"
+
+- id: osu-uniformes-2021
+  curto: Ohio State · 2021
+  tipo: reportagem
+  nivel: B
+  veiculo: Ohio State News
+  titulo: School uniforms don't improve child behavior, study finds
+  data: "2021-12"
+  url: https://news.osu.edu/school-uniforms-dont-improve-child-behavior-study-finds/
+  trecho: "Elementary-aged students in schools with uniforms do not display any consistent differences in engagement, social or behavioral outcomes when compared with students in schools without uniforms."
+  acessadoEm: "2026-10-07"
+
+- id: dl-869-1969
+  curto: Decreto-Lei 869/1969
+  tipo: lei
+  nivel: A
+  veiculo: Presidência da República (Planalto)
+  titulo: Decreto-Lei nº 869, de 12 de setembro de 1969
+  data: "1969-09-12"
+  url: https://www.planalto.gov.br/ccivil_03/decreto-lei/1965-1988/del0869.htm
+  trecho: "Dispõe sobre a inclusão da Educação Moral e Cívica como disciplina obrigatória, nas escolas de todos os graus e modalidades, dos sistemas de ensino no País."
+  selos: [oficial]
+  acessadoEm: "2026-10-07"
+
+- id: lei-8663-1993
+  curto: Lei 8.663/1993
+  tipo: lei
+  nivel: A
+  veiculo: Presidência da República (Planalto)
+  titulo: Lei nº 8.663, de 14 de junho de 1993
+  data: "1993-06-14"
+  url: https://www.planalto.gov.br/ccivil_03/leis/1989_1994/l8663.htm
+  trecho: "Revoga o Decreto-Lei nº 869, de 12 de setembro de 1969, e dá outras providências."
+  selos: [oficial]
+  acessadoEm: "2026-10-07"
+
+- id: emc-anpuh
+  curto: ANPUH · história da EMC
+  tipo: artigo-academico
+  nivel: B
+  veiculo: ANPUH (Associação Nacional de História)
+  titulo: Educação Moral e Cívica na ditadura (anais de simpósio)
+  url: https://anpuh.org.br/uploads/anais-simposios/pdf/2019-01/1548206571_218043c0b14eae4d02e74865872c6a8f.pdf
+  trecho: "Educação Moral e Cívica permaneceu no currículo oficial como disciplina escolar e prática educativa em todos os níveis de ensino por 24 anos, até 1993, quando foi revogada pela Lei nº 8.663."
+  acessadoEm: "2026-10-07"
+
+- id: agenciabrasil-ditadura
+  curto: Agência Brasil · 2024
+  tipo: reportagem
+  nivel: B
+  veiculo: Agência Brasil (EBC)
+  titulo: Escolas foram usadas para ideologia autoritária na ditadura
+  data: "2024-04"
+  url: https://agenciabrasil.ebc.com.br/educacao/noticia/2024-04/escolas-foram-usadas-para-ideologia-autoritaria-na-ditadura
+  trecho: "Escolas foram usadas para ideologia autoritária na ditadura"
+  selos: [dado-governo]
+  nota: Título da reportagem da agência pública federal.
+  acessadoEm: "2026-10-07"
+
+- id: pecim-poder360
+  curto: Poder360 · 2023
+  tipo: reportagem
+  nivel: B
+  veiculo: Poder360
+  titulo: Governo Lula decide encerrar programa de escola cívico-militares
+  data: "2023-07"
+  url: https://www.poder360.com.br/anuncios-do-governo/governo-lula-decide-encerrar-programa-de-escola-civico-militares/
+  trecho: "O programa foi instituído em setembro de 2019 por meio do Decreto Federal nº 10.004/19. […] tinha 202 escolas, atendendo cerca de 120 mil alunos."
+  acessadoEm: "2026-10-07"
+
+- id: pecim-sbt-lula
+  curto: SBT News · 2023
+  tipo: reportagem
+  nivel: B
+  veiculo: SBT News
+  titulo: "'Não é obrigação do MEC cuidar disso', diz Lula sobre escolas cívico-militares"
+  data: "2023-07"
+  url: https://sbtnews.sbt.com.br/noticia/governo/253096-nao-e-obrigacao-do-mec-cuidar-disso-diz-lula-sobre-escolas-civico-militares
+  trecho: "'Não é obrigação do MEC cuidar disso', diz Lula sobre escolas cívico-militares"
+  selos: [campo-esquerda]
+  nota: Título da reportagem com a fala do presidente. Conferir o vídeo com a fala completa.
+  acessadoEm: "2026-10-07"
+
+- id: pr-civico-militar
+  curto: Governo do Paraná
+  tipo: dado-oficial
+  nivel: A
+  veiculo: Agência Estadual de Notícias do Paraná
+  titulo: Modelo cívico-militar é destaque entre programas educacionais de sucesso do Paraná
+  url: https://www.parana.pr.gov.br/aen/Noticia/Modelo-civico-militar-e-destaque-entre-programas-educacionais-de-sucesso-do-Parana
+  trecho: "Em 2023, a nota do Ideb das escolas cívico-militares foi de 5,43 nos anos finais do ensino fundamental e de 4,75 no ensino médio, com desempenho superior à rede estadual geral, que teve médias de 5,3 no fundamental e de 4,63 no médio."
+  selos: [oficial]
+  nota: Dado divulgado pelo próprio governo que mantém o programa; confrontar com o Inep.
+  acessadoEm: "2026-10-07"
+
+- id: pr-345
+  curto: Bem Paraná · 2025
+  tipo: reportagem
+  nivel: B
+  veiculo: Bem Paraná
+  titulo: Paraná expande colégios cívico-militares pelo estado, que terá 345 unidades no ano que vem
+  url: https://www.bemparana.com.br/noticias/parana/parana-expande-colegios-civico-militares-pelo-estado-que-tera-345-unidades-no-ano-que-vem/
+  trecho: "O Paraná abrirá mais 33 colégios cívico-militares, chegando a 345 unidades nesse modelo, com aprovação de 66% das unidades consultadas."
+  acessadoEm: "2026-10-07"
+
+- id: critica-civico-militar
+  curto: Intercept Brasil
+  tipo: reportagem
+  nivel: B
+  veiculo: The Intercept Brasil
+  titulo: Reportagem sobre o desempenho das escolas cívico-militares do Paraná
+  url: https://www.intercept.com.br/?p=331132
+  trecho: "Escolas militares têm desempenho similar ao de unidades com perfil parecido […] acima da média, centenas de colégios estaduais com alunos do mesmo perfil socioeconômico têm resultado melhor."
+  selos: [linhas-diferentes]
+  acessadoEm: "2026-10-07"
+
+- id: datafolha-2022
+  curto: Datafolha · 2022
+  tipo: reportagem
+  nivel: B
+  veiculo: Folha Vitória
+  titulo: Brasileiros preferem professores a militares nas escolas, diz Camilo Santana
+  url: https://www.folhavitoria.com.br/geral/brasileiros-preferem-professores-a-militares-nas-escolas-diz-camilo-santana/
+  trecho: "Pesquisa Datafolha de 2022, encomendada pelas ONGs Cenpec e Ação Educativa: 70% rejeitam o modelo de militarização das escolas; 72% acham que a gestão escolar é melhor nas mãos de professores civis. Os entrevistados apontam como maior problema da escola pública a falta de investimento e os baixos salários dos professores."
+  acessadoEm: "2026-10-07"
+
+- id: mec-jr-2023
+  curto: MEC · 2023
+  tipo: declaracao-oficial
+  nivel: A
+  veiculo: Agência Gov (Governo Federal)
+  titulo: MEC inicia debate sobre justiça restaurativa
+  data: "2023-11"
+  url: https://agenciagov.ebc.com.br/noticias/202311/mec-inicia-debate-sobre-justica-restaurativa
+  trecho: "Ciclo de Diálogos 'Justiça Restaurativa nas Escolas' […] visando promover a cultura de paz e não violência nas escolas, utilizando práticas que envolvam o diálogo, a responsabilização e a reparação dos danos causados pelos conflitos."
+  selos: [oficial, campo-esquerda]
+  acessadoEm: "2026-10-07"
+
+- id: lei-13010-2014
+  curto: Lei 13.010/2014
+  tipo: lei
+  nivel: A
+  veiculo: Presidência da República (Planalto)
+  titulo: Lei nº 13.010, de 26 de junho de 2014 (Lei Menino Bernardo)
+  data: "2014-06-26"
+  url: https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2014/lei/l13010.htm
+  trecho: "A criança e o adolescente têm o direito de ser educados e cuidados sem o uso de castigo físico ou de tratamento cruel ou degradante, como formas de correção, disciplina, educação ou qualquer outro pretexto […]"
+  selos: [oficial]
+  acessadoEm: "2026-10-07"
+
+- id: ldb-1996
+  curto: LDB · Lei 9.394/1996
+  tipo: lei
+  nivel: A
+  veiculo: Presidência da República (Planalto)
+  titulo: Lei de Diretrizes e Bases da Educação Nacional (art. 24)
+  data: "1996-12-20"
+  url: https://www.planalto.gov.br/ccivil_03/leis/l9394.htm
+  trecho: "[…] carga horária mínima anual de oitocentas horas para o ensino fundamental e para o ensino médio, distribuídas por um mínimo de duzentos dias de efetivo trabalho escolar […]"
+  selos: [oficial]
+  acessadoEm: "2026-10-07"
+
+- id: ceara-ica-2024
+  curto: MEC/Inep · 2025
+  tipo: dado-oficial
+  nivel: A
+  veiculo: Agência Gov (Governo Federal)
+  titulo: 58% dos municípios melhoraram alfabetização
+  data: "2025-07"
+  url: https://agenciagov.ebc.com.br/noticias/202507/58-dos-municipios-melhoraram-alfabetizacao
+  trecho: "Em 2024, 59,2% das crianças das redes públicas de todo o país estavam alfabetizadas na idade certa. […] O Ceará teve o melhor percentual de alfabetização ao fim do 2º ano em 2024, chegando a 85,3%."
+  selos: [oficial, dado-governo]
+  acessadoEm: "2026-10-07"
+
+- id: freire-1968
+  curto: Paulo Freire · 1968
+  tipo: livro
+  nivel: A
+  veiculo: Paz e Terra
+  titulo: Pedagogia do Oprimido (capítulo 2)
+  autor: Paulo Freire
+  data: "1968"
+  trecho: "Na visão 'bancária' da educação, o 'saber' é uma doação dos que se julgam sábios aos que julgam nada saber."
+  selos: [campo-esquerda]
+  nota: Conferir página e edição.
+  acessadoEm: "2026-10-07"
+
+- id: lei-12612-2012
+  curto: Lei 12.612/2012
+  tipo: lei
+  nivel: A
+  veiculo: Presidência da República (Planalto)
+  titulo: Lei nº 12.612, de 13 de abril de 2012
+  data: "2012-04-13"
+  url: https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2012/lei/l12612.htm
+  trecho: "Declara o educador Paulo Freire Patrono da Educação Brasileira."
+  selos: [oficial]
+  acessadoEm: "2026-10-07"
+
+- id: cf-art206
+  curto: Constituição · art. 206
+  tipo: lei
+  nivel: A
+  veiculo: Constituição Federal de 1988
+  titulo: Art. 206, VI
+  url: https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm
+  trecho: "O ensino será ministrado com base nos seguintes princípios: […] VI - gestão democrática do ensino público, na forma da lei."
+  selos: [oficial]
+  acessadoEm: "2026-10-07"
+
+- id: cf-art229
+  curto: Constituição · art. 229
+  tipo: lei
+  nivel: A
+  veiculo: Constituição Federal de 1988
+  titulo: Art. 229
+  url: https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm
+  trecho: "Os pais têm o dever de assistir, criar e educar os filhos menores […]"
+  selos: [oficial]
+  acessadoEm: "2026-10-07"
+
+- id: pacto-sjose
+  curto: Pacto de San José
+  tipo: lei
+  nivel: A
+  veiculo: Decreto nº 678/1992 (Convenção Americana sobre Direitos Humanos)
+  titulo: Art. 12.4
+  url: https://www.planalto.gov.br/ccivil_03/decreto/d0678.htm
+  trecho: "Os pais, e quando for o caso os tutores, têm direito a que seus filhos ou pupilos recebam a educação religiosa e moral que esteja acorde com suas próprias convicções."
+  selos: [oficial]
+  acessadoEm: "2026-10-07"
+
+- id: aristoteles
+  curto: Aristóteles
+  tipo: livro
+  nivel: A
+  veiculo: Ética a Nicômaco, Livro II
+  titulo: Ética a Nicômaco
+  autor: Aristóteles
+  trecho: "[…] tornamo-nos justos praticando atos justos, temperantes praticando atos temperantes, corajosos praticando atos corajosos."
+  nota: Conferir a tradução e a edição citadas.
+  acessadoEm: "2026-10-07"
+
+- id: federacao-pt-pcdob
+  curto: Congresso em Foco · 2022
+  tipo: reportagem
+  nivel: B
+  veiculo: Congresso em Foco
+  titulo: PT, PCdoB e PV registram federação partidária
+  data: "2022"
+  url: https://www.congressoemfoco.com.br/area/congresso-nacional/pt-pcdob-e-pv-registram-federacao-partidaria/
+  trecho: "PT, PCdoB e PV registram federação partidária"
+  nota: Citar também o registro da Federação Brasil da Esperança no TSE (nível A).
+  acessadoEm: "2026-10-07"
+
+- id: luciana-santos-mcti
+  curto: Poder360 · 2022
+  tipo: reportagem
+  nivel: B
+  veiculo: Poder360
+  titulo: Luciana Santos será ministra da Ciência, Tecnologia e Inovações
+  data: "2022-12"
+  url: https://www.poder360.com.br/governo/luciana-santos-sera-ministra-da-ciencia-tecnologia-e-inovacoes/
+  trecho: "Luciana Santos, presidente nacional do PCdoB, será ministra da Ciência, Tecnologia e Inovações."
+  acessadoEm: "2026-10-07"
+
+- id: celular-cef
+  curto: Congresso em Foco · 2025
+  tipo: reportagem
+  nivel: B
+  veiculo: Congresso em Foco
+  titulo: Em um terreno de disputas, a proibição dos celulares foi unanimidade
+  url: https://www.congressoemfoco.com.br/artigo/109584/em-um-terreno-de-disputas-a-proibicao-dos-celulares-foi-unanimidade
+  trecho: "Em um terreno de disputas, a proibição dos celulares foi unanimidade"
+  acessadoEm: "2026-10-07"
+
+- id: progressao-sp
+  curto: ANPEd · progressão
+  tipo: artigo-academico
+  nivel: B
+  veiculo: ANPEd
+  titulo: Progressão continuada no Estado de São Paulo
+  url: https://legado.anped.org.br/sites/default/files/gt05-1047-int.doc
+  trecho: "No estado de São Paulo, o regime de ciclos e a progressão continuada foram implantados em 1998 […] criado durante o governo Mário Covas."
+  acessadoEm: "2026-10-07"

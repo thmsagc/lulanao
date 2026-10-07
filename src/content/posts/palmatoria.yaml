@@ -1,0 +1,65 @@
+titulo: A palmatória educava?
+eixo: escola
+ordem: 6
+face: neutra
+resumo: "A ciência responde: firmeza sim, violência não. Regras claras, consequência certa e exigência alta funcionam; castigo físico não."
+moeda: disciplina-excelencia
+atualizadoEm: 2026-10-07
+kit:
+  frase: "A ciência responde: firmeza sim, violência não."
+  fonte: Gershoff e Grogan-Kaylor (2016); Baumrind
+capa:
+  kicker: Escola em Ruínas
+  titulo: A palmatória educava?
+  subtitulo: Muita gente que estudou na escola rígida diz que ela fez bem. A ciência ajuda a separar o que funcionou do que não funcionou.
+  fontes: [gershoff-2016, baumrind-redalyc]
+entenda:
+  - tipo: texto
+    rotulo: fato
+    texto: "A pesquisa mostra que ==ser permissivo faz mal==: criança sem regra e sem cobrança tem pior desempenho e menos autocontrole. [[baumrind-redalyc]]"
+  - tipo: texto
+    rotulo: fato
+    texto: Mas ==bater também não funciona==, porque não aumenta a obediência e piora o comportamento. [[gershoff-2016]] [[gershoff-utexas]]
+  - tipo: texto
+    rotulo: fato
+    texto: O que funciona é a soma de **exigência alta, regras claras, consequência certa e afeto**. Os pesquisadores chamam isso de ((estilo autoritativo|autoritativo)). [[baumrind-redalyc]]
+prova:
+  - tipo: vf
+    itens:
+      - afirmacao: Castigo físico deixa a criança mais obediente.
+        veredito: falso
+        explicacao: Uma ((metanálise)) de 75 estudos, com mais de 160 mil crianças, não encontrou ganho de obediência e encontrou mais agressividade e desobediência.
+        fontes: [gershoff-2016, gershoff-utexas]
+      - afirmacao: Deixar a criança fazer o que quiser ajuda a formar a personalidade.
+        veredito: falso
+        explicacao: O estilo permissivo está ligado a pior desempenho escolar e a menos autocontrole.
+        fontes: [baumrind-redalyc]
+      - afirmacao: Ensino direto, com o professor explicando e cobrando, funciona melhor do que "deixar o aluno descobrir sozinho".
+        veredito: verdadeiro
+        explicacao: No maior experimento educacional dos EUA, com 700 mil crianças, o ensino direto teve o melhor resultado em todas as medidas. A síntese de John Hattie mede efeito de 0,59, bem acima da média de 0,40.
+        fontes: [hattie-2009, hattie-di]
+      - afirmacao: Uniforme, sozinho, resolve a indisciplina.
+        veredito: falso
+        explicacao: Um estudo da Universidade Estadual de Ohio com mais de 6.300 crianças não encontrou diferença consistente no comportamento.
+        fontes: [osu-uniformes-2021]
+  - tipo: texto
+    rotulo: fato
+    detalhe: true
+    texto: Desde 2014, a lei garante à criança o direito de ser educada sem castigo físico nem tratamento cruel ou degradante. [[lei-13010-2014]]
+outroLado:
+  - tipo: texto
+    rotulo: declaracao
+    face: vermelha
+    texto: "A resposta da esquerda é o diálogo: o MEC aposta na ((justiça restaurativa)), com responsabilização e reparação em vez de punição. [[mec-jr-2023]]"
+  - tipo: texto
+    rotulo: valor
+    face: azul
+    texto: "Para a direita, diálogo sem consequência vira permissividade. A síntese é **firmeza com afeto**: autoridade sem violência."
+penseNisso:
+  pergunta: O que fez bem a quem estudou na escola rígida, a palmatória ou a exigência e o respeito ao professor?
+  quiz:
+    pergunta: Segundo a ciência, o que funciona melhor para educar?
+    opcoes: ["Deixar a criança livre, sem cobrança", "Bater quando ela errar", "Exigência alta, regras claras e afeto"]
+    correta: 2
+    explicacao: É o estilo que os pesquisadores chamam de autoritativo. Permissividade e castigo físico pioram os resultados.
+    fontes: [baumrind-redalyc, gershoff-2016]

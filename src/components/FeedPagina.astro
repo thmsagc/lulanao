@@ -1,0 +1,66 @@
+---
+import { carregarConteudo, type Post } from '../lib/conteudo';
+import PostDeck from './PostDeck.astro';
+import ComeceAqui from './ComeceAqui.astro';
+
+interface Props {
+  posts: Post[];
+  inicio?: string;
+  raiz?: string;
+  intro?: boolean;
+}
+const { posts, inicio, raiz = '/', intro = true } = Astro.props;
+const c = await carregarConteudo();
+const eixoPrincipal = c.eixos.find((e) => e.id === posts[0]?.data.eixo)?.data;
+const eixosComConteudo = new Set(c.posts.map((p) => p.data.eixo));
+---
+<div class="palco">
+  <aside class="lateral" aria-label="Mapa do site">
+    <div>
+      <p class="marca-site">Lula <span>Não</span></p>
+      <p>Fatos com fonte. Conclusão sua.</p>
+    </div>
+    <div class="legenda-cores">
+      <h2>Cor = quem fala</h2>
+      <div><i style="background:var(--esq)"></i> Vermelho: o que a esquerda defende</div>
+      <div><i style="background:var(--dir);border:1px solid #c9a227"></i> Azul: o que a direita defende</div>
+      <div><i style="background:var(--papel)"></i> Papel: fatos e dados</div>
+    </div>
+    <div>
+      <h2 style="margin-bottom:10px">Temas</h2>
+      <ul class="lista-eixos">
+        {c.eixos.map((e) => (
+          <li>
+            {eixosComConteudo.has(e.id) ? (
+              <a href={`/e/${e.id}`}>{e.data.icone} {e.data.nome}<small>{c.posts.filter((p) => p.data.eixo === e.id).length} posts</small></a>
+            ) : (
+              <span>{e.data.icone} {e.data.nome}<small>em breve</small></span>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div>
+      <h2 style="margin-bottom:10px">Atalhos</h2>
+      <ul class="lista-eixos">
+        <li><a href="/duas-faces">🪙 Duas faces</a></li>
+        <li><a href="/linha-do-tempo">⏱ Linha do tempo</a></li>
+        <li><a href="/fontes">📚 Biblioteca de fontes</a></li>
+        <li><a href="/sobre">ℹ Sobre o site</a></li>
+      </ul>
+    </div>
+    <p style="font-size:.85rem;color:#8a919b">Teclado: ↑↓ assunto · ←→ camada · V vira a moeda</p>
+  </aside>
+
+  <main class="feed" data-inicio={inicio} data-raiz={raiz} aria-label="Feed">
+    {intro && eixoPrincipal && <ComeceAqui eixoNome={eixoPrincipal.nome} eixoIcone={eixoPrincipal.icone} eixoPergunta={eixoPrincipal.pergunta} />}
+    {posts.map((post) => <PostDeck post={post} />)}
+  </main>
+
+  <aside class="lateral" aria-label="Fontes deste trecho">
+    <h2>Fontes deste trecho</h2>
+    <p style="font-size:.9rem;color:#b6bcc5">Conforme você avança, as fontes da tela aparecem aqui.</p>
+    <div class="fontes-ao-vivo" id="fontes-ao-vivo" aria-live="polite"></div>
+  </aside>
+</div>
+<a class="botao-moeda" id="botao-moeda" href="/duas-faces" hidden aria-label="Vire a moeda: o que cada lado defende (tecla V)"><span aria-hidden="true">↻</span></a>

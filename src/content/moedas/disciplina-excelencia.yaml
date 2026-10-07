@@ -1,0 +1,125 @@
+titulo: Disciplina e excelência
+eixo: escola
+pergunta: Como a escola deve formar crianças, com diálogo ou com autoridade?
+atualizadoEm: 2026-10-07
+
+vermelha:
+  rotulo: O que a esquerda defende
+  capa:
+    titulo: Escola democrática, aluno no centro, diálogo no lugar da punição.
+    subtitulo: É assim que o campo da esquerda descreve a escola que quer, nas palavras de seus documentos e líderes.
+    fontes: [mec-jr-2023, freire-1968]
+  selo:
+    texto: "A política de educação mostrada nesta face é a do governo Lula (PT). Desde 2022, o PT forma a Federação Brasil da Esperança com o PCdoB, o Partido Comunista do Brasil, e os partidos federados atuam como um só no Congresso. A presidente nacional do PCdoB, Luciana Santos, foi nomeada ministra por Lula."
+    fontes: [federacao-pt-pcdob, luciana-santos-mcti]
+  entenda:
+    - tipo: citacao
+      face: vermelha
+      texto: Na visão "bancária" da educação, o "saber" é uma doação dos que se julgam sábios aos que julgam nada saber.
+      autor: Paulo Freire, Pedagogia do Oprimido (1968)
+      contexto: Freire foi declarado Patrono da Educação Brasileira por lei em 2012, no governo Dilma.
+      fontes: [freire-1968, lei-12612-2012]
+    - tipo: texto
+      rotulo: declaracao
+      face: vermelha
+      texto: Em 2023, o MEC lançou a ((justiça restaurativa)) nas escolas, para resolver conflitos com ==diálogo, responsabilização e reparação== em vez de punição. [[mec-jr-2023]]
+    - tipo: texto
+      rotulo: fato
+      face: vermelha
+      texto: A Constituição prevê a ((gestão democrática)) do ensino público, princípio que a esquerda defende como centro da escola. [[cf-art206]]
+  prova:
+    - tipo: citacao
+      face: vermelha
+      texto: Não é obrigação do MEC cuidar disso.
+      autor: Lula, sobre as escolas cívico-militares
+      contexto: Julho de 2023, quando o governo anunciou o fim do programa federal (202 escolas e cerca de 120 mil alunos).
+      fontes: [pecim-sbt-lula, pecim-poder360]
+    - tipo: texto
+      rotulo: fato
+      face: vermelha
+      texto: Em 2011, o MEC do governo Dilma defendeu o livro que trocava "certo e errado" por "adequado e inadequado", e o ministro disse que os críticos não o tinham lido. [[livro-2011-bnews]] [[livro-2011-cef]]
+    - tipo: texto
+      rotulo: dado
+      face: vermelha
+      texto: "O argumento que o governo usa: no Datafolha de 2022, encomendado pelas ONGs Cenpec e Ação Educativa, ==70%== rejeitaram a militarização das escolas. [[datafolha-2022]]"
+  contraponto:
+    titulo: O que a direita critica
+    blocos:
+      - tipo: texto
+        rotulo: contexto
+        texto: Diálogo sem consequência vira permissividade, e a ciência mostra que a permissividade piora o desempenho e o autocontrole. [[baumrind-redalyc]]
+      - tipo: texto
+        rotulo: dado
+        texto: Enquanto isso, o professor perde ==21% da aula== só para manter a ordem. [[talis-2024]]
+
+azul:
+  rotulo: O que a direita defende
+  capa:
+    titulo: Firmeza com afeto. Autoridade, disciplina e exigência transformam criança em cidadão.
+    subtitulo: Sem violência e sem humilhação, mas com regra clara e consequência certa.
+    fontes: [baumrind-redalyc, aristoteles]
+  entenda:
+    - tipo: lista
+      rotulo: valor
+      face: azul
+      titulo: Os valores
+      itens:
+        - "**Autoridade do professor**: a sala de aula não é assembleia."
+        - "**Regra clara, consequência certa**: quem errou assume e repara."
+        - "**Exigência alta**: aprovar quem aprendeu, não quem só frequentou."
+        - "**O básico bem feito**: ler, escrever e contar, com método que funciona."
+        - "**Norma culta**: ensinar o pobre a falar e escrever bem é dar a ele a chave que o rico já tem."
+        - "**Civismo e decoro**: respeito ao outro, aos símbolos e ao lugar."
+    - tipo: citacao
+      face: azul
+      texto: Tornamo-nos justos praticando atos justos, temperantes praticando atos temperantes, corajosos praticando atos corajosos.
+      autor: Aristóteles, Ética a Nicômaco
+      contexto: O caráter se forma pelo hábito. É isso que a escola com rotina e exigência ensina.
+      fontes: [aristoteles]
+    - tipo: texto
+      rotulo: fato
+      face: azul
+      texto: "A família é a primeira escola: a Constituição diz que os pais têm o dever de criar e educar os filhos [[cf-art229]], e o Pacto de San José garante a eles o direito à educação moral dos filhos de acordo com suas próprias convicções. [[pacto-sjose]]"
+  prova:
+    - tipo: texto
+      rotulo: fato
+      face: azul
+      texto: Quem une ==exigência alta, regras claras e afeto== (o ((estilo autoritativo|autoritativo))) forma crianças mais maduras e responsáveis, com melhor desempenho escolar. [[baumrind-redalyc]]
+    - tipo: texto
+      rotulo: fato
+      face: azul
+      texto: No maior experimento educacional da história dos EUA, com cerca de 700 mil crianças, o ==ensino direto e explícito== teve o melhor resultado em todas as medidas, inclusive entre os mais pobres. [[hattie-di]] [[hattie-2009]]
+    - tipo: barras
+      titulo: Ideb 2023 no Paraná, cívico-militares × rede estadual
+      unidade: ""
+      itens:
+        - { rotulo: Cívico-militares (anos finais), valor: 5.43, destaque: true }
+        - { rotulo: Rede estadual (anos finais), valor: 5.3 }
+        - { rotulo: Cívico-militares (ensino médio), valor: 4.75, destaque: true }
+        - { rotulo: Rede estadual (ensino médio), valor: 4.63 }
+      fontes: [pr-civico-militar]
+    - tipo: texto
+      rotulo: dado
+      face: azul
+      texto: O Ceará cobra metas, avalia o tempo todo e premia resultado, e alcançou ==85,3%== das crianças alfabetizadas na idade certa, contra 59,2% no Brasil. [[ceara-ica-2024]]
+  contraponto:
+    titulo: Limites honestos
+    blocos:
+      - tipo: texto
+        rotulo: fato
+        texto: "**Castigo físico não educa.** Uma revisão de 75 estudos, com mais de 160 mil crianças, encontrou mais agressividade e desobediência, e nenhum ganho de obediência. [[gershoff-2016]] [[gershoff-utexas]]"
+      - tipo: texto
+        rotulo: contexto
+        texto: "**Cívico-militares:** críticos dizem que o desempenho é parecido com o de escolas de perfil semelhante. [[critica-civico-militar]]"
+      - tipo: texto
+        rotulo: fato
+        texto: "**Uniforme sozinho não resolve:** um estudo com mais de 6.300 crianças não encontrou melhora no comportamento. [[osu-uniformes-2021]]"
+
+placar:
+  - { numero: "21%", texto: "da aula é perdida para manter a ordem. Na média da OCDE, 15%.", fontes: [talis-2024] }
+  - { numero: "9%", texto: "dos brasileiros acham que os alunos respeitam o professor. Último lugar entre 35 países.", fontes: [nsc-varkey-2018] }
+  - { numero: "40%", texto: "dos alunos dizem que o professor espera muito até a turma parar de bagunçar. Na OCDE, 26%.", fontes: [pisa-2022-gazeta] }
+  - { numero: "12", texto: "redações nota mil no Enem 2024, o menor número da história.", fontes: [enem-2024] }
+  - { numero: "75", texto: "estudos, com 160 mil crianças, mostram que castigo físico não melhora a obediência.", fontes: [gershoff-2016] }
+  - { numero: "70%", texto: "rejeitaram a militarização das escolas (Datafolha 2022, encomendado por Cenpec e Ação Educativa).", fontes: [datafolha-2022] }
+  - { numero: "5,43", texto: "foi o Ideb dos cívico-militares do Paraná, contra 5,3 da rede estadual (anos finais, 2023).", fontes: [pr-civico-militar] }

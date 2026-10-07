@@ -1,0 +1,42 @@
+- id: ocde
+  termo: OCDE
+  explicacao: Organização para a Cooperação e Desenvolvimento Econômico. Reúne 38 países, a maioria desenvolvidos, e faz as maiores pesquisas comparando a educação no mundo.
+- id: talis
+  termo: TALIS
+  explicacao: Pesquisa da OCDE que ouve professores e diretores de dezenas de países sobre o dia a dia da escola.
+- id: pisa
+  termo: PISA
+  explicacao: Prova internacional da OCDE aplicada a alunos de 15 anos em leitura, matemática e ciências.
+- id: pnld
+  termo: PNLD
+  explicacao: Programa Nacional do Livro Didático. É o programa do MEC que escolhe, compra e distribui livros para as escolas públicas.
+- id: preconceito-linguistico
+  termo: Preconceito linguístico
+  explicacao: Ideia de que tratar como "erro" o jeito popular de falar é uma forma de preconceito. Foi difundida no Brasil pelo linguista Marcos Bagno (1999).
+- id: norma-culta
+  termo: Norma culta
+  explicacao: O português usado em documentos, provas, concursos, jornais e no trabalho formal. É o "português da escola".
+- id: inep
+  termo: Inep
+  explicacao: Instituto do MEC que faz as avaliações e estatísticas da educação brasileira, como o Enem e o Ideb.
+- id: educacao-moral-e-civica
+  termo: Educação Moral e Cívica
+  explicacao: Matéria obrigatória de 1969 a 1993 que ensinava deveres, civismo, símbolos nacionais e moral.
+- id: ospb
+  termo: OSPB
+  explicacao: Organização Social e Política Brasileira. Matéria que explicava como funcionam o Estado e a sociedade. Foi obrigatória junto com Moral e Cívica.
+- id: metanalise
+  termo: Metanálise
+  explicacao: Estudo que junta e analisa os resultados de muitas pesquisas sobre o mesmo assunto. É uma das formas mais fortes de evidência científica.
+- id: autoritativo
+  termo: Estilo autoritativo
+  explicacao: Forma de educar que une exigência alta e regras claras com afeto e explicação. Não é o mesmo que "autoritário", que é controle sem afeto.
+- id: justica-restaurativa
+  termo: Justiça restaurativa
+  explicacao: Forma de lidar com conflitos por meio de conversa entre as partes, responsabilização e reparação do dano, em vez de punição.
+- id: gestao-democratica
+  termo: Gestão democrática
+  explicacao: Princípio da Constituição pelo qual professores, pais, alunos e comunidade participam das decisões da escola pública.
+- id: ideb
+  termo: Ideb
+  explicacao: Índice de Desenvolvimento da Educação Básica. Nota de 0 a 10 do MEC que combina aprovação e desempenho em provas.

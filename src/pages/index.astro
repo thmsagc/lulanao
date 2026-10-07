@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import FeedPagina from '../components/FeedPagina.astro';
+import { carregarConteudo } from '../lib/conteudo';
+const c = await carregarConteudo();
+---
+<Base>
+  <FeedPagina posts={c.posts} />
+</Base>

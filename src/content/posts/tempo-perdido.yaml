@@ -1,0 +1,65 @@
+titulo: 1 em cada 5 minutos
+eixo: escola
+ordem: 1
+face: neutra
+resumo: O professor brasileiro perde 21% da aula só para manter a ordem. Nos países da OCDE, 15%.
+moeda: disciplina-excelencia
+atualizadoEm: 2026-10-07
+kit:
+  frase: O professor brasileiro perde 1 de cada 5 minutos de aula só para manter a ordem.
+  fonte: OCDE, pesquisa TALIS 2024
+capa:
+  kicker: Escola em Ruínas
+  numero: { valor: 21, sufixo: "%" }
+  titulo: da aula é perdida só para manter a ordem na sala.
+  fontes: [talis-2024]
+entenda:
+  - tipo: texto
+    rotulo: dado
+    texto: De cada 5 minutos de aula, ==1 minuto== vai embora pedindo silêncio, separando briga e chamando atenção. [[talis-2024]]
+  - tipo: texto
+    rotulo: dado
+    texto: Nos países da ((OCDE)), a perda é menor, de 15%. [[talis-2024]]
+  - tipo: texto
+    rotulo: contexto
+    texto: "Conta simples: o ano letivo tem no mínimo 200 dias [[ldb-1996]]. Perder 21% do tempo equivale a cerca de ==42 dias de aula por ano==."
+prova:
+  - tipo: barras
+    titulo: Tempo de aula gasto só para manter a ordem
+    itens:
+      - { rotulo: Brasil, valor: 21, destaque: true }
+      - { rotulo: Média da OCDE, valor: 15 }
+    fontes: [talis-2024]
+  - tipo: barras
+    titulo: Professores "bastante interrompidos" pelos alunos
+    itens:
+      - { rotulo: Brasil, valor: 44, destaque: true }
+      - { rotulo: Média da OCDE, valor: 18 }
+    fontes: [talis-2024]
+  - tipo: barras
+    titulo: Professores para quem manter a disciplina é fonte de estresse
+    detalhe: true
+    itens:
+      - { rotulo: Brasil, valor: 63.8, destaque: true }
+      - { rotulo: Média da OCDE, valor: 44.8 }
+    fontes: [talis-2024]
+  - tipo: texto
+    rotulo: dado
+    detalhe: true
+    texto: "O problema não é de hoje: na edição de 2013 da mesma pesquisa, o Brasil foi o país com mais professores intimidados ou xingados toda semana, ==12,5%== contra 3,4% de média. [[talis-2013-usp]]"
+outroLado:
+  - tipo: texto
+    rotulo: dado
+    texto: Para a maioria dos brasileiros ouvidos pelo Datafolha em 2022, o maior problema da escola pública é a **falta de investimento** e o **salário baixo** do professor. [[datafolha-2022]]
+  - tipo: texto
+    rotulo: declaracao
+    face: vermelha
+    texto: "A resposta do MEC atual é a ((justiça restaurativa)): resolver conflitos com diálogo, responsabilização e reparação, em vez de punição. [[mec-jr-2023]]"
+penseNisso:
+  pergunta: Se 1 de cada 5 minutos vai embora com bagunça, quem perde mais, o aluno que quer aprender ou o que atrapalha?
+  quiz:
+    pergunta: Quanto do tempo de aula o professor brasileiro perde só para manter a ordem?
+    opcoes: ["5%", "21%", "50%"]
+    correta: 1
+    explicacao: São 21%, segundo a pesquisa TALIS 2024, da OCDE. A média dos outros países é 15%.
+    fontes: [talis-2024]

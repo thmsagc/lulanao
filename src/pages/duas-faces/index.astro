@@ -1,0 +1,29 @@
+---
+import Base from '../../layouts/Base.astro';
+import { carregarConteudo } from '../../lib/conteudo';
+const c = await carregarConteudo();
+const proximas = ['Segurança e legítima defesa', 'Economia: livre mercado × Estado', 'Família e vida', 'Religião e liberdade', 'Igualdade perante a lei', 'Propriedade privada', 'Saúde'];
+---
+<Base titulo="Duas faces" descricao="Para cada tema, uma moeda: o que a esquerda defende, o que a direita defende e os fatos no meio.">
+  <div class="pagina t-neutra">
+    <div class="pagina-interno">
+      <p class="kicker">🪙 Duas faces da moeda</p>
+      <h1>Veja os dois lados. Escolha o seu.</h1>
+      <p class="intro">Em cada moeda, a <strong style="color:var(--esq)">face vermelha</strong> mostra o que a esquerda defende, nas palavras dela. A <strong style="color:var(--dir-medio)">face azul</strong> mostra os valores da direita. No meio, o <strong>Placar dos Fatos</strong>.</p>
+      <div class="cofre">
+        {c.moedas.map((m) => (
+          <a class="moeda-cartao" href={`/duas-faces/${m.id}`}>
+            <span class="disco" aria-hidden="true"></span>
+            <span><h2>{m.data.titulo}</h2><p>{m.data.pergunta}</p></span>
+          </a>
+        ))}
+        {proximas.map((t) => (
+          <div class="moeda-cartao em-breve" aria-disabled="true">
+            <span class="disco" style="animation:none" aria-hidden="true"></span>
+            <span><h2>{t}</h2><p>Em breve</p></span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</Base>

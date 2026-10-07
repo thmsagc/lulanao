@@ -1,0 +1,11 @@
+- { id: os-casos, nome: Os Casos, icone: "🕵", ordem: 1, pergunta: "Do que Lula e pessoas ligadas a ele foram investigados, e como cada caso terminou?" }
+- { id: com-quem-andas, nome: Com Quem Andas, icone: "👥", ordem: 2, pergunta: "O que os aliados defendem e como votam?" }
+- { id: escola, nome: Escola em Ruínas, icone: "🎓", ordem: 3, pergunta: "O que aconteceu com o aprendizado, a disciplina e o respeito ao professor?" }
+- { id: direito-de-defesa, nome: Direito de Defesa, icone: "🛡", ordem: 4, pergunta: "O povo votou contra a proibição da venda de armas. O que foi feito desde então?" }
+- { id: familia-e-fe, nome: Família e Fé, icone: "👪", ordem: 5, pergunta: "Qual o lugar da família e da fé nas propostas e decisões?" }
+- { id: espaco-da-mulher, nome: Espaço da Mulher, icone: "♀", ordem: 6, pergunta: "Esporte, presídios, vestiários: sexo biológico ou identidade de gênero?" }
+- { id: iguais, nome: Iguais Perante a Lei, icone: "⚖", ordem: 7, pergunta: "Cotas raciais e bancas: como funcionam e o que dizem os dois lados?" }
+- { id: orgulho, nome: Orgulho de Ser Brasileiro, icone: "🇧🇷", ordem: 8, pergunta: "Símbolos, civismo, patrimônio público: o que se perdeu?" }
+- { id: la-fora, nome: O Brasil Lá Fora, icone: "🌎", ordem: 9, pergunta: "Com quais regimes o governo se alinha?" }
+- { id: seu-bolso, nome: No Seu Bolso, icone: "💰", ordem: 10, pergunta: "Impostos, preços e gastos: o que mudou no dia a dia?" }
+- { id: saude, nome: Saúde, icone: "🩺", ordem: 11, pergunta: "O SUS funciona? O que muda com gestão, concorrência e escolha?" }

@@ -1,0 +1,29 @@
+---
+import { carregarConteudo } from '../../lib/conteudo';
+import { SITE } from '../../config';
+export async function getStaticPaths() {
+  const c = await carregarConteudo();
+  return [...c.fontes.values()].filter((f) => f.url).map((f) => ({ params: { id: f.id }, props: { url: f.url!, titulo: f.titulo, veiculo: f.veiculo } }));
+}
+const { url, titulo, veiculo } = Astro.props;
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="refresh" content={`0;url=${url}`} />
+    <title>Abrindo a fonte… · {SITE.nome}</title>
+    <link rel="canonical" href={url} />
+    <style>body{font-family:system-ui,sans-serif;background:#f3efe6;color:#14171c;display:grid;place-items:center;min-height:100vh;margin:0;padding:20px;text-align:center}a{font-weight:700}</style>
+  </head>
+  <body>
+    <main>
+      <p>Abrindo a fonte original:</p>
+      <p><strong>{titulo}</strong><br />{veiculo}</p>
+      <p><a href={url} rel="noopener">Se não abrir sozinho, toque aqui.</a></p>
+    </main>
+    <script is:inline define:vars={{ url }}>location.replace(url);</script>
+  </body>
+</html>

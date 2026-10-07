@@ -1,0 +1,135 @@
+---
+import type { Bloco } from '../content.config';
+import { carregarConteudo, marcar, seloHTML, ROTULOS } from '../lib/conteudo';
+
+interface Props {
+  bloco: Bloco;
+  faceBase: 'neutra' | 'vermelha' | 'azul';
+}
+const { bloco: b, faceBase } = Astro.props;
+const c = await carregarConteudo();
+const m = (t: string) => marcar(t, c);
+const selos = (ids: string[] = []) => ids.map((id) => seloHTML(id, c.fontes)).join('');
+const num = (v: number) => v.toLocaleString('pt-BR');
+
+const faceDoBloco = 'face' in b && b.face ? b.face : 'neutra';
+const fala = faceDoBloco !== 'neutra' && faceDoBloco !== faceBase ? faceDoBloco : null;
+const quemFala = fala === 'vermelha' ? '● Fala da esquerda' : '● Posição da direita';
+const classes = ['bloco', b.detalhe ? 'detalhe' : '', fala ? `fala t-${fala}` : ''].filter(Boolean).join(' ');
+
+const maxBarras = b.tipo === 'barras' ? Math.max(...b.itens.map((i) => i.valor)) * 1.08 : 1;
+---
+{b.tipo === 'texto' && (
+  <div class={classes}>
+    {fala && <span class="quem-fala" data-nao-ler>{quemFala}</span>}
+    <span class={`rotulo ${b.rotulo}`} data-nao-ler>{ROTULOS[b.rotulo]}</span>
+    <p set:html={m(b.texto) + selos(b.fontes)} />
+  </div>
+)}
+
+{b.tipo === 'lista' && (
+  <div class={classes}>
+    {fala && <span class="quem-fala" data-nao-ler>{quemFala}</span>}
+    <span class={`rotulo ${b.rotulo}`} data-nao-ler>{ROTULOS[b.rotulo]}</span>
+    {b.titulo && <h3 class="titulo-camada" style="font-size:1.4rem">{b.titulo}</h3>}
+    <ul class="lista">{b.itens.map((i) => <li set:html={m(i)} />)}</ul>
+    {b.fontes.length > 0 && <p set:html={selos(b.fontes)} />}
+  </div>
+)}
+
+{b.tipo === 'destaque' && (
+  <div class={classes}>
+    <span class="rotulo dado" data-nao-ler>Dado</span>
+    <p class="destaque-num">{b.numero}</p>
+    <p set:html={m(b.texto) + selos(b.fontes)} />
+  </div>
+)}
+
+{b.tipo === 'barras' && (
+  <div class={classes}>
+    <span class="rotulo dado" data-nao-ler>Dado</span>
+    <div class="barras">
+      <h3>{b.titulo}</h3>
+      {b.itens.map((i) => (
+        <div class={`barra${i.destaque ? ' destacada' : ''}`} style={`--p:${((i.valor / maxBarras) * 100).toFixed(1)}`}>
+          <span>{i.rotulo}</span>
+          <b>{num(i.valor)}{b.unidade}</b>
+          <span class="trilha" aria-hidden="true"><i></i></span>
+        </div>
+      ))}
+      <p set:html={selos(b.fontes)} data-nao-ler />
+    </div>
+  </div>
+)}
+
+{b.tipo === 'citacao' && (
+  <div class={classes}>
+    {fala && <span class="quem-fala" data-nao-ler>{quemFala}</span>}
+    <span class="rotulo declaracao" data-nao-ler>Declaração</span>
+    <figure class="citacao">
+      <blockquote set:html={m(b.texto)} />
+      <figcaption>
+        <strong>{b.autor}</strong>{b.contexto && <span>. {b.contexto}</span>}
+        <span set:html={selos(b.fontes)} />
+      </figcaption>
+    </figure>
+  </div>
+)}
+
+{b.tipo === 'linha' && (
+  <div class={classes}>
+    {b.titulo && <h3 class="titulo-camada" style="font-size:1.35rem">{b.titulo}</h3>}
+    <ol class="linha">
+      {b.itens.map((i) => (
+        <li class={`lado-${i.face}`}>
+          <span class="ano">{i.ano}</span>{i.quem && <span class="quem">{i.quem}</span>}
+          <p set:html={m(i.texto) + selos(i.fontes)} />
+        </li>
+      ))}
+    </ol>
+  </div>
+)}
+
+{b.tipo === 'vf' && (
+  <div class={`${classes} vf`}>
+    <h3 class="titulo-camada" style="font-size:1.35rem">Verdadeiro ou falso?</h3>
+    {b.itens.map((i) => (
+      <div class="vf-cartao" data-vf data-veredito={i.veredito}>
+        <p class="afirmacao">“{i.afirmacao}”</p>
+        <div class="vf-botoes" data-nao-ler>
+          <button type="button" data-resposta="verdadeiro">Verdadeiro</button>
+          <button type="button" data-resposta="falso">Falso</button>
+        </div>
+        <div class="vf-resposta">
+          <span class={`veredito ${i.veredito}`}>{i.veredito === 'verdadeiro' ? '✓ Verdadeiro' : i.veredito === 'falso' ? '✗ Falso' : '≈ Depende'}</span>
+          <span class="acertou-msg" data-acertou data-nao-ler></span>
+          <p set:html={m(i.explicacao) + selos(i.fontes)} />
+        </div>
+      </div>
+    ))}
+  </div>
+)}
+
+{b.tipo === 'antesAgora' && (
+  <div class={classes}>
+    <span class="rotulo dado" data-nao-ler>Dado</span>
+    <div class="antes-agora" data-aa data-antes={b.antes.valor} data-agora={b.agora.valor} data-unidade={b.unidade}
+      data-texto-antes={b.antes.texto} data-texto-agora={b.agora.texto} data-rotulo-antes={b.antes.rotulo} data-rotulo-agora={b.agora.rotulo}>
+      <h3>{b.titulo}</h3>
+      <div class="aa-visor">
+        <div class="aa-coluna" aria-hidden="true"><i style={`--v:${b.antes.valor}`}></i></div>
+        <div>
+          <p class="mono" data-aa-ano>{b.antes.rotulo}</p>
+          <p class="aa-num"><span data-aa-num>{num(b.antes.valor)}</span>{b.unidade}</p>
+          <p class="aa-legenda" data-aa-texto>{b.antes.texto}</p>
+        </div>
+      </div>
+      <label class="aa-faixa" data-nao-ler>
+        <span>{b.antes.rotulo}</span>
+        <input type="range" min="0" max="100" value="0" aria-label={`Arraste de ${b.antes.rotulo} até ${b.agora.rotulo}`} />
+        <span>{b.agora.rotulo}</span>
+      </label>
+      <p set:html={selos(b.fontes)} data-nao-ler />
+    </div>
+  </div>
+)}

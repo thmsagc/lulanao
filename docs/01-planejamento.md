@@ -552,6 +552,8 @@ Uma IA que responde sobre política em ano eleitoral pode errar, inventar ou ser
 | IA (fase B/C) | Cloudflare Worker + Workers AI + Vectorize + Turnstile | Tudo no plano gratuito |
 | Métricas | Cloudflare Web Analytics | Gratuito, sem cookies, compatível com a LGPD |
 
+> **Na implementação (protótipo de out/2026):** tudo o que estava previsto para Svelte e GSAP foi resolvido com TypeScript puro, CSS nativo e Web Animations, sem nenhuma biblioteca no navegador (cerca de 8 KB de JavaScript comprimido). Svelte e GSAP continuam como opção se algum formato futuro (Teia, por exemplo) exigir.
+
 ### 10.2 Estrutura do repositório (proposta)
 
 ```

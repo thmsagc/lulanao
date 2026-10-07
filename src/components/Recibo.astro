@@ -1,0 +1,35 @@
+---
+import { carregarConteudo } from '../lib/conteudo';
+interface Props { ids: string[]; atualizadoEm: Date }
+const { ids, atualizadoEm } = Astro.props;
+const c = await carregarConteudo();
+const fontes = ids.map((id) => c.fontes.get(id)!).filter(Boolean);
+const oficiais = fontes.filter((f) => f.nivel === 'A').length;
+const veiculos = new Set(fontes.map((f) => f.veiculo)).size;
+const aConferir = fontes.filter((f) => !f.trechoConferido).length;
+const data = atualizadoEm.toLocaleDateString('pt-BR', { timeZone: 'UTC' });
+---
+<div class="recibo">
+  <h3>RECIBO DE FONTES</h3>
+  <p style="text-align:center">lulanao.com.br · fatos com fonte</p>
+  <div class="tracejado"></div>
+  <ol>
+    {fontes.map((f, i) => (
+      <li>
+        <button type="button" data-fonte={f.id}>
+          <span>{String(i + 1).padStart(2, '0')}</span>
+          <span>{f.curto}</span>
+          <span>[{f.nivel}]</span>
+        </button>
+      </li>
+    ))}
+  </ol>
+  <div class="tracejado"></div>
+  <p class="total"><span>FONTES</span><span>{fontes.length}</span></p>
+  <p class="total"><span>DOCUMENTOS PRIMÁRIOS [A]</span><span>{oficiais}</span></p>
+  <p class="total"><span>VEÍCULOS DIFERENTES</span><span>{veiculos}</span></p>
+  {aConferir > 0 && <p class="total pendente"><span>TRECHOS A CONFERIR</span><span>{aConferir}</span></p>}
+  <div class="tracejado"></div>
+  <p class="total"><span>VERIFICADO EM</span><span>{data}</span></p>
+  <p style="text-align:center;margin-top:10px">TOQUE EM UMA FONTE PARA VER O TRECHO</p>
+</div>

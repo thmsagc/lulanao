@@ -1,0 +1,70 @@
+---
+import { carregarConteudo } from '../lib/conteudo';
+const c = await carregarConteudo();
+const eixosComConteudo = new Set(c.posts.map((p) => p.data.eixo));
+---
+<button type="button" class="orbe" id="orbe" aria-label="Abrir a Bússola (toque longo para buscar por voz)" aria-haspopup="dialog" aria-controls="bussola">
+  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+    <circle cx="16" cy="16" r="12" />
+    <path d="M20.5 11.5L17.6 17.6L11.5 20.5L14.4 14.4Z" fill="currentColor" stroke-linejoin="round" />
+  </svg>
+</button>
+
+<dialog class="bussola" id="bussola" aria-label="Bússola">
+  <div class="bussola-interno">
+    <div class="bussola-topo">
+      <h2>Bússola</h2>
+      <button type="button" class="fechar" data-fechar aria-label="Fechar">✕</button>
+    </div>
+
+    <div>
+      <div class="busca">
+        <label class="sr" for="campo-busca">Buscar no site</label>
+        <input id="campo-busca" type="search" placeholder="Fale ou digite o que procura…" autocomplete="off" enterkeyhint="search" />
+        <button type="button" class="botao-voz" id="botao-voz" aria-label="Buscar por voz">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3" /><path d="M5 11a7 7 0 0 0 14 0M12 18v3" /></svg>
+        </button>
+      </div>
+      <p class="status-voz" id="status-voz" aria-live="polite"></p>
+      <div class="resultados" id="resultados" aria-live="polite"></div>
+    </div>
+
+    <a class="botao ouro" id="continuar" href="/" hidden>▶ Continuar de onde parei</a>
+
+    <div class="atalhos">
+      <a class="moeda-atalho" href="/duas-faces"><span aria-hidden="true">🪙</span> Duas faces</a>
+      <a href="/linha-do-tempo"><span aria-hidden="true">⏱</span> Linha do tempo</a>
+      <a href="/fontes"><span aria-hidden="true">📚</span> Fontes</a>
+      <a href="/sua-moeda"><span aria-hidden="true">⚖</span> Sua moeda</a>
+    </div>
+
+    <div>
+      <p class="nome-camada" style="color:#9aa1ab;margin-bottom:10px">Temas</p>
+      <div class="grade-eixos">
+        {c.eixos.map((e) =>
+          eixosComConteudo.has(e.id) ? (
+            <a href={`/e/${e.id}`}><span class="icone" aria-hidden="true">{e.data.icone}</span><strong>{e.data.nome}</strong><small>Disponível</small></a>
+          ) : (
+            <div aria-disabled="true"><span class="icone" aria-hidden="true">{e.data.icone}</span><strong>{e.data.nome}</strong><small>Em breve</small></div>
+          ),
+        )}
+      </div>
+    </div>
+
+    <div>
+      <p class="nome-camada" style="color:#9aa1ab;margin-bottom:10px">Como você prefere ler?</p>
+      <div class="seletor-modo" role="group" aria-label="Modo de leitura">
+        <button type="button" data-escolher-modo="simples" aria-pressed="false">Me explica rápido</button>
+        <button type="button" data-escolher-modo="completo" aria-pressed="false">Quero tudo detalhado</button>
+      </div>
+    </div>
+
+    <div class="legenda-bussola">
+      <span><i style="background:var(--esq)"></i> Esquerda</span>
+      <span><i style="background:var(--dir)"></i> Direita</span>
+      <span><i style="background:var(--papel)"></i> Fato</span>
+      <a href="/sobre">Sobre o site</a>
+      <a href="/errata">Correções</a>
+    </div>
+  </div>
+</dialog>

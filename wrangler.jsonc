@@ -1,0 +1,10 @@
+// Publicação na Cloudflare (Workers com arquivos estáticos, plano gratuito).
+// Build: npm run build  →  pasta dist/
+{
+  "name": "lulanao",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  }
+}

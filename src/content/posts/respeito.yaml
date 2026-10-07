@@ -1,0 +1,51 @@
+titulo: Só 9%
+eixo: escola
+ordem: 2
+face: neutra
+resumo: Só 9% dos brasileiros acham que os alunos respeitam o professor. Último lugar entre 35 países.
+moeda: disciplina-excelencia
+atualizadoEm: 2026-10-07
+kit:
+  frase: Só 9% dos brasileiros acham que os alunos respeitam o professor. Último lugar entre 35 países.
+  fonte: Varkey Foundation, 2018
+capa:
+  kicker: Escola em Ruínas
+  numero: { valor: 9, sufixo: "%" }
+  titulo: dos brasileiros acham que os alunos respeitam o professor.
+  subtitulo: Último lugar entre 35 países.
+  fontes: [nsc-varkey-2018]
+entenda:
+  - tipo: texto
+    rotulo: dado
+    texto: Uma pesquisa internacional ouviu mais de 35 mil pessoas em 35 países sobre o prestígio de quem ensina. O Brasil ficou em ==último lugar==. [[nsc-varkey-2018]] [[varkey-gtsi]]
+  - tipo: texto
+    rotulo: dado
+    texto: A China ficou em primeiro. Por aqui, quase ninguém acha que o aluno respeita o professor. [[nsc-varkey-2018]]
+prova:
+  - tipo: destaque
+    numero: 35º de 35
+    texto: posição do Brasil no Índice Global de Prestígio do Professor de 2018.
+    fontes: [nsc-varkey-2018]
+  - tipo: linha
+    titulo: Não é de agora
+    itens:
+      - { ano: "2013", texto: "Na primeira edição, com 21 países, o Brasil já aparece entre os últimos. Só Israel está muito pior.", quem: Governo Dilma (PT), face: vermelha, fontes: [edweek-2013] }
+      - { ano: "2018", texto: "O Brasil fica em último lugar entre 35 países.", quem: Governo Temer (MDB), fontes: [nsc-varkey-2018] }
+outroLado:
+  - tipo: citacao
+    face: vermelha
+    texto: Com Temer, Brasil é último no ranking de prestígio do professor.
+    autor: Site oficial do PT
+    contexto: Título publicado pelo partido em 2018.
+    fontes: [pt-temer-varkey]
+  - tipo: texto
+    rotulo: contexto
+    texto: "O que o título não diz: em 2013, no governo Dilma, do próprio PT, o Brasil já estava entre os últimos colocados. [[edweek-2013]]"
+penseNisso:
+  pergunta: Quem não respeita o professor consegue aprender com ele?
+  quiz:
+    pergunta: Em que posição o Brasil ficou no ranking de prestígio do professor de 2018?
+    opcoes: ["1º lugar", "No meio da tabela", "Último lugar"]
+    correta: 2
+    explicacao: O Brasil ficou em último entre 35 países, e só 9% acham que os alunos respeitam o professor.
+    fontes: [nsc-varkey-2018]

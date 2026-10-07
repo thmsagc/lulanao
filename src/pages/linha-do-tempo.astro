@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+import { carregarConteudo, marcar, seloHTML } from '../lib/conteudo';
+const c = await carregarConteudo();
+const m = (t: string) => marcar(t, c);
+const selos = (ids: string[]) => ids.map((id) => seloHTML(id, c.fontes)).join('');
+---
+<Base titulo="Linha do tempo" descricao="O que mudou na escola brasileira desde 1969, e quem decidiu cada coisa.">
+  <div class="pagina t-neutra">
+    <div class="pagina-interno">
+      <p class="kicker">⏱ Linha do tempo · Escola em Ruínas</p>
+      <h1>Quem decidiu o quê.</h1>
+      <p class="intro">Mais de 50 anos de mudanças na escola, atravessando governos de todos os lados. Em <span style="color:var(--esq);font-weight:700">vermelho</span>, as decisões de governos do PT.</p>
+      <div class="filtros" role="group" aria-label="Filtrar">
+        <button type="button" data-filtro="" aria-pressed="true">Tudo</button>
+        <button type="button" data-filtro="vermelha" aria-pressed="false">Só governos do PT</button>
+        <button type="button" data-filtro="neutra" aria-pressed="false">Outros governos e dados</button>
+      </div>
+      <ol class="tempo">
+        {c.linha.map((e) => (
+          <li class={`lado-${e.data.face}`} data-face={e.data.face}>
+            <span class="ano">{e.data.ano}</span>
+            <div class="evento">
+              <span class="quem">{e.data.quem}</span>
+              <p set:html={m(e.data.texto) + selos(e.data.fontes)} />
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+  <script>
+    const itens = [...document.querySelectorAll<HTMLElement>('.tempo li')];
+    const obs = new IntersectionObserver((es) => es.forEach((e) => e.isIntersecting && e.target.classList.add('visivel')), { threshold: 0.15 });
+    itens.forEach((i) => obs.observe(i));
+    document.querySelectorAll<HTMLElement>('[data-filtro]').forEach((b) =>
+      b.addEventListener('click', () => {
+        const f = b.dataset.filtro;
+        itens.forEach((i) => (i.hidden = !!f && i.dataset.face !== f));
+        b.parentElement!.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      }),
+    );
+  </script>
+</Base>

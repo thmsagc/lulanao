@@ -1,0 +1,64 @@
+---
+import Base from '../../layouts/Base.astro';
+import MoedaFace from '../../components/MoedaFace.astro';
+import FoiceMartelo from '../../components/FoiceMartelo.astro';
+import { carregarConteudo, marcar, seloHTML } from '../../lib/conteudo';
+
+export async function getStaticPaths() {
+  const c = await carregarConteudo();
+  return c.moedas.map((moeda) => ({ params: { slug: moeda.id }, props: { moeda } }));
+}
+const { moeda } = Astro.props;
+const c = await carregarConteudo();
+const m = (t: string) => marcar(t, c);
+const selos = (ids: string[]) => ids.map((id) => seloHTML(id, c.fontes)).join('');
+const selo = moeda.data.vermelha.selo;
+---
+<Base titulo={`Duas faces: ${moeda.data.titulo}`} descricao={moeda.data.pergunta} tema="vermelha">
+  <div class="moeda-palco" data-moeda={moeda.id}>
+    <div class="topo-moeda">
+      <button type="button" class="botao-placar" data-folha-tpl={`placar-${moeda.id}`}><i></i> Placar dos fatos</button>
+      <button type="button" class="botao-placar botao-modo-moeda" id="botao-modo-moeda">⇆ Ver lado a lado</button>
+    </div>
+    <div class="moeda">
+      <MoedaFace moeda={moeda} lado="vermelha" />
+      <div class="borda" aria-hidden="true"><span class="divisor">⇆</span></div>
+      <MoedaFace moeda={moeda} lado="azul" />
+    </div>
+    <button type="button" class="botao-virar" id="botao-virar" aria-label="Virar a moeda (tecla V)">↻</button>
+    <span class="rotulo-virar" aria-hidden="true">Vire a moeda</span>
+    <p class="sr" id="anuncio-face" aria-live="polite"></p>
+  </div>
+
+  <template id={`placar-${moeda.id}`}>
+    <div class="folha-topo">
+      <div><span class="etiqueta">Placar dos fatos</span><h3 style="margin-top:8px">O que os dois lados precisam encarar</h3></div>
+      <button type="button" class="fechar" data-fechar aria-label="Fechar">✕</button>
+    </div>
+    <p class="veiculo">Dados neutros, inclusive os que incomodam a direita. Toque nos selos para ver as fontes.</p>
+    <div class="placar-lista">
+      {moeda.data.placar.map((p) => (
+        <div class="placar-item"><strong>{p.numero}</strong><span set:html={m(p.texto)} /><span class="selos" set:html={selos(p.fontes)} /></div>
+      ))}
+    </div>
+  </template>
+
+  {selo && (
+    <template id={`selo-${moeda.id}`}>
+      <div class="folha-topo">
+        <div class="etiquetas"><span class="etiqueta vermelho">Por que este símbolo?</span></div>
+        <button type="button" class="fechar" data-fechar aria-label="Fechar">✕</button>
+      </div>
+      <div style="display:flex;gap:14px;align-items:center">
+        <span style="width:64px;height:64px;flex:none;background:var(--esq);border-radius:12px;padding:8px;fill:var(--esq-ouro)"><FoiceMartelo titulo="Foice e martelo" /></span>
+        <h3>A foice e o martelo só aparecem onde há vínculo comunista documentado.</h3>
+      </div>
+      <p style="font-size:1.05rem" set:html={m(selo.texto) + selos(selo.fontes)} />
+      <p class="nota">Regra do site: o símbolo é usado como fato com fonte, nunca como xingamento. Ninguém é chamado de comunista sem vínculo documentado com partido ou organização comunista.</p>
+    </template>
+  )}
+
+  <script>
+    import '../../scripts/moeda.ts';
+  </script>
+</Base>

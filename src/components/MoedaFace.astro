@@ -1,0 +1,99 @@
+---
+import { carregarConteudo, marcar, seloHTML, idsCitados, type Moeda } from '../lib/conteudo';
+import Bloco from './Bloco.astro';
+import FoiceMartelo from './FoiceMartelo.astro';
+
+interface Props {
+  moeda: Moeda;
+  lado: 'vermelha' | 'azul';
+}
+const { moeda, lado } = Astro.props;
+const f = moeda.data[lado];
+const c = await carregarConteudo();
+const m = (t: string) => marcar(t, c);
+const selos = (ids: string[] = []) => ids.map((id) => seloHTML(id, c.fontes)).join('');
+const ids = (v: unknown) => [...idsCitados(v)].join(',');
+const outra = lado === 'vermelha' ? 'a direita' : 'a esquerda';
+const camadas = ['Capa', 'Entenda', 'Prova', f.contraponto.titulo, 'E você?'];
+const temDetalhe = (blocos: { detalhe?: boolean }[]) => blocos.some((b) => b.detalhe);
+---
+<section class={`face face-${lado} t-${lado} deck`} data-deck data-face={lado} aria-label={f.rotulo}>
+  <nav class="trilho" aria-label={`Camadas: ${f.rotulo}`}>
+    {camadas.map((nome, i) => <button type="button" data-ir-camada={i} class={i === 0 ? 'feito' : ''} aria-label={`${i + 1}. ${nome}`}></button>)}
+  </nav>
+  <div class="topo">
+    <span class="lado-titulo">
+      {f.selo && (
+        <button type="button" class="selo-comunista" data-folha-tpl={`selo-${moeda.id}`} aria-label="Por que a foice e o martelo?">
+          <FoiceMartelo />
+        </button>
+      )}
+      {f.rotulo}
+    </span>
+    <button type="button" class="botao-ouvir" data-ouvir aria-pressed="false"><span aria-hidden="true">🔊</span> Ouvir</button>
+  </div>
+
+  <div class="camadas" data-camadas>
+    <section class="camada capa" data-fontes={ids(f.capa)} aria-label="Capa">
+      <div class="conteudo">
+        <p class="kicker">Duas faces · {moeda.data.titulo}</p>
+        <p class="subtitulo-capa" style="font-size:1.05rem">{moeda.data.pergunta}</p>
+        <h2 class="titulo-capa grande" set:html={m(f.capa.titulo)} />
+        {f.capa.subtitulo && <p class="subtitulo-capa" set:html={m(f.capa.subtitulo)} />}
+        <div class="fontes-capa" set:html={selos(f.capa.fontes)} />
+        <div class="acoes" data-nao-ler>
+          <button type="button" class="botao" data-ir="proxima">Entenda <span aria-hidden="true">→</span></button>
+          <button type="button" class="botao vazado" data-virar>↻ Ver o que {outra} defende</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="camada" data-fontes={ids(f.entenda)} aria-label="Entenda">
+      <div class="conteudo">
+        <p class="nome-camada" data-nao-ler>2 · {lado === 'vermelha' ? 'O que defendem' : 'Os valores'}</p>
+        {f.entenda.map((b) => <Bloco bloco={b} faceBase={lado} />)}
+        <div class="acoes" data-nao-ler>
+          <button type="button" class="botao" data-ir="proxima">A prova <span aria-hidden="true">→</span></button>
+          {temDetalhe(f.entenda) && <button type="button" class="botao vazado ver-detalhes" data-ver-detalhes>+ Detalhes</button>}
+        </div>
+      </div>
+    </section>
+
+    <section class="camada" data-fontes={ids(f.prova)} aria-label="Prova">
+      <div class="conteudo">
+        <p class="nome-camada" data-nao-ler>3 · {lado === 'vermelha' ? 'Nas palavras e atos deles' : 'Fundamentos e evidências'}</p>
+        {f.prova.map((b) => <Bloco bloco={b} faceBase={lado} />)}
+        <div class="acoes" data-nao-ler>
+          <button type="button" class="botao" data-ir="proxima">{f.contraponto.titulo} <span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="camada" data-fontes={ids(f.contraponto)} aria-label={f.contraponto.titulo}>
+      <div class="conteudo">
+        <p class="nome-camada" data-nao-ler>4 · {f.contraponto.titulo}</p>
+        {f.contraponto.blocos.map((b) => <Bloco bloco={b} faceBase={lado} />)}
+        <div class="acoes" data-nao-ler>
+          <button type="button" class="botao" data-ir="proxima">E você? <span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="camada" aria-label="E você?">
+      <div class="conteudo">
+        <p class="nome-camada" data-nao-ler>5 · E você?</p>
+        <p class="pergunta-final">Qual face te convenceu mais?</p>
+        <div class="voce" data-nao-ler>
+          <button type="button" data-escolha="vermelha" aria-pressed="false"><i></i> A face vermelha (esquerda)</button>
+          <button type="button" data-escolha="azul" aria-pressed="false"><i></i> A face azul (direita)</button>
+          <button type="button" data-escolha="pensando" aria-pressed="false"><i style="background:var(--papel)"></i> Ainda estou pensando</button>
+        </div>
+        <p class="voce-obrigado" hidden>Guardado só neste aparelho; ninguém mais vê. <a href="/sua-moeda">Ver Sua Moeda →</a></p>
+        <div class="acoes" data-nao-ler>
+          <button type="button" class="botao vazado" data-folha-tpl={`placar-${moeda.id}`}>⚪ Placar dos Fatos</button>
+          <button type="button" class="botao vazado" data-virar>↻ Virar a moeda</button>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>

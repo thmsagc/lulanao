@@ -1,0 +1,53 @@
+titulo: Antigamente era melhor?
+eixo: escola
+ordem: 4
+face: neutra
+resumo: Era melhor, mas para poucos. Em 1970, 1 em cada 3 crianças estava fora da escola. Hoje a escola é de todos, mas perdeu o padrão.
+moeda: disciplina-excelencia
+atualizadoEm: 2026-10-07
+kit:
+  frase: Antigamente a escola era melhor, mas para poucos. Hoje é de todos, e perdeu o padrão.
+  fonte: IBGE e OCDE
+capa:
+  kicker: Escola em Ruínas
+  titulo: Antigamente era melhor?
+  subtitulo: Era. Mas para poucos.
+  fontes: [escolarizacao]
+entenda:
+  - tipo: texto
+    rotulo: dado
+    texto: Em 1970, só ==67%== das crianças de 7 a 14 anos estavam na escola. Uma em cada três ficava de fora. [[escolarizacao]]
+  - tipo: texto
+    rotulo: dado
+    texto: Em 2005, já eram ==96%==. A escola passou a ser de todos. [[escolarizacao]]
+  - tipo: texto
+    rotulo: contexto
+    texto: A escola rígida de que muita gente se lembra era a de quem conseguia entrar e ficar. Quem desistia quase nunca é ouvido. [[aosfatos-ditadura]]
+prova:
+  - tipo: antesAgora
+    titulo: Crianças de 7 a 14 anos na escola
+    antes: { rotulo: "1970", valor: 67, texto: 1 em cada 3 fora da escola }
+    agora: { rotulo: "2005", valor: 96, texto: quase todas na escola }
+    fontes: [escolarizacao]
+  - tipo: texto
+    rotulo: dado
+    texto: "Mas a escola de todos não manteve o padrão: hoje o professor perde ==21% da aula== com bagunça, contra 15% nos outros países. [[talis-2024]]"
+  - tipo: texto
+    rotulo: contexto
+    detalhe: true
+    texto: Não dá para medir a disciplina de antigamente, porque o próprio regime militar fechou centros de pesquisa do ((Inep)) em 1973 e 1976. [[aosfatos-ditadura]]
+outroLado:
+  - tipo: texto
+    rotulo: contexto
+    texto: "Atenção à memória: um estudo de 2019 mostrou que adultos tendem a achar as crianças de hoje piores justamente no que eles próprios se destacam, como o respeito à autoridade. [[protzko-2019]] [[protzko-popsci]]"
+  - tipo: texto
+    rotulo: opiniao
+    texto: Por isso este site compara o Brasil com ==outros países hoje==, e não com a memória. E, nessa comparação, o Brasil fica no fim da fila. [[talis-2024]]
+penseNisso:
+  pergunta: Dá para ter as duas coisas, escola para todos e com padrão alto?
+  quiz:
+    pergunta: Em 1970, quantas crianças de 7 a 14 anos estavam na escola?
+    opcoes: ["Quase todas", "Cerca de 2 em cada 3", "Menos da metade"]
+    correta: 1
+    explicacao: Eram 67%, cerca de 2 em cada 3. Em 2005, já eram 96%.
+    fontes: [escolarizacao]

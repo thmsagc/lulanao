@@ -1,0 +1,70 @@
+---
+import '@fontsource-variable/archivo/wdth.css';
+import '@fontsource/atkinson-hyperlegible-next/400.css';
+import '@fontsource/atkinson-hyperlegible-next/700.css';
+import '@fontsource-variable/oswald';
+import '@fontsource-variable/fraunces';
+import '@fontsource-variable/jetbrains-mono';
+import '../styles/global.css';
+
+import { SITE } from '../config';
+import { carregarConteudo, dadosCliente, jsonSeguro } from '../lib/conteudo';
+import Bussola from '../components/Bussola.astro';
+import Folha from '../components/Folha.astro';
+
+interface Props {
+  titulo?: string;
+  descricao?: string;
+  tema?: 'neutra' | 'vermelha' | 'azul';
+  caminho?: string;
+}
+const { titulo, descricao = `${SITE.lema} O que a esquerda defende, o que a direita defende e o que os dados mostram.`, tema = 'neutra', caminho = Astro.url.pathname } = Astro.props;
+const tituloCompleto = titulo ? `${titulo} · ${SITE.nome}` : `${SITE.nome}: ${SITE.lema}`;
+const c = await carregarConteudo();
+const dados = jsonSeguro(dadosCliente(c));
+---
+<!doctype html>
+<html lang="pt-BR" data-simbolo={SITE.simboloComunista} data-modo="simples">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{tituloCompleto}</title>
+    <meta name="description" content={descricao} />
+    {!SITE.indexavel && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={new URL(caminho, SITE.url)} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content={SITE.nome} />
+    <meta property="og:title" content={tituloCompleto} />
+    <meta property="og:description" content={descricao} />
+    <meta property="og:url" content={new URL(caminho, SITE.url)} />
+    <meta property="og:image" content={new URL('/og.png', SITE.url)} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content={tema === 'vermelha' ? '#CC0000' : tema === 'azul' ? '#0B2D6B' : '#0E1116'} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <script is:inline>
+      // Preferências do leitor (antes de desenhar a tela, para não piscar).
+      (function () {
+        var raiz = document.documentElement;
+        try {
+          var modo = localStorage.getItem('lulanao:modo');
+          if (modo === 'simples' || modo === 'completo') raiz.dataset.modo = modo;
+          var p = new URLSearchParams(location.search).get('simbolo');
+          if (p === 'sempre' || p === 'ancorado' || p === 'desligado') sessionStorage.setItem('lulanao:simbolo', p);
+          var s = sessionStorage.getItem('lulanao:simbolo');
+          if (s) raiz.dataset.simbolo = s;
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body data-tema={tema}>
+    <slot />
+    <Bussola />
+    <Folha />
+    <script type="application/json" id="dados-site" set:html={dados} />
+    <script>
+      import '../scripts/app.ts';
+    </script>
+  </body>
+</html>

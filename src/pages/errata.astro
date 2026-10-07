@@ -1,0 +1,15 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../config';
+---
+<Base titulo="Correções" descricao="Todas as correções e atualizações, com data.">
+  <div class="pagina t-neutra">
+    <div class="pagina-interno">
+      <p class="kicker">✎ Correções</p>
+      <h1>Errou, corrige em público.</h1>
+      <p class="intro">Toda correção de fato publicado aparece aqui: o que estava escrito, o que mudou e quando.</p>
+      <div class="aviso-prototipo"><p>Nenhuma correção até agora.</p></div>
+      <p>Viu um erro? Escreva para <a href={`mailto:${SITE.expediente.correcoes}`}>{SITE.expediente.correcoes}</a>.</p>
+    </div>
+  </div>
+</Base>

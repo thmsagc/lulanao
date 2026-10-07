@@ -1,0 +1,19 @@
+- { id: e1969, ano: 1969, eixo: escola, quem: Regime militar, texto: "Educação Moral e Cívica se torna matéria obrigatória em todas as escolas.", fontes: [dl-869-1969, emc-anpuh] }
+- { id: e1970, ano: 1970, eixo: escola, quem: Dado (IBGE), texto: "Só 67% das crianças de 7 a 14 anos estão na escola.", fontes: [escolarizacao] }
+- { id: e1988, ano: 1988, eixo: escola, quem: Constituinte, texto: "A Constituição adota a gestão democrática do ensino público.", fontes: [cf-art206] }
+- { id: e1993, ano: 1993, eixo: escola, quem: Governo Itamar Franco, texto: "Lei acaba com a obrigatoriedade de Moral e Cívica e de OSPB.", fontes: [lei-8663-1993, emc-anpuh] }
+- { id: e1996, ano: 1996, eixo: escola, quem: Governo FHC, texto: "Nova LDB fixa o mínimo de 200 dias letivos por ano.", fontes: [ldb-1996] }
+- { id: e1998, ano: 1998, eixo: escola, quem: Governo Covas (SP), texto: "São Paulo adota a progressão continuada, criticada como aprovação automática.", fontes: [progressao-sp] }
+- { id: e2005, ano: 2005, eixo: escola, quem: Dado (IBGE), texto: "96% das crianças de 7 a 14 anos estão na escola. O acesso é quase universal.", fontes: [escolarizacao] }
+- { id: e2011, ano: 2011, eixo: escola, quem: Governo Dilma (MEC, ministro Haddad), face: vermelha, texto: "MEC distribui a 484 mil alunos o livro do \"nós pega o peixe\".", fontes: [livro-2011-bnews, livro-2011-cef] }
+- { id: e2012, ano: 2012, eixo: escola, quem: Governo Dilma, face: vermelha, texto: "Paulo Freire é declarado Patrono da Educação Brasileira.", fontes: [lei-12612-2012] }
+- { id: e2013, ano: 2013, eixo: escola, quem: Pesquisa Varkey, texto: "Brasil aparece entre os últimos no prestígio do professor (21 países).", fontes: [edweek-2013] }
+- { id: e2014a, ano: 2014, eixo: escola, quem: Pesquisa OCDE, texto: "TALIS 2013: Brasil em 1º lugar em intimidação de professores (12,5%).", fontes: [talis-2013-usp] }
+- { id: e2014b, ano: 2014, eixo: escola, quem: Governo Dilma, face: vermelha, texto: "Lei Menino Bernardo proíbe castigo físico como forma de educar.", fontes: [lei-13010-2014] }
+- { id: e2018, ano: 2018, eixo: escola, quem: Pesquisa Varkey, texto: "Brasil em último lugar no prestígio do professor (35 países).", fontes: [nsc-varkey-2018] }
+- { id: e2019, ano: 2019, eixo: escola, quem: Governo Bolsonaro, texto: "Criado o programa federal de escolas cívico-militares.", fontes: [pecim-poder360] }
+- { id: e2023a, ano: 2023, eixo: escola, quem: Governo Lula, face: vermelha, texto: "Governo anuncia o fim do programa federal de escolas cívico-militares.", fontes: [pecim-poder360, pecim-sbt-lula] }
+- { id: e2023b, ano: 2023, eixo: escola, quem: Governo Lula (MEC), face: vermelha, texto: "MEC inicia a \"justiça restaurativa nas escolas\": diálogo e reparação em vez de punição.", fontes: [mec-jr-2023] }
+- { id: e2025a, ano: 2025, eixo: escola, quem: Dado (Inep), texto: "Enem 2024 tem só 12 redações nota mil, o menor número da história.", fontes: [enem-2024] }
+- { id: e2025b, ano: 2025, eixo: escola, quem: Congresso e Governo Lula, texto: "Lei restringe o celular nas escolas, com apoio de todos os lados.", fontes: [celular-cef] }
+- { id: e2025c, ano: 2025, eixo: escola, quem: Pesquisa OCDE, texto: "TALIS 2024: professor brasileiro perde 21% da aula para manter a ordem.", fontes: [talis-2024] }

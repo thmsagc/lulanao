@@ -1,0 +1,57 @@
+---
+import Base from '../layouts/Base.astro';
+import { carregarConteudo } from '../lib/conteudo';
+const c = await carregarConteudo();
+const moedas = c.moedas.map((m) => ({ id: m.id, titulo: m.data.titulo }));
+---
+<Base titulo="Sua moeda" descricao="O resumo das suas escolhas, guardado só no seu aparelho.">
+  <div class="pagina t-neutra">
+    <div class="pagina-interno">
+      <p class="kicker">⚖ Sua moeda</p>
+      <h1>De que lado da moeda você está?</h1>
+      <p class="intro">Este resumo fica <strong>só neste aparelho</strong>. Nada é enviado a ninguém. Ele não indica candidato nem partido: é sobre valores.</p>
+      <div class="placar-pessoal">
+        <div class="v"><strong id="n-vermelha">0</strong>face vermelha</div>
+        <div><strong id="n-pensando">0</strong>pensando</div>
+        <div class="a"><strong id="n-azul">0</strong>face azul</div>
+      </div>
+      <section>
+        <h2>Suas escolhas</h2>
+        <ul id="lista-escolhas" class="lista"></ul>
+        <p id="sem-escolhas" class="intro">Você ainda não escolheu nenhuma face. <a href="/duas-faces">Comece pelas moedas →</a></p>
+      </section>
+      <button type="button" class="botao vazado" id="apagar" style="justify-self:start">Apagar minhas escolhas</button>
+    </div>
+  </div>
+  <script type="application/json" id="moedas" set:html={JSON.stringify(moedas)} />
+  <script>
+    const moedas: { id: string; titulo: string }[] = JSON.parse(document.getElementById('moedas')!.textContent || '[]');
+    const nomes: Record<string, string> = { vermelha: 'Face vermelha (esquerda)', azul: 'Face azul (direita)', pensando: 'Ainda pensando' };
+    const ler = (): Record<string, string> => {
+      try {
+        return JSON.parse(localStorage.getItem('lulanao:sua-moeda') || '{}');
+      } catch {
+        return {};
+      }
+    };
+    const desenhar = () => {
+      const e = ler();
+      const cont = { vermelha: 0, azul: 0, pensando: 0 } as Record<string, number>;
+      Object.values(e).forEach((v) => (cont[v] = (cont[v] || 0) + 1));
+      for (const k of Object.keys(cont)) document.getElementById(`n-${k}`)!.textContent = String(cont[k]);
+      const lista = document.getElementById('lista-escolhas')!;
+      lista.innerHTML = moedas
+        .filter((m) => e[m.id])
+        .map((m) => `<li><a href="/duas-faces/${m.id}">${m.titulo}</a>: <strong>${nomes[e[m.id]]}</strong></li>`)
+        .join('');
+      document.getElementById('sem-escolhas')!.hidden = Object.keys(e).length > 0;
+    };
+    document.getElementById('apagar')!.addEventListener('click', () => {
+      try {
+        localStorage.removeItem('lulanao:sua-moeda');
+      } catch {}
+      desenhar();
+    });
+    desenhar();
+  </script>
+</Base>

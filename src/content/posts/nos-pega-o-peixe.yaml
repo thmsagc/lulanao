@@ -1,0 +1,52 @@
+titulo: '"Nós pega o peixe"'
+eixo: escola
+ordem: 3
+face: vermelha
+resumo: Em 2011, o MEC distribuiu a quase 500 mil alunos um livro que trocou "certo e errado" por "adequado e inadequado".
+moeda: disciplina-excelencia
+atualizadoEm: 2026-10-07
+kit:
+  frase: Em 2011, o MEC mandou a quase 500 mil alunos um livro que trocou "certo e errado" por "adequado".
+  fonte: Bnews e Congresso em Foco, 2011
+capa:
+  kicker: Escola em Ruínas · MEC, 2011
+  titulo: '"Nós pega o peixe"'
+  subtitulo: O livro que o MEC distribuiu em 2011 trocou "certo e errado" por "adequado e inadequado".
+  fontes: [livro-2011-bnews]
+entenda:
+  - tipo: texto
+    rotulo: fato
+    texto: O livro *Por uma vida melhor* foi distribuído pelo ((PNLD)) a ==484.195 alunos== de 4.236 escolas, na educação de jovens e adultos. [[livro-2011-bnews]]
+  - tipo: texto
+    rotulo: fato
+    texto: Ele trazia exemplos como "nós pega o peixe" e dizia que a forma não era "errada", e sim "inadequada" em certas situações, porque quem fala assim pode sofrer ((preconceito linguístico)). [[livro-2011-bnews]]
+prova:
+  - tipo: citacao
+    face: vermelha
+    texto: Críticos são injustos e não leram livro.
+    autor: Fernando Haddad, então ministro da Educação
+    contexto: Título da reportagem de maio de 2011 com a resposta do ministro.
+    fontes: [livro-2011-cef]
+  - tipo: texto
+    rotulo: fato
+    texto: O MEC não mandou recolher o livro. [[livro-2011-bnews]]
+  - tipo: texto
+    rotulo: dado
+    texto: "Escrever bem continua raro: no Enem 2024, só ==12 redações== tiraram nota mil, o menor número da história. [[enem-2024]]"
+outroLado:
+  - tipo: texto
+    rotulo: declaracao
+    face: vermelha
+    texto: Os defensores dizem que o livro também ensinava a ((norma culta)) e que respeitar o jeito de falar do aluno é o primeiro passo para ensiná-lo. [[livro-2011-bnews]]
+  - tipo: texto
+    rotulo: opiniao
+    face: azul
+    texto: "Quem critica responde: ensinar a norma culta ao pobre é dar a ele a chave que o rico já tem. Entrevista de emprego, concurso e redação não aceitam \"nós pega\"."
+penseNisso:
+  pergunta: Ensinar o "certo" é preconceito ou é abrir portas?
+  quiz:
+    pergunta: Para quantos alunos o MEC distribuiu o livro em 2011?
+    opcoes: ["Cerca de 5 mil", "Cerca de 50 mil", "Quase 500 mil"]
+    correta: 2
+    explicacao: Foram 484.195 alunos de 4.236 escolas, pelo programa de livros didáticos do MEC.
+    fontes: [livro-2011-bnews]

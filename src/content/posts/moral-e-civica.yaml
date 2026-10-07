@@ -1,0 +1,55 @@
+titulo: 24 anos de Moral e Cívica
+eixo: escola
+ordem: 5
+face: neutra
+resumo: De 1969 a 1993, Educação Moral e Cívica foi matéria obrigatória. Em 2023, o governo Lula acabou com o programa federal de escolas cívico-militares.
+moeda: disciplina-excelencia
+atualizadoEm: 2026-10-07
+kit:
+  frase: Por 24 anos, toda escola ensinou Moral e Cívica. Em 1993, acabou.
+  fonte: Decreto-Lei 869/1969 e Lei 8.663/1993
+capa:
+  kicker: Escola em Ruínas
+  numero: { valor: 24, sufixo: " anos" }
+  titulo: de Educação Moral e Cívica obrigatória em toda escola do Brasil.
+  fontes: [dl-869-1969, lei-8663-1993]
+entenda:
+  - tipo: texto
+    rotulo: fato
+    texto: Em 1969, um decreto tornou obrigatórias as matérias de ((Educação Moral e Cívica)) e ((OSPB)). [[dl-869-1969]] [[emc-anpuh]]
+  - tipo: texto
+    rotulo: fato
+    texto: Em 1993, no governo Itamar Franco, uma lei acabou com a obrigação. As horas foram diluídas em outras matérias. [[lei-8663-1993]] [[emc-anpuh]]
+prova:
+  - tipo: linha
+    titulo: Quem decidiu o quê
+    itens:
+      - { ano: "1969", texto: "Moral e Cívica vira matéria obrigatória.", quem: Regime militar, fontes: [dl-869-1969] }
+      - { ano: "1993", texto: "Fim da obrigação.", quem: Governo Itamar Franco, fontes: [lei-8663-1993] }
+      - { ano: "2019", texto: "Criado o programa federal de escolas cívico-militares: 202 escolas e cerca de 120 mil alunos.", quem: Governo Bolsonaro, fontes: [pecim-poder360] }
+      - { ano: "2023", texto: "O governo anuncia o fim do programa federal.", quem: Governo Lula (PT), face: vermelha, fontes: [pecim-poder360] }
+  - tipo: citacao
+    face: vermelha
+    texto: Não é obrigação do MEC cuidar disso.
+    autor: Lula, sobre as escolas cívico-militares
+    contexto: Julho de 2023.
+    fontes: [pecim-sbt-lula]
+outroLado:
+  - tipo: texto
+    rotulo: contexto
+    face: vermelha
+    texto: Para historiadores e para a agência de notícias do governo, a escola foi usada pela ditadura para difundir uma ideologia autoritária. [[agenciabrasil-ditadura]]
+  - tipo: texto
+    rotulo: dado
+    texto: Em 2022, ==70%== dos entrevistados pelo Datafolha rejeitaram a militarização das escolas. A pesquisa foi encomendada pelas ONGs Cenpec e Ação Educativa. [[datafolha-2022]]
+  - tipo: texto
+    rotulo: dado
+    texto: No Paraná, que manteve o modelo por conta própria, 66% das comunidades consultadas aprovaram, e o estado chegará a 345 colégios cívico-militares. [[pr-345]]
+penseNisso:
+  pergunta: Ensinar deveres, respeito e amor à pátria é doutrinação ou formação?
+  quiz:
+    pergunta: Quem acabou com a obrigação de ensinar Moral e Cívica?
+    opcoes: ["O governo Lula, em 2003", "O governo Itamar Franco, em 1993", "O regime militar, em 1985"]
+    correta: 1
+    explicacao: Foi a Lei 8.663, de 1993, no governo Itamar Franco. Dizer quem decidiu cada coisa também faz parte de dizer a verdade.
+    fontes: [lei-8663-1993]

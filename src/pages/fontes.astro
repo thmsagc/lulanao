@@ -1,0 +1,86 @@
+---
+import Base from '../layouts/Base.astro';
+import { carregarConteudo, TIPOS_FONTE, NIVEIS } from '../lib/conteudo';
+const c = await carregarConteudo();
+const usadas = [...c.fontes.values()].filter((f) => c.usoDasFontes.has(f.id));
+const primarias = usadas.filter((f) => f.nivel === 'A').length;
+const veiculos = new Set(usadas.map((f) => f.veiculo)).size;
+const aConferir = usadas.filter((f) => !f.trechoConferido).length;
+const tipos = [...new Set(usadas.map((f) => f.tipo))];
+const dataBR = (d?: string) => (d ? d.split('-').reverse().join('/') : 's/ data');
+---
+<Base titulo="Biblioteca de Fontes" descricao="Todas as fontes de todas as afirmações do site, com trecho, nível de confiabilidade e link.">
+  <div class="pagina t-neutra">
+    <div class="pagina-interno">
+      <p class="kicker">📚 Biblioteca de Fontes</p>
+      <h1>Cada frase tem dono.</h1>
+      <p class="intro">Aqui estão todas as fontes usadas no site. Toque em uma para ver o trecho exato, o nível de confiabilidade e o link original.</p>
+      <div class="estatisticas">
+        <div><strong>{usadas.length}</strong><span>fontes citadas</span></div>
+        <div><strong>{primarias}</strong><span>documentos primários (nível A)</span></div>
+        <div><strong>{veiculos}</strong><span>veículos e instituições</span></div>
+        <div><strong>{aConferir}</strong><span>trechos ainda a conferir</span></div>
+      </div>
+      <details class="aviso-prototipo">
+        <summary><strong>Como ler os níveis</strong></summary>
+        <ul>{Object.values(NIVEIS).map((n) => <li>{n}</li>)}</ul>
+      </details>
+      <section>
+        <label class="sr" for="filtro-texto">Procurar fonte</label>
+        <input class="campo" id="filtro-texto" type="search" placeholder="Procurar por veículo, título ou assunto…" />
+        <div class="filtros" role="group" aria-label="Filtrar por nível">
+          <button type="button" data-filtro-nivel="" aria-pressed="true">Todos</button>
+          <button type="button" data-filtro-nivel="A" aria-pressed="false">Nível A</button>
+          <button type="button" data-filtro-nivel="B" aria-pressed="false">Nível B</button>
+          <button type="button" data-filtro-nivel="C" aria-pressed="false">Nível C</button>
+        </div>
+        <div class="filtros" role="group" aria-label="Filtrar por tipo">
+          <button type="button" data-filtro-tipo="" aria-pressed="true">Todos os tipos</button>
+          {tipos.map((t) => <button type="button" data-filtro-tipo={t} aria-pressed="false">{TIPOS_FONTE[t]}</button>)}
+        </div>
+      </section>
+      <div class="cartoes-fonte">
+        {usadas.map((f) => (
+          <article class="cartao-fonte" id={f.id} data-nivel={f.nivel} data-tipo={f.tipo} data-busca={`${f.veiculo} ${f.titulo} ${f.trecho} ${f.curto}`.toLowerCase()}>
+            <div class="filtros" style="gap:6px">
+              <span class="etiqueta-claro">Nível {f.nivel}</span>
+              <span class="etiqueta-claro">{TIPOS_FONTE[f.tipo]}</span>
+              {!f.trechoConferido && <span class="etiqueta-claro" style="border-style:dashed">trecho a conferir</span>}
+            </div>
+            <h3>{f.titulo}</h3>
+            <p class="meta">{f.veiculo}{f.autor && ` · ${f.autor}`} · {dataBR(f.data)}</p>
+            <blockquote class="trecho" style="color:var(--tinta)">“{f.trecho}”</blockquote>
+            <p class="linhas-link">
+              {f.url ? <a href={`/ir/${f.id}`} target="_blank" rel="noopener">Ver o original ↗</a> : <span>Livro: sem link</span>}
+              {f.urlArquivo ? <a href={f.urlArquivo} target="_blank" rel="noopener">Cópia arquivada ↗</a> : f.url && <span style="opacity:.6">Cópia arquivada: pendente</span>}
+              <button type="button" class="termo" data-fonte={f.id}>Abrir a ficha</button>
+            </p>
+            <p class="usada">Usada em: {(c.usoDasFontes.get(f.id) ?? []).map((u, i) => <>{i > 0 && ', '}<a href={u.url}>{u.titulo}</a></>)}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+  <script>
+    const texto = document.getElementById('filtro-texto') as HTMLInputElement;
+    let nivel = '';
+    let tipo = '';
+    const aplicar = () => {
+      const q = texto.value.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+      document.querySelectorAll<HTMLElement>('.cartao-fonte').forEach((c) => {
+        const busca = (c.dataset.busca || '').normalize('NFD').replace(/[̀-ͯ]/g, '');
+        c.hidden = !((!nivel || c.dataset.nivel === nivel) && (!tipo || c.dataset.tipo === tipo) && (!q || busca.includes(q)));
+      });
+    };
+    texto.addEventListener('input', aplicar);
+    document.querySelectorAll<HTMLElement>('[data-filtro-nivel],[data-filtro-tipo]').forEach((b) =>
+      b.addEventListener('click', () => {
+        const grupo = b.hasAttribute('data-filtro-nivel') ? 'nivel' : 'tipo';
+        if (grupo === 'nivel') nivel = b.dataset.filtroNivel || '';
+        else tipo = b.dataset.filtroTipo || '';
+        b.parentElement!.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+        aplicar();
+      }),
+    );
+  </script>
+</Base>

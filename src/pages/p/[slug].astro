@@ -1,0 +1,16 @@
+---
+import Base from '../../layouts/Base.astro';
+import FeedPagina from '../../components/FeedPagina.astro';
+import { carregarConteudo } from '../../lib/conteudo';
+
+export async function getStaticPaths() {
+  const c = await carregarConteudo();
+  return c.posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+const { post } = Astro.props;
+const c = await carregarConteudo();
+const doEixo = c.posts.filter((p) => p.data.eixo === post.data.eixo);
+---
+<Base titulo={post.data.titulo} descricao={post.data.resumo} tema={post.data.face}>
+  <FeedPagina posts={doEixo} inicio={post.id} raiz={`/e/${post.data.eixo}`} intro={false} />
+</Base>
