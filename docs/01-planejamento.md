@@ -1,6 +1,6 @@
 # Planejamento completo — lulanao.com.br
 
-> **A verdade dura. Com fonte.**
+> **Contra fatos, não há narrativa.**
 
 Documento-mestre do projeto. Define o conceito, a experiência, a navegação, a identidade visual, a tecnologia, o recurso de IA, a publicação gratuita na Cloudflare e o cronograma.
 

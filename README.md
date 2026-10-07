@@ -1,6 +1,6 @@
 # lulanao.com.br
 
-> **A verdade dura. Com fonte.**
+> **Contra fatos, não há narrativa.**
 
 Site **de direita**, interativo, mobile-first e 100% estático que mostra, com fontes verificáveis e linguagem acessível, o que Lula, o PT e seu entorno defendem e fizeram, e tudo aquilo em que foram investigados, com o status jurídico exato de cada caso. E mostra **a outra face da moeda**: os valores da direita, tema por tema. 🔴 Vermelho = esquerda · 🔵 Azul = direita · ⚪ Papel = fatos.
 

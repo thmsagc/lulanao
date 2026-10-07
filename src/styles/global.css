@@ -223,7 +223,7 @@ p {
   letter-spacing: -0.02em;
 }
 .marca-site span {
-  box-shadow: inset 0 -0.28em 0 var(--ouro);
+  box-shadow: inset 0 -0.28em 0 var(--esq);
 }
 .marca-site + p {
   color: #b6bcc5;
@@ -2310,7 +2310,7 @@ dialog::backdrop {
   display: block;
 }
 .intro-marca .nao {
-  box-shadow: inset 0 -0.2em 0 var(--ouro);
+  box-shadow: inset 0 -0.2em 0 var(--esq);
   display: inline-block;
 }
 .intro-lema {
