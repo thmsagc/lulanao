@@ -204,6 +204,8 @@ Filas e tempo de espera (dados estaduais), mortalidade infantil (DataSUS), gasto
 
 ## 5. 🎓 Educação: ordem, mérito e o direito dos pais
 
+> Aprofundamento sobre disciplina, autoridade, norma culta e decoro, com o que diz a ciência: [`05-educacao-disciplina.md`](05-educacao-disciplina.md).
+
 ### 🔵 O que a direita defende
 
 - **Ordem e disciplina** como condição para aprender; **autoridade e respeito ao professor**.

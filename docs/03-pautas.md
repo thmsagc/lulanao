@@ -93,6 +93,8 @@
 
 ## Eixo 3: Escola em Ruínas
 
+> Investigação completa sobre disciplina, autoridade, excelência e decência, com o que mudou desde 1969, o que diz a ciência e os valores de cada lado: [`05-educacao-disciplina.md`](05-educacao-disciplina.md).
+
 | Pauta | O que já foi levantado | Fontes primárias | Status |
 |---|---|---|---|
 | **Professor sob ataque** | TALIS 2013 (OCDE): **12,5%** dos professores brasileiros relataram intimidação ou agressão verbal de alunos pelo menos uma vez por semana, **a maior taxa entre 34 países** (média: 3,4%). Só 12,6% sentiam a profissão valorizada (média: 31%) | Relatório TALIS 2013; checar o TALIS 2024 | 🟢 ([Jornal da USP](https://jornal.usp.br/?p=57757), [Gazeta do Povo](https://www.gazetadopovo.com.br/educacao/brasil-e-numero-1-em-agressoes-a-professores-7h0mew5jujkzzrvszzzmtv0j2)) |
@@ -104,6 +106,11 @@
 | **Ataques a escolas** | Série histórica e casos de 2023. **Seguir o protocolo de temas sensíveis (item 8)** | Relatório do grupo de trabalho do MEC (2023), dados oficiais | 🔴 |
 | **Celular na escola** | Lei 15.100/2025 restringe celulares nas escolas, sancionada por Lula: **contexto honesto** | Lei | 🟡 |
 | **Hino nas escolas** | Lei 12.031/2009 (Hino semanal no ensino fundamental), sancionada por Lula: **contexto honesto**; a pergunta é se é cumprida | Lei; pesquisas de cumprimento | 🟡 |
+| **1 em cada 5 minutos** | TALIS 2024: o professor perde **21%** da aula mantendo a ordem (OCDE: 15%); 44% são "bastante interrompidos" (OCDE: 18%) | Relatório TALIS 2024 (OCDE) | 🟢 |
+| **9% de respeito** | Global Teacher Status Index 2018: só 9% acham que os alunos respeitam os professores; Brasil em último lugar entre 35 países | Relatório Varkey Foundation | 🟢 |
+| **"Nós pega o peixe"** | Livro distribuído pelo MEC (PNLD-EJA, 2011) a 484 mil alunos; o ministro Haddad se recusou a recolher | Edital/lista do PNLD 2011, declarações | 🟢 |
+| **24 anos de Moral e Cívica** | Obrigatória de 1969 (Decreto-Lei 869) a 1993 (Lei 8.663, governo Itamar) | Leis | 🟢 |
+| **A palmatória educava?** | Ciência: castigo físico não melhora a obediência e piora 13 de 17 resultados; firmeza com afeto funciona | Gershoff e Grogan-Kaylor (2016); Baumrind | 🟢 |
 | **Gasto × resultado** | Quanto o Brasil gasta em educação (% do PIB) comparado ao resultado | OCDE *Education at a Glance* | 🟡 |
 | **Universidades e patrimônio** | Depredação, ocupações, orçamento de manutenção. Atribuição honesta de autoria | Censo da Educação Superior, notícias com foto licenciada | 🟡 |
 

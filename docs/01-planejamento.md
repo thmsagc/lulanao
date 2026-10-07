@@ -9,6 +9,7 @@ Documentos irmãos:
 - [`02-protocolo-editorial.md`](02-protocolo-editorial.md): regras de verdade, fontes, linguagem e segurança jurídica. **Leitura obrigatória antes de escrever qualquer conteúdo.**
 - [`03-pautas.md`](03-pautas.md): backlog de conteúdo por eixo, com fatos já levantados, fontes iniciais e status de verificação.
 - [`04-duas-faces.md`](04-duas-faces.md): os valores da direita (economia, segurança, saúde, educação, família, religião, igualdade, propriedade) com fundamentos e evidências, e o roteiro da face vermelha de cada tema.
+- [`05-educacao-disciplina.md`](05-educacao-disciplina.md): o que aconteceu com a disciplina, a autoridade do professor e a excelência na escola; o que diz a ciência; os valores de cada lado.
 
 ---
 

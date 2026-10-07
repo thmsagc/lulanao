@@ -14,6 +14,7 @@ Publicação gratuita na Cloudflare. Sem banco de dados e sem servidor para mant
 | [Protocolo editorial](docs/02-protocolo-editorial.md) | Regras de verdade, hierarquia de fontes, vocabulário jurídico, linguagem, checklist de publicação e regras do período eleitoral |
 | [Pautas](docs/03-pautas.md) | Backlog de conteúdo por eixo, com fatos levantados, fontes a buscar e status de verificação |
 | [Duas faces da moeda](docs/04-duas-faces.md) | Os valores da direita (economia, segurança, saúde, educação, família, religião, igualdade, propriedade) com fundamentos, evidências e limites, e o roteiro da face vermelha de cada tema |
+| [Educação: disciplina e excelência](docs/05-educacao-disciplina.md) | O que mudou na escola desde 1969, dados de disciplina e respeito (TALIS, PISA), o que diz a ciência sobre rigor e punição, valores de cada lado |
 
 ## Status
 
