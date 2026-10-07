@@ -8,6 +8,7 @@ Documentos irmãos:
 
 - [`02-protocolo-editorial.md`](02-protocolo-editorial.md): regras de verdade, fontes, linguagem e segurança jurídica. **Leitura obrigatória antes de escrever qualquer conteúdo.**
 - [`03-pautas.md`](03-pautas.md): backlog de conteúdo por eixo, com fatos já levantados, fontes iniciais e status de verificação.
+- [`04-duas-faces.md`](04-duas-faces.md): os valores da direita (economia, segurança, saúde, educação, família, religião, igualdade, propriedade) com fundamentos e evidências, e o roteiro da face vermelha de cada tema.
 
 ---
 
@@ -19,6 +20,8 @@ Documentos irmãos:
 | **Para quem** | Do eleitor com pouca escolaridade, que usa um Android simples e se informa pelo WhatsApp, ao leitor cético que quer ver o documento original. |
 | **Grande ideia** | **O Feed em Camadas**: deslizar para cima leva ao próximo assunto, e deslizar para o lado aprofunda o mesmo assunto (10 segundos, 1 minuto, prova, outro lado, reflexão). Cada pessoa escolhe até onde quer ir. |
 | **Diferencial** | As fontes são o centro do site, e não uma nota de rodapé. Cada frase tem um **selo de fonte**; cada post tem um **recibo de fontes**; o site tem uma **Biblioteca de Fontes** pesquisável. O lema interno é: *sem fonte, não compila* (o site nem é gerado se faltar fonte). |
+| **Duas faces da moeda** | Cada tema tem uma **moeda**. Na **face vermelha** está o que a esquerda defende, nas palavras dela; na **face azul**, os valores da direita (livre mercado, ordem, família, fé, igualdade perante a lei, propriedade). Um toque **vira a tela inteira** como uma moeda, e no meio fica o **Placar dos Fatos**, que os dois lados precisam encarar. Detalhes em [`04-duas-faces.md`](04-duas-faces.md). |
+| **Cor = quem fala** | 🔴 **Vermelho** (o vermelho do comunismo) sempre que o assunto é a esquerda. 🔵 **Azul** para os valores da direita. ⚪ **Papel** para fatos e dados neutros. |
 | **Sem cabeçalho/rodapé** | A navegação toda acontece por gestos e por um **Orbe** flutuante (a "Bússola"), com busca por voz. |
 | **Tecnologia** | Site 100% estático (Astro + ilhas Svelte + GSAP), publicado de graça na Cloudflare. Sem banco de dados. A IA opcional usa uma função serverless gratuita da própria Cloudflare. |
 | **Tom** | Firme, sem xingamento. Mostra fatos, compara, pergunta. Quem tira a conclusão é o leitor. É isso que dá credibilidade e proteção jurídica. |
@@ -34,6 +37,7 @@ Mostrar, com fontes verificáveis e linguagem que qualquer brasileiro entende:
 1. **O que o campo político de Lula defende**: propostas, votações, declarações, decisões de governo e de aliados, em temas como educação, segurança e direito de defesa, família e fé, espaços femininos, raça e cotas, civismo, política externa e economia do dia a dia.
 2. **O estado das coisas**: dados que medem o descaso (aprendizado, alfabetização, violência contra professores, patrimônio público).
 3. **Tudo o que Lula e pessoas diretamente ligadas a ele foram investigados**, com o status jurídico exato de cada caso: investigado, denunciado, réu, condenado, absolvido, anulado, prescrito ou arquivado. Sem imputar crime a ninguém, mas sem deixar nada escondido.
+4. **A outra face da moeda**: os valores da direita, que não se confundem com nenhum político ou candidato: livre mercado e concorrência, ordem e segurança, legítima defesa, família, liberdade religiosa e valores cristãos, igualdade perante a lei, propriedade privada. Para cada problema mostrado, a alternativa defendida. Não é só criticar: é **propor**.
 
 ### 1.2 Personas (para quem desenhamos)
 
@@ -105,6 +109,45 @@ O modo pode ser trocado a qualquer momento pela Bússola e fica salvo no aparelh
 - **Continuar de onde parei**, **Salvos** e **Já vi** ficam guardados no aparelho.
 - Quem chega por um link compartilhado cai direto no post. Ao terminar, recebe "mais deste tema" e depois volta ao feed geral.
 
+### 2.5 "Vire a Moeda": as duas faces de cada tema
+
+Além de **↑↓ (assunto)** e **←→ (profundidade)**, o site ganha uma terceira dimensão: **virar** (a outra face).
+
+```
+        FACE VERMELHA                    (borda)                     FACE AZUL
+  ┌──────────────────────┐          PLACAR DOS FATOS          ┌──────────────────────┐
+  │ ☭ O QUE A ESQUERDA   │       ┌───────────────────┐        │ O QUE A DIREITA      │
+  │   DEFENDE            │       │ 63,94% votaram NÃO│        │   DEFENDE          ⚖ │
+  │                      │  ◀──▶ │ só 35% dos        │  ◀──▶  │                      │
+  │ "nas palavras dela": │       │ homicídios são    │        │ valores + fundamento │
+  │ programa, lei, voto, │       │ esclarecidos      │        │ + evidência          │
+  │ declaração literal   │       └───────────────────┘        │                      │
+  │        [fonte ✓]     │        fatos neutros, que          │        [fonte ✓]     │
+  │      ( ↻ virar )     │        os dois lados encaram       │      ( ↻ virar )     │
+  └──────────────────────┘                                    └──────────────────────┘
+```
+
+**Como funciona**
+
+| Interação | O que acontece |
+|---|---|
+| Tocar na **moeda ↻** (canto inferior, ao lado do Orbe) | A **tela inteira gira 180° em 3D** como uma moeda lançada: sobe, gira, aterrissa. Durante o giro aparece a **borda serrilhada** da moeda. O tema visual troca (vermelho ↔ azul) e o celular vibra de leve ao "aterrissar" |
+| Deslizar ←→ dentro da moeda | Percorre as camadas (Capa, Entenda, Prova...) **na face atual**; ao virar, o leitor cai **na mesma camada** da outra face, e a comparação fica justa |
+| Tocar na borda / "Placar dos Fatos" | Abre os **dados neutros** (papel branco) que os dois lados precisam encarar |
+| Celular deitado ou computador | Modo **Lado a Lado**: as duas faces lado a lado com um **divisor arrastável** (arrastar para a esquerda revela mais azul; para a direita, mais vermelho) e o Placar dos Fatos no centro |
+| Fim da moeda | **"E você?"** O leitor marca qual face o convenceu mais (ou "ainda estou pensando") |
+
+**"Sua Moeda"**: depois de alguns temas, o site mostra um resumo pessoal ("em 7 de 10 temas, você ficou com a face azul"). Fica guardado **só no aparelho**; nada é enviado. **Nunca** é associado a candidato ou partido, por respeito à regra eleitoral e porque o objetivo é refletir sobre valores, não fichar ninguém.
+
+**Por que funciona**
+
+- "As duas faces da moeda" é uma expressão que todo brasileiro entende, e a interação é literal: virar.
+- Transforma crítica em **escolha consciente**: o leitor vê o que cada lado defende e decide.
+- O "Placar dos Fatos" no meio mostra que o site não tem medo dos dados.
+- Implementação: cartão 3D com `transform-style: preserve-3d` e `backface-visibility`, animado com GSAP (lançamento e giro); troca de tema por `data-face="vermelha|azul"` na raiz; com movimento reduzido, troca por esmaecimento simples.
+
+**Nos posts comuns:** todo post sobre a esquerda (face vermelha) termina com **"↻ Vire a moeda: o que a direita propõe para isso"**, levando à face azul do tema. Cada problema mostrado vem acompanhado de uma alternativa.
+
 ---
 
 ## 3. Navegação sem cabeçalho nem rodapé
@@ -129,10 +172,10 @@ Um único botão flutuante (o **Orbe**) fica na zona do polegar, embaixo e ao ce
 │   NÃO à proibição da venda │        │  ♀ Mulher     ⚖ Iguais     │
 │   de armas, em 2005.       │        │  🇧🇷 Orgulho   🌎 Lá Fora   │
 │                 [TSE ✓]    │        │  👥 Com Quem  💰 Seu Bolso  │
-│                            │        │                            │
+│                            │        │  🩺 Saúde     🪙 DUAS FACES │
 │  🔊 Ouvir        Entenda → │        │  ⏱ Linha do tempo  🕸 Teia  │
 │                            │        │  📚 Fontes   💬 Pergunte    │
-│            ( ◉ )           │        │  🔖 Salvos   ⚙ Modo simples│
+│     ↻      ( ◉ )           │        │  🔖 Salvos   ⚙ Modo simples│
 └────────────────────────────┘        └────────────────────────────┘
    Tela de capa de um post                 Bússola (toque no Orbe)
 ```
@@ -145,6 +188,7 @@ Um único botão flutuante (o **Orbe**) fica na zona do polegar, embaixo e ao ce
 | Deslizar → / ← | Aprofundar / voltar camada | Botão "Entenda →"; teclado →← |
 | Tocar no selo `[fonte ✓]` | Abre a ficha da fonte (painel de baixo) | Botão "Fontes" no fim de cada camada |
 | Toque longo no Orbe | Busca por voz | Campo de busca na Bússola |
+| Tocar na moeda ↻ | Vira a tela para a outra face (esquerda ↔ direita) | Botão "Vire a moeda" no fim de cada post; tecla **V** |
 | Tocar numa palavra sublinhada | Glossário ("o que é *réu*?") | Página Glossário |
 
 **Tutorial de 3 segundos** na primeira visita: uma mão animada mostra "↑ próximo assunto" e "→ saber mais". Pode ser pulado e não volta a aparecer.
@@ -184,6 +228,9 @@ As fontes acompanham a leitura em tempo real: é a experiência do leitor cétic
 | `/teia` | Teia de conexões |
 | `/pergunte` | Pergunta Aí (perguntas guiadas e IA) |
 | `/glossario` | Glossário em linguagem simples |
+| `/duas-faces` | O "cofre de moedas": uma moeda por tema, rolando em carrossel |
+| `/duas-faces/{tema}` | A moeda de um tema (`?face=azul` abre direto na face azul) |
+| `/sua-moeda` | Resumo pessoal das escolhas do leitor (guardado só no aparelho) |
 | `/sobre` | Missão, expediente (responsável), protocolo editorial, contato |
 | `/errata` | Todas as correções e atualizações, com data |
 
@@ -207,6 +254,10 @@ São as "peças de designer" que dão identidade ao site. Cada post usa um ou ma
 | 10 | **Mapa do Brasil** | Mapa por estado com dados oficiais | Alfabetização por estado (Indicador Criança Alfabetizada) |
 | 11 | **Quem Decidiu?** | Etiqueta que mostra, sem ambiguidade, quem tomou cada decisão: Presidente/Executivo, Ministério, STF, Congresso, Estado/Município, PT ou aliado | Evita atribuir a Lula o que foi do STF (e vice-versa) |
 | 12 | **Contagem Viva** | Números que "sobem" ao entrar na tela, com comparação ("4 vezes a média") | TALIS: 12,5% contra 3,4% |
+| 13 | **Vire a Moeda** | A tela inteira gira em 3D e mostra a outra face do tema (item 2.5) | "Armas: o que cada lado defende" |
+| 14 | **Lado a Lado** | As duas faces lado a lado, com divisor arrastável (celular deitado ou computador) | Comparar propostas de educação |
+| 15 | **Placar dos Fatos** | Dados neutros na "borda" da moeda, inclusive os que incomodam a direita | Taxa de esclarecimento de homicídios; Ideb |
+| 16 | **Selo Comunista ☭** | Foice e martelo como **carimbo ancorado em fato documentado**, com explicação ao tocar (item 7.2) | "O PT é federado ao Partido Comunista do Brasil desde 2022" |
 
 ### 4.1 Dois exemplos completos (storyboards)
 
@@ -242,6 +293,19 @@ TRIPLEX DO GUARUJÁ — rastreio do processo          (datas a confirmar nas fon
 
 - **Outro lado**: a defesa sustenta que houve perseguição (lawfare); o STF reconheceu a parcialidade do juiz; houve as mensagens reveladas em 2019 ("Vaza Jato"). Tudo com fonte.
 - **Pense nisso**: "A Justiça não condenou nem absolveu de novo. O tempo acabou. O que você conclui?"
+- **↻ Vire a moeda**: "Prisão após condenação em 2ª instância: o que cada lado defende?"
+
+**C) Moeda "Armas e legítima defesa" (Duas Faces)**
+
+| Camada | 🔴 Face vermelha (esquerda) | ⚪ Placar dos Fatos | 🔵 Face azul (direita) |
+|---|---|---|---|
+| Capa | "Menos armas, menos mortes." (ideia-síntese **com fonte** em documento ou fala do campo) | **63,94%** votaram NÃO à proibição da venda (2005) · só **35%** dos homicídios são esclarecidos (2021) | "Ninguém é obrigado a esperar a polícia para defender a própria família." |
+| Entenda | O que defendem: Estatuto (2003), decretos de 2023, controle mais rígido. Nas palavras de documentos oficiais | O que diz cada lei, sem adjetivo | Por que defendem: legítima defesa como direito natural, respeito ao referendo, cidadão de bem não é o problema |
+| Prova | Decretos, falas, votações, citação literal | Séries oficiais de homicídios e armas registradas | Constituição, Código Penal (art. 25), referendo, estudos citados pela direita |
+| Outro lado | Críticas da direita a essas medidas | Onde os estudos **divergem** (honestidade) | Críticas da esquerda a essas propostas |
+| Pense nisso | **E você?** Qual face te convenceu mais? → "Sua Moeda" | | |
+
+> Regra de ouro das duas faces: **se um petista ler a face vermelha, precisa reconhecer ali a própria posição.** Mostrar o adversário como ele é (e não uma caricatura) é o que torna a face azul convincente.
 
 ---
 
@@ -273,20 +337,23 @@ Indicador exclusivo do site: **quantas pessoas abriram pelo menos uma fonte**. S
 
 ## 6. Arquitetura de informação
 
-### 6.1 Os 10 eixos
+### 6.1 Os 11 eixos, cada um com a sua moeda
 
-| # | Eixo | Pergunta central | Ícone/cor |
-|---|---|---|---|
-| 1 | **Os Casos** | Do que Lula e pessoas diretamente ligadas a ele foram investigados, e como cada caso terminou? | 🕵 vermelho-brasa |
-| 2 | **Com Quem Andas** | O que os aliados (ministros, partidos da base, movimentos) defendem e como votam? | 👥 laranja |
-| 3 | **Escola em Ruínas** | O que aconteceu com o aprendizado, a disciplina e o respeito ao professor? | 🎓 amarelo |
-| 4 | **Direito de Defesa** | O povo votou contra a proibição da venda de armas. O que foi feito desde então? E a segurança pública? | 🛡 azul-anil |
-| 5 | **Família e Fé** | Qual o lugar da família e da fé nas propostas e decisões (aborto, drogas, gênero na escola)? | 👪 verde |
-| 6 | **Espaço da Mulher** | Esporte, presídios, vestiários: sexo biológico ou identidade de gênero? O que foi decidido e por quem? | ♀ magenta |
-| 7 | **Iguais Perante a Lei** | Cotas raciais, bancas de heteroidentificação: como funcionam e o que dizem os dois lados? | ⚖ violeta |
-| 8 | **Orgulho de Ser Brasileiro** | Símbolos, civismo, patrimônio público: o que se perdeu? | 🇧🇷 verde e amarelo |
-| 9 | **O Brasil Lá Fora** | Com quais regimes o governo se alinha e o que disse sobre eles? Quanto o BNDES emprestou lá fora e quanto voltou? | 🌎 turquesa |
-| 10 | **No Seu Bolso** | Impostos, preços, gastos do governo: o que mudou no dia a dia? | 💰 ouro |
+Os eixos se diferenciam por **ícone**, e não por cor, porque a cor tem um só significado no site: **quem está falando** (item 7.2).
+
+| # | Eixo | Pergunta central | Ícone | Moeda (duas faces) |
+|---|---|---|---|---|
+| 1 | **Os Casos** | Do que Lula e pessoas diretamente ligadas a ele foram investigados, e como cada caso terminou? | 🕵 | Combate à corrupção: prisão em 2ª instância, foro privilegiado, delação |
+| 2 | **Com Quem Andas** | O que os aliados (ministros, partidos da base, movimentos) defendem e como votam? | 👥 | Socialismo × livre iniciativa: o papel do Estado |
+| 3 | **Escola em Ruínas** | O que aconteceu com o aprendizado, a disciplina e o respeito ao professor? | 🎓 | Educação: ordem, mérito, alfabetização, direito dos pais |
+| 4 | **Direito de Defesa** | O povo votou contra a proibição da venda de armas. O que foi feito desde então? E a segurança pública? | 🛡 | Segurança: lei e ordem, legítima defesa, cumprimento de pena |
+| 5 | **Família e Fé** | Qual o lugar da família e da fé nas propostas e decisões (aborto, drogas, gênero na escola)? | 👪 | Família e vida · Religião e liberdade religiosa |
+| 6 | **Espaço da Mulher** | Esporte, presídios, vestiários: sexo biológico ou identidade de gênero? O que foi decidido e por quem? | ♀ | Sexo biológico × identidade de gênero em espaços femininos |
+| 7 | **Iguais Perante a Lei** | Cotas raciais, bancas de heteroidentificação: como funcionam e o que dizem os dois lados? | ⚖ | Pessoa como pessoa × políticas por grupo |
+| 8 | **Orgulho de Ser Brasileiro** | Símbolos, civismo, patrimônio público: o que se perdeu? | 🇧🇷 | Nação, símbolos e civismo |
+| 9 | **O Brasil Lá Fora** | Com quais regimes o governo se alinha e o que disse sobre eles? Quanto o BNDES emprestou lá fora e quanto voltou? | 🌎 | Política externa: com quem se alinhar |
+| 10 | **No Seu Bolso** | Impostos, preços, gastos do governo: o que mudou no dia a dia? | 💰 | Economia: livre mercado × Estado · Propriedade privada |
+| 11 | **Saúde** | O SUS funciona? O que muda quando há gestão profissional, concorrência e escolha? | 🩺 | Saúde: gestão, parcerias, escolha, vida |
 
 ### 6.2 Entidades que atravessam os eixos
 
@@ -313,39 +380,70 @@ A estética mistura **papel de documento** com **design de post de rede social**
 
 Não usamos cards padrão, grades de blog nem barras de menu. Cada tela é uma **composição** pensada como peça de designer.
 
-### 7.2 Paleta (tokens)
+**Duas estéticas para as duas faces**, e o contraste entre elas já conta a história:
 
-| Token | Uso | Valor inicial |
+| | 🔴 Face vermelha (esquerda) | 🔵 Face azul (direita) |
 |---|---|---|
-| `--papel` | Fundo claro | `#F3EFE6` |
-| `--noite` | Fundo escuro | `#0B0E13` |
-| `--tinta` | Texto principal (claro) | `#14171C` |
-| `--giz` | Texto principal (escuro) | `#F2F2EE` |
-| `--ouro` | Destaque e marca-texto | `#FFC72C` |
-| `--verde` | Verificado / dado oficial | `#009C3B` |
-| `--anil` | Navegação e links | `#1F4FD8` (claro) / `#7FA6FF` (escuro) |
-| `--brasa` | Alertas | `#E5484D` |
+| Referência | **Cartaz construtivista** (a estética da propaganda soviética dos anos 1920) | **Estética republicana clássica**: ordem, tradição, solidez |
+| Composição | Diagonais, blocos chapados, tipografia condensada gritando | Eixos centrais, simetria, respiro, linhas finas douradas |
+| Cores | Vermelho, preto e creme; símbolo em dourado | Azul profundo, marfim e ouro velho |
+| Títulos | Condensada pesada (Oswald / Anton) | Serifada clássica (Fraunces) |
+| Movimento | Entra "empurrando", em diagonal, com corte seco | Entra "assentando", de baixo para cima, com suavidade |
 
-**Cores de status jurídico** (sempre acompanhadas de ícone e texto, nunca só a cor, por causa do daltonismo):
+O **texto corrido** usa a mesma fonte legível nas duas faces (Atkinson Hyperlegible), para não prejudicar a leitura.
 
-| Status | Cor | Ícone |
+### 7.2 Cor = quem fala
+
+No site, a cor indica **quem está falando**. Essa regra vale sem exceção e é ensinada no tutorial ("vermelho = o que a esquerda defende; azul = o que a direita defende; papel = fato").
+
+| Camada semântica | Token | Valor | Uso |
+|---|---|---|---|
+| 🔴 **Esquerda** | `--esq` | `#CC0000` (o vermelho da bandeira soviética) | Fundo/acento de tudo que mostra posições, atos e pessoas do campo da esquerda |
+| | `--esq-escuro` | `#7A0000` | Sombras, textos sobre creme |
+| | `--esq-creme` | `#FFF1DC` | Texto sobre o vermelho, fundo de citações |
+| | `--esq-ouro` | `#FFD700` | Símbolo ☭ e estrela |
+| 🔵 **Direita** | `--dir` | `#0B2D6B` (azul profundo) | Fundo/acento dos valores da direita |
+| | `--dir-medio` | `#1F4FD8` | Links e destaques na face azul |
+| | `--dir-marfim` | `#F7F3EA` | Fundo claro da face azul |
+| | `--dir-ouro` | `#C9A227` | Filetes, detalhes clássicos |
+| ⚪ **Fato / dado** | `--papel` / `--tinta` | `#F3EFE6` / `#14171C` | Placar dos Fatos, dados oficiais, fichas de fonte |
+| 🟡 **O site** | `--ouro` | `#FFC72C` | Marca-texto, Orbe, foco: a "voz" do site |
+| Tema escuro | `--noite` / `--giz` | `#0B0E13` / `#F2F2EE` | Modo escuro dos elementos neutros |
+
+> Contraste conferido: texto branco sobre `#CC0000` ≈ 5,9:1 e sobre `#0B2D6B` ≈ 13:1 (ambos passam no WCAG AA). O dourado `#FFD700` sobre o vermelho ≈ 4,2:1, adequado para símbolos e títulos grandes.
+
+**O símbolo ☭ (foice e martelo)**
+
+Tem um modo configurável em uma linha (`simboloComunista` no arquivo de configuração do site):
+
+| Modo | Como aparece | Avaliação |
 |---|---|---|
-| Citado (delação/reportagem) | cinza `#8A8F98` | 💬 |
-| Investigado / indiciado | âmbar `#F5A524` | 🔍 |
-| Denunciado / réu | laranja `#F97316` | ⚖ |
-| Condenado (indicar a instância) | vermelho `#E5484D` | ⛓ |
-| Absolvido | verde-água `#12A594` | ✓ |
-| Anulado | roxo `#8E4EC6` | ⊘ |
-| Prescrito / arquivado | ardósia `#64748B` | ⌛ |
+| **`ancorado`** (recomendado) | Como **carimbo** nos itens com vínculo comunista **documentado**, com legenda ao tocar. Exemplos: o PT é **federado ao PCdoB (Partido Comunista do Brasil)** desde 2022 (Federação Brasil da Esperança, que segue em 2026); a **presidente nacional do PCdoB, Luciana Santos, foi nomeada ministra** da Ciência e Tecnologia por Lula; o **Foro de São Paulo** nasceu de iniciativa do PT com o **Partido Comunista de Cuba** | **Incontestável**: o símbolo vira um fato com fonte. Ninguém pode chamar de mentira |
+| `sempre` | Marca d'água discreta em toda a face vermelha + selo no cabeçalho, com o botão "Por que este símbolo?" que leva aos fatos acima | Mais impacto visual. O PT não se declara partido comunista, então críticos dirão que é rótulo indevido. O botão de explicação reduz, mas não elimina, esse risco |
+| `desligado` | Só o vermelho | — |
 
-> Todos os pares de cor serão validados para contraste WCAG AA (4,5:1 para texto) nos dois temas.
+**Status jurídico** vira **carimbo em tinta sobre papel** (neutro), para não se confundir com o vermelho da esquerda. Sempre há texto e ícone, nunca só cor, por causa do daltonismo:
+
+| Status | Tinta do carimbo | Ícone |
+|---|---|---|
+| Citado (delação/reportagem) | cinza `#6B7280` | 💬 |
+| Investigado / indiciado | âmbar `#B7791F` | 🔍 |
+| Denunciado / réu | laranja queimado `#C2410C` | ⚖ |
+| Condenado (indicar a instância) | vinho `#7F1D1D` | ⛓ |
+| Absolvido | verde `#047857` | ✓ |
+| Anulado | roxo `#6D28D9` | ⊘ |
+| Prescrito / arquivado | ardósia `#475569` | ⌛ |
+
+> Todos os pares de cor serão validados para contraste WCAG AA nos dois temas.
 
 ### 7.3 Tipografia (todas gratuitas, licença OFL, hospedadas no próprio site)
 
 | Papel | Fonte | Por quê |
 |---|---|---|
-| Títulos e números | **Archivo** (variável, eixo de largura) | Impacto de pôster; o eixo de largura permite animar palavras "esticando" |
-| Texto | **Atkinson Hyperlegible Next** | Criada para máxima legibilidade, ideal para baixa visão e baixa escolaridade |
+| Títulos neutros e números | **Archivo** (variável, eixo de largura) | Impacto de pôster; o eixo de largura permite animar palavras "esticando" |
+| Títulos da face vermelha | **Oswald** ou **Anton** | Condensadas pesadas, ar de cartaz construtivista |
+| Títulos da face azul | **Fraunces** (variável) | Serifada clássica: tradição, solidez, ordem |
+| Texto (as duas faces) | **Atkinson Hyperlegible Next** | Criada para máxima legibilidade, ideal para baixa visão e baixa escolaridade |
 | Fontes, datas, carimbos | **JetBrains Mono** ou **IBM Plex Mono** | Ar de documento, protocolo, processo |
 
 Texto do corpo com no mínimo 18 px no celular e títulos de capa entre 48 e 96 px.
@@ -357,7 +455,7 @@ Texto do corpo com no mínimo 18 px no celular e títulos de capa entre 48 e 96 
 3. **Respeita o usuário**: com `prefers-reduced-motion` ou no Modo Economia, as animações viram transições simples.
 4. **Nativo primeiro**: rolagem com *scroll-snap* do CSS, transições com a View Transitions API e animações por rolagem em CSS onde o navegador suporta. A GSAP entra no que o CSS não faz.
 
-**Catálogo de micro-interações:** contagem viva; marca-texto; carimbo; "virar a página" ao abrir a ficha da fonte; vibração leve (Vibration API, Android) ao acertar o quiz; brilho no selo de fonte na primeira vez que aparece; transição de "zoom" do selo para a ficha.
+**Catálogo de micro-interações:** **lançamento da moeda** (a tela sobe, gira com a borda serrilhada à mostra e aterrissa com vibração curta); contagem viva; marca-texto; carimbo; "virar a página" ao abrir a ficha da fonte; vibração leve (Vibration API, Android) ao acertar o quiz; brilho no selo de fonte na primeira vez que aparece; transição de "zoom" do selo para a ficha.
 
 ### 7.5 Acessibilidade (WCAG 2.2 AA como piso)
 
@@ -465,12 +563,14 @@ lulanao/
 │  │  ├─ pessoas/                *.yaml
 │  │  ├─ casos/                  *.yaml (etapas do processo + status)
 │  │  ├─ eixos/                  *.yaml
+│  │  ├─ moedas/                 *.mdx  (um tema = face vermelha + fatos + face azul)
 │  │  ├─ glossario/              *.yaml
 │  │  └─ quiz/                   *.yaml
 │  ├─ content.config.ts          esquemas (Zod): "sem fonte, não compila"
 │  ├─ components/
 │  │  ├─ feed/                   Feed2D, Tela, TrilhoProgresso
 │  │  ├─ navegacao/              Orbe, Bussola, BuscaVoz
+│  │  ├─ moeda/                  Moeda3D, LadoALado, PlacarDosFatos, SuaMoeda, SeloComunista
 │  │  ├─ fontes/                 SeloFonte, FichaFonte, ReciboFontes
 │  │  ├─ formatos/               RastreioProcesso, Teia, LinhaDoTempo, Placar,
 │  │  │                          DisseFez, QuantoCusta, AntesAgora,
@@ -535,11 +635,39 @@ localizador: "p. 3" | "12:41"   # página ou minutagem
 acessadoEm: 2026-10-07
 ```
 
+**Moeda** (`src/content/moedas/*.mdx`): o comparativo das duas faces
+
+```yaml
+tema: armas-e-legitima-defesa
+eixo: direito-de-defesa
+pergunta: "O cidadão comum deve poder ter arma para se defender?"
+faceVermelha:                    # SÓ fontes do próprio campo: programa, lei, voto, fala literal
+  sintese: "Menos armas em circulação, mais controle do Estado."
+  posicoes:
+    - texto: "..."
+      tipo: documento            # documento | lei | voto | declaracao
+      fontes: [decreto-11615-2023]
+  simbolo: false                 # true só com vínculo comunista documentado (fonte obrigatória)
+placarDosFatos:                  # neutro; inclui dados que incomodam qualquer lado
+  - texto: "63,94% votaram NÃO à proibição da venda de armas (2005)."
+    fontes: [tse-referendo-2005-resultado]
+faceAzul:
+  sintese: "Defender a própria vida e a da família é um direito."
+  valores: [legitima-defesa, respeito-ao-referendo, certeza-da-punicao]
+  fundamentos: [constituicao-art-5, codigo-penal-art-25]   # leis, pensadores, evidências
+  posicoes:
+    - texto: "..."
+      fontes: [...]
+  limites: "Onde as evidências são discutidas: ..."         # honestidade obrigatória
+```
+
+Em **todos** os posts, cada afirmação também ganha o campo `face: vermelha | azul | neutra`, que define a cor em que ela aparece.
+
 **Caso** (`src/content/casos/*.yaml`): nome, operação, período, acusação em linguagem simples, envolvidos (cada um com papel e **status individual**), `etapas[]` (data, tipo, órgão, fonte), `statusAtual`, `oQueSeSabe`, `oQueNaoSeSabe`, `oQueDizADefesa`.
 
 **Pessoa** (`src/content/pessoas/*.yaml`): nome, cargos (com período e fonte), partido, **vínculo com Lula descrito como fato documentado** ("foi ministro da Casa Civil de 2003 a 2005"), casos.
 
-**Validação no build**: o esquema Zod faz o build **falhar** se algum post tiver uma afirmação sem fonte, um status jurídico fora do vocabulário, um post de risco "alto" sem revisão jurídica ou uma fonte sem link arquivado.
+**Validação no build**: o esquema Zod faz o build **falhar** se algum post tiver uma afirmação sem fonte, um status jurídico fora do vocabulário, um post de risco "alto" sem revisão jurídica, uma fonte sem link arquivado, uma posição da face vermelha sem fonte nível A do próprio campo, um ☭ sem fonte do vínculo comunista ou uma face azul sem o campo `limites`.
 
 ### 10.4 Orçamento de desempenho
 
@@ -611,8 +739,8 @@ Hoje (07/10/2026) o país está **entre o 1º e o 2º turno**: a votação final
 | Fase | Duração estimada | Entregas |
 |---|---|---|
 | **0: Fundação** | 2–3 dias | Projeto Astro, deploy na Cloudflare, DNS e e-mail, *design tokens*, esquemas de conteúdo com validação, páginas Sobre/Expediente/Privacidade |
-| **1: MVP "Feed em Camadas"** | ~2 semanas | Feed 2D com gestos, Orbe e Bússola, Selo/Ficha/Recibo/Biblioteca de fontes, **Rastreio do Processo**, **Placar**, **Contagem Viva**, Kit Zap, Modo Ouvir, busca com voz, PWA, métricas. **12 posts** em 3 eixos (Os Casos, Escola em Ruínas, Direito de Defesa) |
-| **2: Profundidade** | semanas 3–6 | Os 7 eixos restantes (30–40 posts), Linha do Tempo, Teia, Verdadeiro ou Falso, Disse × Fez, Quanto Custa, Antes × Agora, Raio-X dos Planos de Governo, Placar de votações da Câmara, glossário, layout "Mesa de Investigação" no desktop |
+| **1: MVP "Feed em Camadas"** | ~2 semanas | Feed 2D com gestos, Orbe e Bússola, Selo/Ficha/Recibo/Biblioteca de fontes, **Rastreio do Processo**, **Placar**, **Contagem Viva**, **Vire a Moeda** (com Placar dos Fatos e Selo ☭), Kit Zap, Modo Ouvir, busca com voz, PWA, métricas. **12 posts** em 3 eixos (Os Casos, Escola em Ruínas, Direito de Defesa) + **3 moedas** (Segurança, Educação, Economia) |
+| **2: Profundidade** | semanas 3–6 | Os 8 eixos restantes (30–40 posts) e **as demais moedas** (Saúde, Família, Religião, Igualdade, Propriedade...), Lado a Lado, Sua Moeda, Linha do Tempo, Teia, Verdadeiro ou Falso, Disse × Fez, Quanto Custa, Antes × Agora, Raio-X dos Planos de Governo, Placar de votações da Câmara, glossário, layout "Mesa de Investigação" no desktop |
 | **3: IA e voz** | semanas 6–10 | Pergunta Aí (fase B, após revisão jurídica), Checar Boato (fase C), narração humana dos 20 posts principais |
 | **Contínuo** | sempre | Revisão mensal de status jurídico, verificação semanal de links, errata, novas pautas |
 
@@ -640,7 +768,8 @@ Hoje (07/10/2026) o país está **entre o 1º e o 2º turno**: a votação final
 | Processo por difamação ou pedido de direito de resposta | Média | Protocolo editorial, vocabulário jurídico exato, "Outro lado" obrigatório, revisão jurídica nos posts de risco alto, canal de correções |
 | Remoção pela Justiça Eleitoral | Média no período eleitoral | Cumprir o checklist eleitoral; nada sem fonte; nada de IA sem rótulo |
 | Um erro factual viralizar contra o site | Média | "Sem fonte, não compila", dupla checagem, errata pública e rápida |
-| Ser rotulado como "panfleto partidário" | Alta | Contrapontos reais, fontes de linhas editoriais diferentes, dados oficiais do próprio governo, boatos dos dois lados no quiz |
+| Ser rotulado como "panfleto partidário" | Alta | Contrapontos reais, fontes de linhas editoriais diferentes, dados oficiais do próprio governo, boatos dos dois lados no quiz, face vermelha **nas palavras da própria esquerda**, Placar dos Fatos que inclui dados incômodos para a direita |
+| Símbolo ☭ contestado como "rótulo falso" | Média (alta no modo `sempre`) | Modo `ancorado`: símbolo só onde há vínculo comunista documentado, com fonte ao tocar |
 | Ataque de tráfego (DDoS) / tentativa de invasão | Média | Site estático + Cloudflare + 2FA + DNSSEC |
 | Links de fontes quebrando ou atrás de paywall | Alta | Arquivamento automático + trecho literal na ficha |
 | Uso de imagem sem licença | Média | Só imagens com licença (Agência Brasil, Agências Senado/Câmara, Wikimedia Commons, próprias), sempre com crédito |
@@ -658,3 +787,4 @@ Hoje (07/10/2026) o país está **entre o 1º e o 2º turno**: a votação final
 5. **Imagens**: existe acervo próprio de fotos (escolas, universidades)? Caso contrário, usamos acervos públicos licenciados e ilustrações.
 6. **IA**: aprova o uso de uma função serverless gratuita da Cloudflare para a fase B (necessária para proteger a chave da IA)?
 7. **Marca**: o nome exibido será "Lula Não"? Gostou do lema "Fatos com fonte. Conclusão sua."?
+8. **Símbolo ☭**: modo `ancorado` (recomendado) ou `sempre`? (item 7.2)

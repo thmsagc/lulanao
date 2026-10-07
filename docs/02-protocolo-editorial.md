@@ -199,3 +199,49 @@ A tradução editorial abaixo transforma cada preocupação em conteúdo **mais 
 | Semanal | Robô de links quebrados; revisar perguntas sem resposta da IA (viram pautas) |
 | Mensal | Revisar o status jurídico de **todos** os casos e atualizar as datas de verificação |
 | A cada nova notícia relevante | Atualizar caso/pessoa, registrar na errata se mudar algo publicado |
+
+---
+
+## 14. Duas faces: regras de justiça
+
+A moeda só convence se as duas faces forem honestas. Estas regras valem para todo conteúdo das [duas faces](04-duas-faces.md).
+
+### 14.1 Cor = quem fala
+
+| Cor | Significa | Nunca usar para |
+|---|---|---|
+| 🔴 Vermelho | Posições, atos e pessoas do **campo da esquerda** | Dados neutros, alertas genéricos, status jurídico |
+| 🔵 Azul | **Valores da direita** | Promover candidato ou partido |
+| ⚪ Papel | **Fatos e dados** neutros | — |
+| 🟡 Ouro | A voz do site (marca-texto, navegação) | — |
+
+### 14.2 Face vermelha
+
+- **Nas palavras da própria esquerda**: programa de governo, resolução partidária, lei, decreto, voto nominal, documento oficial ou fala literal com vídeo (fonte nível A).
+- **Teste do adversário**: *um petista leria e reconheceria a própria posição?* Se não reconhece, é caricatura, e caricatura não entra.
+- Atribuir corretamente: PT, governo, ministro, aliado (PSOL, PCdoB...) ou movimento. "A esquerda" é genérico demais para um fato.
+
+### 14.3 Face azul
+
+- **Valor + por quê + evidência + limites.** O campo "limites honestos" é obrigatório.
+- **São valores, e não pessoas.** Não cita candidato, não pede voto, não promove partido.
+- Quando um exemplo de sucesso vier de um governo de esquerda (por exemplo, a alfabetização no Ceará), **dizer isso**. O que funciona não tem dono.
+
+### 14.4 Placar dos Fatos
+
+- Só dados de fonte primária (IBGE, Inep, TSE, DataSUS, ANAC, Anatel, Portal da Transparência...) ou pesquisa reconhecida.
+- **Inclui dados que incomodam a direita.** É isso que faz o leitor confiar no resto.
+
+### 14.5 Selo ☭
+
+- No modo `ancorado` (recomendado), aparece **só** onde há vínculo comunista **documentado** (por exemplo: a federação PT–PCdoB; dirigentes do PCdoB no governo; o Foro de São Paulo), com fonte ao tocar.
+- **Nunca** sobre uma pessoa sem vínculo documentado com partido ou organização comunista.
+
+### 14.6 Checklist da moeda
+
+- [ ] Face vermelha só com fontes nível A do próprio campo, aprovada no teste do adversário
+- [ ] Face azul com valor, fundamento, evidência e limites honestos
+- [ ] Placar dos Fatos com pelo menos um dado que não favorece a face azul, quando existir
+- [ ] Mesma estrutura de camadas nas duas faces
+- [ ] Selo ☭ só com vínculo documentado
+- [ ] Nenhuma menção a candidato ou pedido de voto; "Sua Moeda" sem ligação com candidatos
